@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" version="4.0" >
+  <display-name>ServletEx</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+
+  <!-- 톰캣 서버에 서블릿 클래스로 등록한다 -->
+  <servlet>
+  
+  <!-- 등록할 서블릿 크래스의 이름(변수명)을 지어준다 -->
+  <servlet-name>helloServlet</servlet-name>
+  
+  <!-- 등록할 서블릿 클래스의 자바 풀네임을 적어준다 -->
+  <servlet-class>hello.HelloServlet</servlet-class>
+  
+
+  </servlet>
+  
+  <!-- 등록된 서블릿 클래스에 URL주소를 지정하여 매핑(mapping)한다 -->
+  <servlet-mapping>
+  
+  <!-- URL을 지정할 서블릿 클래스의 이름 -->
+  <servlet-name>helloServlet</servlet-name>
+  
+  <!-- 요청을 연결하도록 지정할 URL -->
+  <url-pattern>/he</url-pattern>
+  
+  
+  </servlet-mapping>
+  
+</web-app>
