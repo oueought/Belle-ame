@@ -15,7 +15,6 @@
 <title>메인페이지(로그인 전)</title>
 
 <style>
-
 .center{
    width: 1500px;
    height: 600px;
@@ -56,7 +55,7 @@
    width: 250px;
    height: 100px;
    /* background-color: yellow; */
-   padding:0;
+   padding: 23px;
    text-indent: 30px;
    
 }
@@ -66,7 +65,8 @@
    width: 1500px;
    height:30px;
    margin: 0 auto;
-   margin-right:80px;
+   margin-right:20px;
+   position: relative;
 }
 .cal>p{
    float: right;
@@ -78,11 +78,12 @@
 .slide-wrap{
    width:1100px;
    float:right;
+   left: -120px;
    margin: 0 auto;
    margin-top: 20px;
    margin-right:30px;
    overflow: hidden;
-    position: relative;
+   position: relative;
 }
 .slide-wrap>ul{
     margin: 0;
@@ -114,7 +115,7 @@
 }
 
 .next{
-    right:0;
+    right:100px;
 }
 
 .slide-navi>span{
@@ -139,6 +140,7 @@ p {
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> 
+<link href="ARTOraQ\ARTORAQ\src\main\webapp\WEB-INF\views\main\mainA.css" rel="stylesheet"> 
 
 </head>
 
