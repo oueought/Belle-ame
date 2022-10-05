@@ -6,53 +6,54 @@
 
 <!-- css -->
 <style>
-	* {
-		padding: 0;
-		margin: ;
-	}
+
+.mypage { 
+	width: 1000px;   
+	margin: 0 auto;
+	padding: 80px 0;
+}
+
+.mypage h3 {
+	text-align: center;
+	font-size: 30px;
+	margin: 0 0 15px;
+}
+
+/* 프로필 이미지 */	
+.profileimg {
+	width: 150px;
+	height: 150px;
+}
+
+/* 마이페이지 메뉴 */
+table {
+	border: 1px solid #ccc;
+}
 	
-	#content {
-		margin-top: 90px;
-		margin-bottom: 60px;
-	}
+td {
+	border: 1px solid #ccc;
+	width: 190px;
+	height: 130px;
+	text-decoration: none;
+	text-align: center;
+}
 	
-	table {
-		border: 1px solid #ccc;
-	}
-	
-	td {
-		border: 1px solid #ccc;
-		width: 190px;
-		height: 130px;
-		text-decoration: none;
-		text-align: center;
-	}
-	
-	.mypage{
-		display: flex;
+.mypage-form{
+	display: flex;
 /* 		border: 1px solid #ccc; */
-		max-width: 600px;
-		width: 100%;
-	}
-		.line {
-		size: 40px;
-		height: 1px;
-		width: 50%;
-		background: gray;
+	max-width: 600px;
+	width: 100%;
 	}
 
 </style>
 
-
-<div class="content">
-	<h3 style="text-align: center;">마이 페이지</h3>
-			<hr class="line">
+<div class="mypage">
+	<h3 style="text-align: center;">마이 페이지</h3><br><br>
 	
-	<div class="mypage">
-	
+	<div class="mypage-form">
 		<div class="profile">
-			<img src="../image/Profile-PNG-File.png" class="profileimg">프로필 이미지
-			<p><%=session.getAttribute("usernick") %>님</p>
+			<br><img src="/image/Profile-PNG-File.png" class="profileimg"><br><br>
+			<p style="text-align: center;"><%=session.getAttribute("usernick") %>님</p>
 		</div>
 		
 		<div class="menu">
@@ -69,7 +70,6 @@
 			</table>
 		</div>
 	</div>
-
 </div>
 
 <%@ include file="../../layout/footer.jsp" %>
