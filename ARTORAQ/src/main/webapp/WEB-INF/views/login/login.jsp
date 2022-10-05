@@ -36,7 +36,6 @@ $(document).ready(function() {
 }
    
 .login-form form {
-	background: #fff;
 	padding: 40px;
 	border-radius: 6px;
 }
@@ -58,24 +57,27 @@ $(document).ready(function() {
 	outline: none;
 }
 
- .login-form .btn { 
+#btnLogin { 
   	background-color: #ffffff; /* 로그인 버튼 색상 */ 
  	font-size: 16px; 
  	min-height: 50px;
-	border: 3px solid #1e6b7b;
+	border: 3px solid #6aafe6;
 	border-radius: 15px; /* 버튼 테두리 둥글게 */
+	color: #6e6e6e;
  } 
 
 #btnLogin:hover {
-  	background: #dde9ed;  /* 로그인 버튼 hover 색상 */ 
+  	background: #6aafe6;  /* 로그인 버튼 hover 색상 */ 
 	outline: none;
-	color: black;
+	color: white;
+	font-weight: bold;
 }
 
 .login-form label {
 	color: #black;
 	font-weight: normal;
 }
+
 
 </style>
 
@@ -95,17 +97,16 @@ $(document).ready(function() {
 			<input type="password" class="form-control" id="userpw" required>
 		</div>
 		
-		
-	    <div class="row">
-	    	<div class="col-lg-6 text-lg-start">
-	        	<input type="checkbox" id="checkId" name="checkId" value="remember-me">
-	        	<label for="checkId" class="checkId">아이디 저장</label>
+		<div class="remember">
+			<div class="pull-left">
+				<input type="checkbox" id="remember" >
+				<label for="remember">아이디 저장</label>
 			</div>
 			
-	        <div class="col-lg-6 text-lg-end text-center">
-	            <p><a href="/login/findid">아이디 찾기</a> |
-	            <a href="/login/findpw">비밀번호 찾기</a></p>
-	        </div>
+			<div class="pull-right">
+	            <a href="/login/findid" id="findId">아이디 찾기</a> |
+	            <a href="/login/findpw" id="findPw">비밀번호 찾기</a>
+			</div>
 		</div>
 		
 		<button type="submit" class="btn btn-block" id="btnLogin">로그인</button>

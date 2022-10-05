@@ -32,7 +32,6 @@
 }
    
 .findPw-form form {
-	background: #fff;
 	padding: 40px;
 	border-radius: 6px;
 }
@@ -54,18 +53,20 @@
 	outline: none;
 }
 
-.findPw-form .btn { 
+#btnFindPw { 
   	background-color: #ffffff; /* 버튼 색상 */ 
  	font-size: 16px; 
  	min-height: 50px;
-	border: 3px solid #1e6b7b;
+	border: 3px solid #6aafe6;
 	border-radius: 15px; /* 버튼 테두리 둥글게 */
+	color: #6e6e6e;
  } 
 
 #btnFindPw:hover {
-  	background: #dde9ed;  /* 버튼 hover 색상 */ 
+  	background: #6aafe6;  /* 버튼 hover 색상 */ 
 	outline: none;
-	color: black;
+	color: white;
+	font-weight: bold;
 }
 
 .findPw-form label {

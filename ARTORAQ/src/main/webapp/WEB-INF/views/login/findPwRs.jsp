@@ -26,7 +26,6 @@ $(document).ready(function() {
 }
    
 .findPwRs-form form {
-	background: #fff;
 	padding: 40px;
 	border-radius: 6px;
 }
@@ -48,18 +47,20 @@ $(document).ready(function() {
 	outline: none;
 }
 
-.findPwRs-form .btn { 
-  	background-color: #ffffff; /* 버튼 색상 */ 
+#btnLogin { 
+  	background-color: #ffffff;
  	font-size: 16px; 
  	min-height: 50px;
-	border: 3px solid #1e6b7b;
+	border: 3px solid #6aafe6;
 	border-radius: 15px; /* 버튼 테두리 둥글게 */
+	color: #6e6e6e;
  } 
 
 #btnLogin:hover {
-  	background: #dde9ed;  /* 버튼 hover 색상 */ 
+  	background: #6aafe6;  /* 버튼 hover 색상 */ 
 	outline: none;
-	color: black;
+	color: white;
+	font-weight: bold;
 }
 
 .findPwRs-form label {
