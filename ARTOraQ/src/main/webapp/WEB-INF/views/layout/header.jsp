@@ -9,17 +9,42 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 
 <!-- 부트스트랩 3 -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
+ 
+  
 <style type="text/css">
 
 
-/* * {
+
+html,
+      body {
+        position: relative;
+        height: 100%;
+      }
+
+      body {
+
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #000;
+        margin: 0;
+        padding: 0;
+      }
+
+
+* {
    box-sizing: border-box;
    padding: 0;
-} */
+}
+
+body {
+    width: 90%;
+    margin: 2em auto;
+    font: 1em/1.3 Arial, Helvetica, sans-serif;
+}
 
 .header {
    display: inline;
@@ -41,10 +66,11 @@
 }
 
 .search {
-  position: relative;
-  width: 300px;
-  left: 616px;
-  bottom: 30px;
+ position: relative;
+  width: 200px;
+  left: 43%;
+  bottom: 60px;
+  z-index: 100;
 }
 
 input {
@@ -62,6 +88,21 @@ input {
   right: 12px;
   margin: 0;
 }
+
+.default {
+         position : absolute;
+        width: 150px;
+        top: 0px;
+        right : 10px;
+        z-index: 100;
+      }
+      
+.default a{
+        text-decoration: none;
+        color: black;
+        font-size:12px;
+        font-weight: bolder;  
+  }
 
 
 
@@ -138,6 +179,7 @@ hr {
 <body>
 
 
+
 <div class="header">
    <div class="LogoContainer">
    
@@ -153,13 +195,11 @@ hr {
 	</div>
 </div>
 
-<body>
-
-	<!-- 상단바 -->
-	<div class="header">
-		<a class="Logo" href="/WEB-INF/views/image/ARTORAQ Logo.png"></a>
-	</div>
-	
+	<div class="default">
+         <a href="#">로그인</a>
+         <a href="#">회원가입</a>
+         <a href="#">마이페이지</a>
+      </div>
 
 </body>
 </html>

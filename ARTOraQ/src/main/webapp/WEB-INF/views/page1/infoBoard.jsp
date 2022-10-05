@@ -7,8 +7,6 @@
 <title>정보게시판</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<%@ include file="../layout/header.jsp" %>
-
 
 
  <!-- Link Swiper's CSS -->
@@ -32,7 +30,8 @@
         color: #000;
         margin: 0;
         padding: 0;
-      }
+        
+        }
 
       .swiper {
         width: 100%;
@@ -41,8 +40,9 @@
 
       .swiper-slide {
         text-align: center;
-        font-size: 14px;
+        font-size: 12px;
         background: #fff;
+        
 
         /* Center slide text vertically */
         display: -webkit-box;
@@ -75,18 +75,20 @@
 		color: lightgray;
 	}
 
-	
-/* PC (해상도 1024px)*/ 
-@media all and (min-width:1024px) {
-
-.status {	/* 진행상태라벨들 */
-	
-	margin: 105px 281px;
-    margin-bottom: 2px;
-    z-index: 10;
-}
-
-} 
+	/* 이미지박스  */
+ .imgbox {  
+ width: 100%;
+ height: 40%;
+ z-index: 10;
+ left:-5.5%;
+ top: -5%
+ }
+ 
+ .innerimgbox {
+ width: 100%; 
+ height:113%;
+ margin-top: 50px;
+ }
 
 
 	.status_ing {	/* 상태라벨 한 개 */
@@ -101,21 +103,25 @@
 	}
 
 
+
+
 	
 </style>
 </head>
 
+<%@ include file="../layout/header.jsp" %>
 
 <body>
 
 
 
 
-<div class="status" >
-<span class="label label-danger" style="cursor:pointer">진행중</span>
-<span class="label label-default" style="cursor:pointer">진행완료</span>
-<span class="label label-default" style="cursor:pointer">진행예정</span>
-</div>
+<!--  이미지박스   -->
+  <div class="imgbox">
+  <img class="innerimgbox" alt="둘이서" src="https://ifh.cc/g/myHkC7.jpg">
+  </div>
+
+
 
  <!-- Swiper -->
     <div class="swiper mySwiper">
@@ -140,12 +146,16 @@
     </div>
   </div>
   
+  
+  
+  
+  
   <div class="col-sm-6 col-md-3">
     <div class="thumbnail">
       <div class="caption">
       <img src="https://ifh.cc/g/wcRJ0K.jpg" alt="..." class="img-responsive center-block">
         <h4>장 줄리앙 : 그러면, 거기</h4>
-        <p class="period">2022년 10월 1일 - 2023년 1월 8일</p>
+        <p class="period">2022년 10월 01일 - 2023년 01월 08일</p>
         
          <div class="status_ing">
         <span class="label label-danger">진행중</span>
@@ -154,11 +164,47 @@
     </div>
   </div>
 
-
-   <div class="col-sm-6 col-md-3">
+  <div class="col-sm-6 col-md-3">
     <div class="thumbnail">
       <div class="caption">
-      <img src="https://ifh.cc/g/fgRjvy.png" alt="...">
+      <img src="https://ifh.cc/g/QqjPsL.jpg" alt="...">
+        <h4>프랑코 폰타나:컬러in라이프</h4>
+        <p class="period">2022년 09월 30일 - 2023년 03월 01일 </p>
+        <div class="status_ing">
+        <span class="label label-danger">진행중</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+	 <div class="col-sm-6 col-md-3">
+    <div class="thumbnail">
+      <div class="caption">
+      <img src="https://ifh.cc/g/pzdotw.png" alt="...">
+        <h4>뒤뷔페 展</h4>
+       <p class="period">2022년 10월 01일 - 2023년 01월 31일 </p>
+       
+         <div class="status_ing">
+        <span class="label label-danger">진행중</span>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+  
+
+</div>
+</div>
+</div>
+
+ <div class="swiper-slide">
+ <div class="row"> 
+ 
+  <div class="col-sm-6 col-md-3">
+    <div class="thumbnail">
+      <div class="caption">
+      <img src="https://ifh.cc/g/FZyNVm.png" alt="...">
         <h4>매혹의 걸작들</h4>
         <p class="period">2022년 10월 25일 - 2022년 12월 31일 </p>
         <div class="status_ing">
@@ -168,28 +214,7 @@
     </div>
   </div>
   
-  <div class="col-sm-6 col-md-3">
-    <div class="thumbnail">
-      <div class="caption">
-      <img src="https://ifh.cc/g/vL0zKT.jpg" alt="..." class="img-responsive center-block">
-        <h4>르네 마그리트 특별전</h4>
-        <p class="period">2020년 04월 29일 - 2020년 09월 13일</p>
-        
-        <div class="status_ing">
-        <span class="label label-default">진행완료</span>
-        </div>
-        
-      </div>
-    </div>
-  </div>
-
-</div>
-</div>
-</div>
-
- <div class="swiper-slide">
- <div class="row"> 
- 
+  
  <div class="col-sm-6 col-md-3">
     <div class="thumbnail">
       <div class="caption">
@@ -209,30 +234,31 @@
   <div class="col-sm-6 col-md-3">
     <div class="thumbnail">
       <div class="caption">
-      <img src="https://ifh.cc/g/ocTx37.png" alt="...">
-        <h4>전시 label</h4>
-        <p class="period">누가 내 머리에 똥 쌌어</p>
+      <img src="https://ifh.cc/g/vL0zKT.jpg" alt="..." class="img-responsive center-block">
+        <h4>르네 마그리트 특별전</h4>
+        <p class="period">2020년 04월 29일 - 2020년 09월 13일</p>
+        
+        <div class="status_ing">
+        <span class="label label-default">진행완료</span>
+        </div>
+        
       </div>
     </div>
   </div>
 
 
-  <div class="col-sm-6 col-md-3">
-    <div class="thumbnail">
-      <div class="caption">
-      <img src="https://ifh.cc/g/ocTx37.png" alt="...">
-        <h4>전시 label</h4>
-        <p class="period">누가 내 머리에 똥 쌌어</p>
-      </div>
-    </div>
-  </div>
+ 
   
   <div class="col-sm-6 col-md-3">
     <div class="thumbnail">
       <div class="caption">
-      <img src="https://ifh.cc/g/ocTx37.png" alt="...">
-        <h4>전시 label</h4>
-        <p class="period">누가 내 머리에 똥 쌌어</p>
+      <img src="https://ifh.cc/g/f4dRsj.png" alt="...">
+        <h4>화가 조르주 루오</h4>
+         <p class="period">2022년 10월 01일 - 2022년 10월 31일 </p>
+       
+        <div class="status_ing">
+        <span class="label label-default">진행완료</span>
+        </div>
       </div>
     </div>
   </div>
@@ -249,7 +275,6 @@
 	  </div>
       <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>
- <!--      <div class="swiper-pagination"></div> -->
    	  </div>
 
 
