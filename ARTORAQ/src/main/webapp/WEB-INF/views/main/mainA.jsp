@@ -38,54 +38,31 @@ html,
 }
 
 body {
- width: 90%; 
+ 	width: 90%; 
     margin: 2em auto !important;
     font: 1em/1.3 Arial, Helvetica, sans-serif;
 }
 
 .center{
-   width: 1500px;
+   width: 1350px;
    height: 600px;
    margin: 0 auto;
    padding: 0;
 }
 
-.menu{
-   padding:0;   
+.photobox{
+   width: 180px;
+   height: 600px;
+   margin-left: 10px;
 }
 
-.sidephoto{
-
-}
-
-.menu>li>a{
-   text-decoration: none;
-   line-height: 100px;
-   text-align: left;
-   color: black;
-   width: 250px;
-   height: 100px;
-   padding:0;
-   margin: 0 auto;
-   font-size: 25px;
-}
-
-.menu>li>a:hover{
-   cursor: pointer;
-}
-
-.menu>li{
-   list-style:none;
-   width: 250px;
-   height: 100px;
-   /* background-color: yellow; */
-   padding: 23px;
-   text-indent: 30px;  
+.center>sidephoto{
+	
 }
 
 /*오늘 날짜*/
 .cal{
-   width: 1500px;
+   width: 1350px;
    height:30px;
 }
 .cal>p{
@@ -96,6 +73,7 @@ body {
 }
 
 /*슬라이더 박스*/
+
 .slide-wrap{
    width:1100px;
    float:right;
@@ -111,21 +89,24 @@ body {
     padding: 0;
     list-style-type: none;
     overflow: hidden;
+    
 }
 
 .slide-wrap>ul>li{
     width: 1100px;
     float: left;
+    
 }
 
 .slide-wrap>ul>li>img{
     width: 100%;
-    height: 500px;
+    height: 600px;
+    margin-right: 20px;
 }
 
 .slide-navi{
-    height: 500px;
-    line-height: 500px;
+    height: 1100px;
+    line-height: 600px;
     position: absolute;
     top: 0;
     text-align: center;
@@ -136,7 +117,7 @@ body {
 }
 
 .next{
-    right:100px;
+    right:0px;
 }
 
 .slide-navi>span{
@@ -175,38 +156,44 @@ p {
 
 <br>
 
-<div class="center">
-	<div class="sidephoto">
-		<img src="">
-    </div>
+	<div class="center">
+		<!-- 로고 아래 사이드 이미지 -->
+		<div class="photobox">
+			<div class="sidephoto">
+			<img src="https://ifh.cc/g/Sta0Va.jpg">
+			</div>
+   		</div>
       
-      <!-- 슬라이드 이미지 -->
-      <div class="slide-wrap">
-         <ul>
-			<li><img src="https://ifh.cc/g/vNGFoY.png"></li>
-            <li><img src="https://ifh.cc/g/K4hR2p.png"></li>
-            <li><img src="https://ifh.cc/g/AVLLnS.png"></li>
-            <li><img src="https://ifh.cc/g/XZDPYy.png"></li>
-         </ul>
-         
-      <!-- 슬라이드 화살표 -->
-      <div class="slide-navi prev">
+      	<!-- 슬라이드 이미지 -->
+      	<div class="slide-wrap">
+         	<ul>
+				<li><img src="https://ifh.cc/g/vNGFoY.png"></li>
+            	<li><img src="https://ifh.cc/g/K4hR2p.png"></li>
+            	<li><img src="https://ifh.cc/g/AVLLnS.png"></li>
+            	<li><img src="https://ifh.cc/g/XZDPYy.png"></li>
+         	</ul>
+        
+      	<!-- 슬라이드 화살표 -->
+      	<div class="slide-navi prev">
             <span class="material-icons">arrow_back_ios_new</span>
-      </div>
-        
-      <div class="slide-navi next">
+      	</div>
+      	<div class="slide-navi next">
             <span class="material-icons">arrow_forward_ios</span>
-      </div>
+      	</div>
         
-      </div>
-     
-   	</div>
+      	</div>
+	</div>
 
-	<div class="bottom">
-
+	<br><br><br><br><br><br><br><br>
+	
 	<hr style="border:1px solid#808080;"/>
-      
-     <br><br><br><br>
+	
+	<br>
+	
+	<!-- 하단부 전체 박스 -->
+	<div class="bottom">
+     
+    <br><br><br><br><br><br><br><br>
       
       <video
             id="my-video"

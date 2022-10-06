@@ -1,3 +1,5 @@
+let curPos = 0;
+
 const ul = $(".slide-wrap>ul");
 const lastImg =ul.children().last().clone(); 
 ul.prepend(lastImg); 

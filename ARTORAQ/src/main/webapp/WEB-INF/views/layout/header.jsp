@@ -53,7 +53,7 @@ body {
 }
 
 .LogoContainer {
-   width: 1500px;
+   width: 1350px;
    height: 100px;
 }
 
