@@ -41,7 +41,7 @@ html,
 }
 
 body {
-    width: 90%;
+ 	width: 90%; 
     margin: 2em auto;
     font: 1em/1.3 Arial, Helvetica, sans-serif;
 }
