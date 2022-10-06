@@ -9,21 +9,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/reservation/cal/modal")
-public class ModalController extends HttpServlet {
+@WebServlet("/reservation/reserve")
+public class ReserveController extends HttpServlet {
    private static final long serialVersionUID = 1L;
 
    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
       response.setContentType("text/html; charset=utf-8");
       
-      RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/reservation/cal/modalC.jsp");
+      RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/reservation/reserve/reserve.jsp");
       rd.forward(request, response);
-      
    }
    
    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
       doGet(request, response);
    }
-
+   
    
 }
+

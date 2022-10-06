@@ -15,15 +15,9 @@
    margin: 0 auto;
 }
 
-hr {
-	height:1px;
-    border:0;
-	color: #909090;
-}
-
 .footer {
    display: flex;
-     flex-direction: column;
+   flex-direction: column;
    padding: 24px 0 25px;
    text-align: center;
    color: #909090;
@@ -78,7 +72,7 @@ hr {
 
 <br>
 
-<hr>
+<hr style="	height:1px; border:0; color: #909090;">
 
 <footer class="footer">
    <div class="FooterContainer">

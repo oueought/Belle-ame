@@ -9,12 +9,40 @@
 <script src="https://vjs.zencdn.net/7.19.2/video.min.js"></script>
 
 
-
 <meta charset="UTF-8">
 
 <title>메인페이지(로그인 전)</title>
 
 <style>
+
+html,
+      body {
+        position: relative;
+        width: 1500px;
+        height: 100%;
+      }
+
+      body {
+
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #000;
+        margin: 0;
+        padding: 0;
+      }
+
+
+* {
+   box-sizing: border-box;
+   padding: 45px;
+}
+
+body {
+ width: 90%; 
+    margin: 2em auto !important;
+    font: 1em/1.3 Arial, Helvetica, sans-serif;
+}
+
 .center{
    width: 1500px;
    height: 600px;
@@ -23,15 +51,11 @@
 }
 
 .menu{
-   padding:0;
-   
+   padding:0;   
 }
 
-.menubar{
-   padding: 0;
-   width:250px;
-   display: inline-block;
-   
+.sidephoto{
+
 }
 
 .menu>li>a{
@@ -56,22 +80,19 @@
    height: 100px;
    /* background-color: yellow; */
    padding: 23px;
-   text-indent: 30px;
-   
+   text-indent: 30px;  
 }
 
 /*오늘 날짜*/
 .cal{
    width: 1500px;
    height:30px;
-   margin: 0 auto;
-   margin-right:20px;
-   position: relative;
 }
 .cal>p{
-   float: right;
-   display: inline;
-   margin: 0;
+   font-size: 20px;
+   font-weight:bold;
+   margin-left: 1225px;
+   display: inline;  
 }
 
 /*슬라이더 박스*/
@@ -145,29 +166,27 @@ p {
 </head>
 
 <body>
-<%@ include file="/WEB-INF/views/layout/header.jsp" %>
 
+<%@ include file="/WEB-INF/views/layout/header.jsp" %>
 
 <div class="cal">
    <p>2022-09-29</p>
 </div>
 
+<br>
+
 <div class="center">
-      <div class="menubar">
-         <ul class="menu">
-            <li><a href="#">전시정보</a></li>
-            <li><a href="#">회원가입</a></li>
-            <li><a href="#">로그인</a></li>         
-         </ul>
-      </div>
+	<div class="sidephoto">
+		<img src="">
+    </div>
       
       <!-- 슬라이드 이미지 -->
       <div class="slide-wrap">
          <ul>
-             <li><img src="../image/grayimg.png"></li>
-             <li><img src="../image/아이콘 곰돌이.png"></li>
-             <li><img src="../image/아이콘 나나.png"></li>
-             <li><img src="../image/아이콘 봄이.png"></li>
+			<li><img src="https://ifh.cc/g/vNGFoY.png"></li>
+            <li><img src="https://ifh.cc/g/K4hR2p.png"></li>
+            <li><img src="https://ifh.cc/g/AVLLnS.png"></li>
+            <li><img src="https://ifh.cc/g/XZDPYy.png"></li>
          </ul>
          
       <!-- 슬라이드 화살표 -->
@@ -181,14 +200,13 @@ p {
         
       </div>
      
-   </div>
-   
-   <hr>
+   	</div>
 
-   <div class="bottom">
-      <hr style="border:1px solid#808080;"/>
+	<div class="bottom">
+
+	<hr style="border:1px solid#808080;"/>
       
-      <br><br><br>
+     <br><br><br><br>
       
       <video
             id="my-video"
@@ -199,14 +217,12 @@ p {
             height="480"
             poster="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg"
             data-setup="{}"
-            controllList="nodownload"
-         >
-         
-         
-            <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
+            controllList="nodownload">
+      
+      <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
       </video>
       
-      <br><br><br><br><br>
+      <br><br><br><br>
       
       <p>
       공자는 새 광야에서 얼음에 찾아다녀도, 가는 그들의 위하여서. 커다란 그들에게 목숨을 구하기 하였으며, 뜨거운지라, 있는가? 그림자는 이상의 품었기 듣는다. 관현악이며, 불러 거선의 원대하고, 인류의 심장은 것이다. 방황하였으며, 되는 사랑의 없으면, 광야에서 청춘은 품고 있는 생생하며, 피다. 싸인 뭇 아니한 거선의 몸이 속에서 있는 부패뿐이다. 길지 풀밭에 뜨거운지라, 놀이 싹이 작고 끓는 같지 있다. 열락의 불어 찾아다녀도, 커다란 두손을 평화스러운 열매를 듣는다. 거친 길지 공자는 새 광야에서 얼음에 찾아다녀도, 가는 그들의 위하여서. 커다란 그들에게 목숨을 구하기 하였으며, 뜨거운지라, 있는가? 그림자는 이상의 품었기 듣는다. 관현악이며, 불러 거선의 원대하고, 인류의 심장은 것이다. 방황하였으며, 되는 사랑의 없으면, 광야에서 청춘은 품고 있는 생생하며, 피다. 싸인 뭇 아니한 거선의 몸이 속에서 있는 부패뿐이다. 길지 풀밭에 뜨거운지라, 놀이 싹이 작고 끓는 같지 있다. 열락의 불어 찾아다녀도, 커다란 두손을 평화스러운 열매를 듣는다. 거친 길지 얼마나 그리하였는가? 노년에게서 같이, 보이는 만천하의 눈에 트고, 고행을 커다란 것이다.
@@ -224,77 +240,17 @@ p {
    </div>
 
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-<script src="/WEB-INF/views/main/mainA.js"></script>
+<br><br><br><br>
+
+
 
 <footer>
 
+<script type="text/javascript" async><%@include file="./mainA.js" %></script> 
 <%@ include file="../layout/footer.jsp" %>
 
 </footer>
 
-
-<script>
-   const ul = $(".slide-wrap>ul");
-   const lastImg =ul.children().last().clone(); 
-   ul.prepend(lastImg); 
-   const firstImg = ul.children().eq(1).clone(); 
-   ul.append(firstImg);
-   const imgCount = ul.children().length;
-   const width=1100;
-   ul.css("width",(width*imgCount)+"px");
-   
-   let imgNo = 1; 
-   ul.css("transform","translateX("+(imgNo*-1200)+"px)");
-   let intervalId;
-   
-   $(".prev").on("click",function(){
-       if(imgNo != 0){
-           clearInterval(intervalId);
-          
-           imgNo--;
-           const move =-imgNo*width;
-           ul.css("transform","translateX("+move+"px)").css("transition-duration","1s");
-          
-           if(imgNo==0){
-               imgNo=imgCount-3; 
-               setTimeout(function(){
-               
-               const move =-imgNo*width;
-               ul.css("transform","translateX("+move+"px)")
-               .css("transition-duration","0s");
-               },1000);
-           }
-           autoSlide(); 
-       }
-   });
-   
-   $(".next").on("click",function(){
-       if(imgNo != imgCount-1){
-           clearInterval(intervalId); 
-          ;
-           imgNo++;
-           const move = -imgNo*width;
-           ul.css("transform","translateX("+move+"px)").css("transition-duration","1s");
-          
-           if(imgNo==imgCount-1){
-               imgNo=1;
-               setTimeout(function(){
-                   const move = -imgNo*width;
-                   ul.css("transform","translateX("+move+"px)").css("transition-duration","0s");
-               },1000);
-           }
-           autoSlide(); 
-       }
-   });
-   
-   function autoSlide(){
-       intervalId=setInterval(function(){
-           $(".next").click(); 
-       },4*1000);
-   }
-
-</script>
 </body>
 </html>
