@@ -49,7 +49,7 @@
 .findId-form .form-control, .findId-form .btn  {        
 	border-radius: 2px;
 	min-height: 40px;
-	transition: all 0.5s;
+	transition: all 0.3s;
 	outline: none;
 }
 
@@ -74,14 +74,19 @@
 	font-weight: normal;
 }
 
+.findId-form > hr {
+	height: 1px;
+	background: gray;
+}
+
+
 </style>
 
 <!-- 아이디 찾기 -->
 <div class="findId-form">
+	<h3 style="text-align: center;">아이디 찾기</h3><hr>
+
 	<form action="/login/findid" method="post">
-	
-        <h3 style="text-align: center;">아이디 찾기</h3><br><br>
-        
 		<div class="form-group">
 			<label for="username">이름</label>
 			<input type="text" class="form-control" id="username" required>

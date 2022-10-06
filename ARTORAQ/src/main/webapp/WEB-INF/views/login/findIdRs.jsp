@@ -47,7 +47,7 @@ $(document).ready(function() {
 .findIdRs-form .form-control, .findIdRs-form .btn  {        
 	border-radius: 2px;
 	min-height: 40px;
-	transition: all 0.5s;
+	transition: all 0.3s;
 	outline: none;
 }
 
@@ -90,14 +90,19 @@ $(document).ready(function() {
 	color: #black;
 	font-weight: normal;
 }
+
+.findIdRs-form > hr {
+	height: 1px;
+	background: gray;
+}
+
 	
 </style>
 
 <div class="findIdRs-form">
-	
+	<h3 style="text-align: center;">아이디 찾기</h3><hr>
+
 	<form>
-	    <h3 style="text-align: center;">아이디 찾기</h3><br><br>
-	       
 		<div class="form-group">
 			<label for="username">이름</label>
 			 <% %>

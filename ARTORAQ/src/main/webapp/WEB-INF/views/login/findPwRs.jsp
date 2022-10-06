@@ -43,7 +43,7 @@ $(document).ready(function() {
 .findPwRs-form .form-control, .findPwRs-form .btn  {        
 	border-radius: 2px;
 	min-height: 40px;
-	transition: all 0.5s;
+	transition: all 0.3s;
 	outline: none;
 }
 
@@ -72,14 +72,18 @@ p {
 	text-align: center;
 }
 
+.findPwRs-form > hr {
+	height: 1px;
+	background: gray;
+}
+
 </style>
 
 <!-- 비밀번호 재설정 -->
 <div class="findPwRs-form">
-	<form action="/login/findpw" method="post">
+	<h3 style="text-align: center;">비밀번호 재설정</h3><hr>
 	
-        <h3 style="text-align: center;">비밀번호 재설정</h3><br><br>
-        
+	<form action="/login/findpw" method="post">
         <div>
         	<p>임시 비밀번호가 고객님의 휴대폰 번호로 전송되었습니다.</p>
        		<p>로그인 후 마이페이지 -> 회원정보수정에서 변경해주세요.</p><br><br>

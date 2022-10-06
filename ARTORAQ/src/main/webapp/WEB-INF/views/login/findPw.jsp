@@ -49,7 +49,7 @@
 .findPw-form .form-control, .findPw-form .btn  {        
 	border-radius: 2px;
 	min-height: 40px;
-	transition: all 0.5s;
+	transition: all 0.3s;
 	outline: none;
 }
 
@@ -78,17 +78,21 @@ p {
 	text-align: center;
 }
 
+.findPw-form > hr {
+	height: 1px;
+	background: gray;
+}
+
 </style>
 
 <!-- 비밀번호 재설정 -->
 <div class="findPw-form">
-	<form action="/login/findpw" method="post">
+	<h3 style="text-align: center;">비밀번호 재설정</h3><hr>
 	
-        <h3 style="text-align: center;">비밀번호 재설정</h3><br><br>
-        
+	<form action="/login/findpw" method="post">
         <div>
         	<p>등록하신 회원 아이디와</p>
-       		<p>인증번호를 받으실 휴대폰 번호를 입력해주세요.</p><br>
+       		<p>인증번호를 받으실 휴대폰 번호를 입력해주세요.</p><br><br>
 		</div>
 		
 		<div class="form-group">

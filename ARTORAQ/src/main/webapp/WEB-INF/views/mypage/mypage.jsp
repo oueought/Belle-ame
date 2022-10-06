@@ -8,9 +8,12 @@
 <style>
 
 .mypage { 
-	width: 1000px;   
 	margin: 0 auto;
-	padding: 80px 0;
+	margin-top: 40px;
+}
+
+.menu {
+	margin-top: 60px;
 }
 
 .mypage h3 {
@@ -19,57 +22,76 @@
 	margin: 0 0 15px;
 }
 
-/* 프로필 이미지 */	
-.profileimg {
-	width: 150px;
-	height: 150px;
+.card {
+/*     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px !important;  */
+    height: 200px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    padding: 50px 10px;
+    font-size: 16px;
 }
 
-/* 마이페이지 메뉴 */
-table {
-	border: 1px solid #ccc;
+.card:hover {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px !important;
+    border: 2px solid #6aafe6;
+    font-weight: bold;
+   	transition: all 0.3s;
 }
-	
-td {
-	border: 1px solid #ccc;
-	width: 190px;
-	height: 130px;
-	text-decoration: none;
-	text-align: center;
+.card-body img {
+	width: 40px;
+	height: 40px;
 }
-	
-.mypage-form{
-	display: flex;
-/* 		border: 1px solid #ccc; */
-	max-width: 600px;
-	width: 100%;
-	}
+
+.mypage > hr {
+	height: 1px;
+	background: gray;
+}
 
 </style>
 
-<div class="mypage">
-	<h3 style="text-align: center;">마이 페이지</h3><br><br>
+<div class="row mypage">
+	<h3 style="text-align: center;">마이 페이지</h3><hr>
+	<div class="menu">
+		<div class="col-md-3">
+			<div class="card"
+				style=" cursor: pointer;" onclick="location.href='/mypage/profile';">
+	            <div class="card-body text-center">
+	            	<img alt="" src="https://ifh.cc/g/rc664m.png"><br>
+	                <br><p class="card-title">프로필 관리</p>
+	            </div>
+	        </div>
+	    </div>
+		
+	    <div class="col-md-3">
+	        <div class="card"
+				style=" cursor: pointer;" onclick="location.href='#';">
+	            <div class="card-body text-center">
+	            	<img alt="" src="https://ifh.cc/g/rygRtf.png"><br>
+	                <br><p class="card-title">회원 정보 수정</p>
+	            </div>
+	        </div>
+	    </div>
+		
+	    <div class="col-md-3">
+	        <div class="card"
+				style=" cursor: pointer;" onclick="location.href='#';">
+	            <div class="card-body text-center">
+	            	<img alt="" src="https://ifh.cc/g/79ny77.png"><br>
+	                <br><p class="card-title">위시리스트</p>
+	            </div>
+	        </div>
+	    </div>
 	
-	<div class="mypage-form">
-		<div class="profile">
-			<br><img src="/image/Profile-PNG-File.png" class="profileimg"><br><br>
-			<p style="text-align: center;"><%=session.getAttribute("usernick") %>님</p>
-		</div>
-		
-		<div class="menu">
-			<table>
-				<tr>
-					<td><a href="/mypage/profile">프로필 관리</a></td>
-					<td><a href="#">회원 정보 수정</a></td>
-				</tr>
-		
-				<tr>
-					<td><a href="#">위시리스트</a></td>
-					<td><a href="#">결제 내역</a></td>
-				</tr>
-			</table>
-		</div>
-	</div>
+	    <div class="col-md-3">
+	        <div class="card"
+				style=" cursor: pointer;" onclick="location.href='/mypage/order';">
+	            <div class="card-body text-center">
+	            	<img alt="" src="https://ifh.cc/g/JvZRMY.png"><br>
+	                <br><p class="card-title">결제 내역</p>
+	            </div>
+	        </div>
+	    </div>
+    </div>
 </div>
 
 <%@ include file="../../layout/footer.jsp" %>
