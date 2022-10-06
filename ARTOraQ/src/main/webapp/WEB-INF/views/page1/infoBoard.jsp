@@ -136,7 +136,7 @@
       <div class="caption">
       <img src="https://ifh.cc/g/QyVr5T.jpg" alt="..." class="img-responsive center-block">
         <h4>살바도르 달리전</h4>
-        <p class="period">2021년 11월 27일 - 2022년 02월 18일</p>
+        <p class="period">2021년 11월 27일 - 2023년 04월 03일</p>
         
         <div class="status_ing">
         <span class="label label-danger">진행중</span>
