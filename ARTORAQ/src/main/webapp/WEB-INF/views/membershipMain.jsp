@@ -8,110 +8,119 @@
 <script type="text/javascript">
 
 $(document).ready(function() {
-	
+   
     //회원가입 버튼
-	$("#btnJoin").click(function() {
-		$(this).parents("form").submit();
-	})
+   $("#btnJoin").click(function() {
+      $(this).parents("form").submit();
+   })
 }
 
 </script>
 
-
-
 <!-- css -->
 <style type="text/css">
 
-.SignUp {
-	margin: auto;  
-    left: 555px;
-    width: 100px;
-    height: 69px;
-}
-
-.SNS {
-	margin: auto;  
-	width: 500px;
-	text-align: center;
-	
-}
-
 .kakao {
- 	font-size: 16px;
- 	color: white;
- 	margin: auto;
- 	text-align: center;
- 	line-height: 2.5em;
- 	background-color: rgb(94, 94, 94);
- 	border-top-left-radius: 4px;
+    font-size: 16px;
+    color: white;
+    margin: auto;
+    text-align: center;
+    line-height: 2.5em;
+    background-color: rgb(94, 94, 94);
+    border-top-left-radius: 4px;
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
     border-bottom-left-radius: 4px;
     width: 300px;
     height: 40px;
-}
-
-.normal {
- 	font-size: 16px;
-	color: rgb(64, 64, 64); 	
-	text-align: center;
- 	line-height: 2.5em;
- 	background-color: rgb(224, 224, 224);
- 	border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-bottom-left-radius: 4px;
-    width: 300px;
-    height: 40px;
-}
-
-.wrapper {
-  max-width: 1024px;
-  width: 90%;
-  margin: 0 auto;
 }
 
 .line {
-	size: 40px;
-	height: 1px;
- 	width: 50%; 
-	background: gray;
+   size: 40px;
+   height: 1px;
+    width: 50%; 
+   background: gray;
 }
 
-#normal {
-	width: 30%;
-	margin: auto;
+.SignUp { 
+   width: 500px;   
+   margin: 0 auto;
+   padding: 40px 0;
+}
+   
+.SignUp form {
+   background: #fff;
+   padding: 40px;
+   border-radius: 6px;
+}
+   
+.SignUp h3 {
+   text-align: center;
+   font-size: 30px;
+   margin: 0 0 15px;
+}
+   
+.SignUp .form-control, .SignUp .btn  {        
+   border-radius: 2px;
+   min-height: 40px;
+   transition: all 0.5s;
+   outline: none;
 }
 
 
+.SignUp .btn { 
+   background-color: white; /* 버튼 색상 */ 
+   font-size: 16px; 
+   min-height: 50px;
+   border: 3px solid #6aafe6;
+   border-radius: 15px; /* 버튼 테두리 둥글게 */
+ }
+ 
+#btnjoin {
+   background-color: white; /* 버튼 색상 */ 
+   font-size: 16px; 
+   min-height: 50px;
+   border: 3px solid #a3a1a1;
+   border-radius: 15px; /* 버튼 테두리 둥글게 */
+}
+
+/* 일반 회원가입 hover색상 */
+#btnjoin:hover {
+     background: #a3a1a1;  /* 버튼 hover 색상 */ 
+   outline: none;
+   color: #e3dede;
+}
+
+/* 카카오 회원가입 hover색상 */
+#btnkakao:hover {
+    background: #6aafe6;
+   outline: none;
+   color: d4dfe6;
+}
 
 </style>
 
 <body>
 
-<div class="wrapper">
 <div class="SignUp">
-<div style="font-weight:bold; font-size:24px;">회원가입</div>
-<br>
+   <form>
+      <h3 style="text-align: center; font-weight: bold;">회원가입</h3>
+   		<hr class="line"><br><br>
+      <div class="SNS">
+      <p style="font-size:14px; text-align: center; font-weight: bold;">SNS 계정으로 간편 회원가입</p>
+      </div><br>
+      
+      <div class="button">
+            <button type="submit" class="btn btn-block" id="btnkakao">카카오 1초 회원가입</button>
+      </div>
+      <hr class="line">
+      
+      <div class="button">
+         <button type="submit" class="btn btn-block" id="btnjoin">일반 회원가입</button>
+      </div>
+   </form>
 </div>
-<hr class="line" >
-<br>
 
-<div class="SNS">
-<p style="font-size:14px">SNS 계정으로 간편 회원가입</p>
-</div>
-<br>
-
-<div class="kakao">카카오 1초 회원가입</div>
-<br>
-<hr class="line">
-
-<br><br>
-<button type="button" class="btn btn-outline-secondary btn-block" id="normal">일반 회원가입</button>
-
-</div><br><br><br>
 </body>
-
-
 
 <%@ include file="../layout/footer.jsp" %>

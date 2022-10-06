@@ -1,10 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>하단바</title>
+    
+</div><!-- .container end -->
 
 <style type="text/css">
 
@@ -15,14 +12,14 @@
 }
 
 .footer {
-	display: flex;
-  	flex-direction: column;
-	padding: 24px 0 25px;
-	text-align: center;
-	color: #909090;
-	border-top: 1px solid rgba(0,0,0,.05);
-	width: 1200px;
-	height: 200px;
+   display: flex;
+     flex-direction: column;
+   padding: 24px 0 25px;
+   text-align: center;
+   color: #909090;
+   border-top: 1px solid rgba(0,0,0,.05);
+   width: 1200px;
+   height: 200px;
 }
 
 .footer-list > a:hover {
@@ -30,37 +27,37 @@
 }
 
 .footer-list {
-	text-decoration: none;
-	font-size: 11px;
-	color: rgb(144, 144, 144);
-	width: 50px;
-	height: 20px;
-	border-right: 1px solid rgba(0,0,0,.1);
-	padding-right: 5px;
+   text-decoration: none;
+   font-size: 11px;
+   color: rgb(144, 144, 144);
+   width: 50px;
+   height: 20px;
+   border-right: 1px solid rgba(0,0,0,.1);
+   padding-right: 5px;
 }
 
 .footer personal > a {
-	font-size: 12px;
-	font-style: normal;
-	max-width: 600px;
-	margin: 20px auto 0;
-	text-align: center;
-	word-break: keep-all;
-	-webkit-font-smoothing: antialiased;
-	color: #b4b4b3;
+   font-size: 12px;
+   font-style: normal;
+   max-width: 600px;
+   margin: 20px auto 0;
+   text-align: center;
+   word-break: keep-all;
+   -webkit-font-smoothing: antialiased;
+   color: #b4b4b3;
 }
 
 .footer personal .info {
-	border-right: 1px solid rgba(0,0,0,.1);
-	padding-right: 7px;
+   border-right: 1px solid rgba(0,0,0,.1);
+   padding-right: 7px;
 }
 
 .footer .pinfo {
-	font-size: 12px;
-	text-align: center;
-	word-break: keep-all;
-	-webkit-font-smoothing: antialiased;
-	color: #b4b4b4;
+   font-size: 12px;
+   text-align: center;
+   word-break: keep-all;
+   -webkit-font-smoothing: antialiased;
+   color: #b4b4b4;
 }
 
 hr {
@@ -72,9 +69,6 @@ hr {
 
 
 </style>
-
-</head>
-<body>
 
 <br>
 <hr>
@@ -110,11 +104,6 @@ hr {
 
    </div>   
 </footer>
-
-</body>
-</html>
-</head>
-<body>
 
 </body>
 </html>

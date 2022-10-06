@@ -10,7 +10,7 @@
 .SignUp {
 	margin: auto;
 	left: 555px;
-	width: 100px;
+	width: 180px;
 	height: 69px;
 }
 
@@ -19,6 +19,13 @@
 	height: 1px;
 	width: 50%;
 	background: gray;
+}
+
+.name {
+ 	font-size:14px;
+ 	font-weight:bold;
+    width: 400px;
+    height: 69px;
 }
 
 .form-control {
@@ -39,6 +46,7 @@
 	display: inline-block;
 }
 
+
 /* 버튼 css */
 
 .w-btn-gray-outline {
@@ -50,17 +58,20 @@
     position: relative;
     border-radius: 15px;
     font-family: "paybooc-Light", sans-serif;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
     text-decoration: none;
     font-weight: 600;
+    transition: 0.25s;
 }
 
 .btnsmall {
     padding: 1px 3px;
+    
 }
 
 
 /* 하단 버튼 CSS */
-#join { 
+#save { 
      background-color: white; /* 버튼 색상 */ 
     font-size: 16px; 
     min-height: 50px;
@@ -83,8 +94,8 @@
    color: #e3dede;
 }
 
-/* 회원가입 hover색상 */
-#join:hover {
+/* 저장 hover색상 */
+#save:hover {
     background: #6aafe6;
    outline: none;
    color: d4dfe6;
@@ -98,26 +109,15 @@
 <body>
 
 		<div class="SignUp">
-      <h3 style="text-align: center; font-weight: bold;">회원가입</h3><br><br>
+      <h3 style="text-align: center; font-weight: bold;">회원정보 수정</h3><br>
 		</div>
 		<hr class="line">
-		<br> <br>
-
+		<br> <br><br>
+		
 		<form action="/join" method="post" class="form-horizontal">
 
 			<div class="form">
-				<div class="form-group">
-					<div class="button-wrap">
-						<label for="userid" class="col-xs-2 control-label">아이디</label>
-						<div class="col-xs-10">
-							<input type="text" id="userid" name="userid" class="form-control" required>
-							<button class="w-btn-outline w-btn-gray-outline btn-sm btnsmall" type="button">
-								중복확인</button>
-						</div>
-					</div>
-				</div>
-				<br>
-
+		
 				<div class="form-group">
 					<label for="userpw" class="col-xs-2 control-label">비밀번호</label>
 					<div class="col-xs-10">
@@ -131,14 +131,6 @@
 						확인</label>
 					<div class="col-xs-10">
 						<input type="password" id="userpwchk" name="userpwchk" class="form-control" required>
-					</div>
-				</div>
-				<br>
-
-				<div class="form-group">
-					<label for="username" class="col-xs-2 control-label">이름</label>
-					<div class="col-xs-10">
-						<input type="text" id="username" name="username" class="form-control" required>
 					</div>
 				</div>
 				<br>
@@ -181,19 +173,19 @@
 						<label for="useremail" class="col-xs-2 control-label">이메일</label>
 						<div class="col-xs-10">
 							<input type="email" id="useremail" name="usermail"
-								class="form-control">
+								class="form-control"><br><br><br><br><br><br>
+				<a style="font-weight: bold; text-decoration: underline;" href="=">회원탈퇴</a>			
 						</div>
 					</div>
-				</div>
-			</div>
+				</div><br>
 		</form>
-		<br><br><br><br><br>
+		
 			<div class="button">
-			<button type="submit" class="btn btn-block" id="join">회원가입</button><br>
+			<button type="submit" class="btn btn-block" id="save">저장</button><br>
 			</div>
 			<div class="button">
 			<button type="submit" class="btn btn-block" id="cancel">취소</button>
-			</div><br><br><br><br><br>
+			</div><br><br>
 			
 
 
