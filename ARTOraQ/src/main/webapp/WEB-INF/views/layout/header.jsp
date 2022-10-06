@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>검색결과</title>
+<title>상단바</title>
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 
@@ -37,11 +37,11 @@ html,
 
 * {
    box-sizing: border-box;
-   padding: 0;
+    padding: 45px;
 }
 
 body {
- 	width: 90%; 
+ width: 90%; 
     margin: 2em auto;
     font: 1em/1.3 Arial, Helvetica, sans-serif;
 }
@@ -59,21 +59,22 @@ body {
 
 .Logo {
    position: absolute;
-   left: 15px;
-   top: 15px;
+   left: 20px;
+   top: 20px;
+   bottom: 20px;
    margin-left: 30px;
    margin-top: 30px;
+   margin-bottom: 30px;
 }
 
 .search {
- position: relative;
-  width: 200px;
-  left: 43%;
-  bottom: 60px;
-  z-index: 100;
+  position: relative;
+  width: 300px;
+  bottom: 30px;
+  margin-right: 20px;
 }
 
-input {
+.searchinput {
   width: 100%;
   border: 1px solid #bbb;
   border-radius: 8px;
@@ -91,7 +92,7 @@ input {
 
 .default {
          position : absolute;
-        width: 150px;
+        width: 168px;
         top: 0px;
         right : 10px;
         z-index: 100;
@@ -184,20 +185,20 @@ hr {
    <div class="LogoContainer">
    
    <a href="main.jsp">
-      <img src="../image/Logo.png" alt="ARTORAQ" class="Logo" style="width: 100px; height: 100px;">
+      <img src="https://ifh.cc/g/LO3mkj.png" alt="ARTORAQ" class="Logo" style="width: 100px; height: 100px;">
    </a>
    </div>
    
    
    <div class="search">
-     <input type="text" placeholder="전시회 검색">
+     <input class="searchinput" type="text" placeholder="전시회 검색">
      <img src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
 	</div>
 </div>
 
 	<div class="default">
-         <a href="#">로그인</a>
-         <a href="#">회원가입</a>
+         <a href="#">로그인 |</a>
+         <a href="#">회원가입 |</a>
          <a href="#">마이페이지</a>
       </div>
 
