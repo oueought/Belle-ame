@@ -42,7 +42,7 @@ html,
 
 body {
  width: 90%; 
-    margin: 2em auto;
+    margin: 2em auto !important;
     font: 1em/1.3 Arial, Helvetica, sans-serif;
 }
 

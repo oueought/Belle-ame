@@ -15,7 +15,7 @@ public class DetailBoardController extends HttpServlet {
     
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/WEB-INF/views/page1/detailBoard2.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/page1/detailBoard.jsp").forward(request, response);
 	}
 
 	
