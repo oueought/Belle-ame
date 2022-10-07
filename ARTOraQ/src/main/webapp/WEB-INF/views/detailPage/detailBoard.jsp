@@ -179,7 +179,7 @@
 
 	
         
-   			  <%@ include file="../layout/tab_menu.jsp" %> 
+   			  <%@ include file="tab_menu.jsp" %> 
                      
                    
 

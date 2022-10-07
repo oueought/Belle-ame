@@ -9,11 +9,15 @@
 
 
 
- <!-- Link Swiper's CSS -->
+
+    
     <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
-    />
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+/>
+
+
+
 
     <!-- Demo styles -->
     <style>
@@ -280,11 +284,12 @@
 
 
    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
 
     <!-- Initialize Swiper -->
      <script>
-     var swiper = new Swiper(".mySwiper", {
+     const swiper = new Swiper(".mySwiper", {
          navigation: {
            nextEl: ".swiper-button-next",
            prevEl: ".swiper-button-prev",
