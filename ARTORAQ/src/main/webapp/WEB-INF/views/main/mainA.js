@@ -1,54 +1,60 @@
-$(document).ready(function() {
+let curPos = 0;
+
+const ul = $(".slide-wrap>ul");
+const lastImg =ul.children().last().clone(); 
+ul.prepend(lastImg); 
+const firstImg = ul.children().eq(1).clone(); 
+ul.append(firstImg);
+const imgCount = ul.children().length;
+const width=1100;
+ul.css("width",(width*imgCount)+"px");
    
-   var $slider_list = $("#slider li")
-   console.log( $slider_list )
+let imgNo = 1; 
+ul.css("transform","translateX("+(imgNo*-1200)+"px)");
+let intervalId;
    
-   $slider_list.css("left", $("#sliderbox").css("width"))
+$(".prev").on("click",function(){
+       if(imgNo != 0){
+           clearInterval(intervalId);
+          
+           imgNo--;
+           const move =-imgNo*width;
+           ul.css("transform","translateX("+move+"px)").css("transition-duration","1s");
+          
+           if(imgNo==0){
+               imgNo=imgCount-3; 
+               setTimeout(function(){
+               
+               const move =-imgNo*width;
+               ul.css("transform","translateX("+move+"px)")
+               .css("transition-duration","0s");
+               },1000);
+           }
+           autoSlide(); 
+	}
+});
    
-
-   $slider_list.eq(0).css("left", 0)
-   
-   var sliderClick = function() {
-      $("#sliderbox").click()
-   }
-   
-   var timerid = setInterval( sliderClick, 3000 )
-   
-   var curSlide = 0;
-   
-   $("#sliderbox").click(function() {
-
-
-   clearInterval( timerid )
-
-   timerid = setInterval( sliderClick, 3000 );
-      
-   var nextSlide = curSlide + 1;
-      nextSlide %= $slider_list.length;
-      console.log( curSlide, ":", nextSlide )
-      
-
-      $slider_list.eq(curSlide).animate( { "left": "-="+$("#sliderbox").css("width") } )
-
-      $slider_list.eq(nextSlide).css( "left", $("#sliderbox").css("width") )
-
-      $slider_list.eq(nextSlide).animate( { "left": "-="+$("#sliderbox").css("width") } )
-
-      curSlide++;
-      curSlide %= $slider_list.length;
-   })
-   
-})
-
-
-const video = document.getElementById('my-video');
-
-     video.addEventListener('play', (event) => {
-        console.log('play');
-    });
-    video.addEventListener('pause', (event) => {
-        console.log('pause');
-    });
-    video.addEventListener('ended', (event) => {
-        console.log('ended');
+$(".next").on("click",function(){
+       if(imgNo != imgCount-1){
+           clearInterval(intervalId); 
+          ;
+           imgNo++;
+           const move = -imgNo*width;
+           ul.css("transform","translateX("+move+"px)").css("transition-duration","1s");
+          
+           if(imgNo==imgCount-1){
+               imgNo=1;
+               setTimeout(function(){
+                   const move = -imgNo*width;
+                   ul.css("transform","translateX("+move+"px)").css("transition-duration","0s");
+               },1000);
+           }
+           autoSlide(); 
+       }
    });
+   
+   function autoSlide(){
+       intervalId=setInterval(function(){
+           $(".next").click(); 
+       },4*1000);
+   }
