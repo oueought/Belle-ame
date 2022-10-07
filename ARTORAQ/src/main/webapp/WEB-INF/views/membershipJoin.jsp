@@ -94,7 +94,7 @@
 <body>
 
       <h3 style="text-align: center; font-weight: bold;">회원가입</h3>
-		<hr class="line"><br><br>
+		<hr class="line"><br><br><br>
 
 		<form action="/join" method="post" class="form-horizontal">
 
@@ -103,7 +103,7 @@
 					<div class="button-wrap">
 						<label for="userid" class="col-xs-2 control-label">아이디</label>
 						<div class="col-xs-10">
-							<input type="text" id="userid" name="userid" class="form-control" required>
+							<input type="text" id="userid" name="userid" class="form-control" placeholder="5~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 사용 가능" required>
 							<button class="w-btn-outline w-btn-gray-outline btn-sm btnsmall" type="button">
 								중복확인</button>
 						</div>
@@ -114,7 +114,7 @@
 				<div class="form-group">
 					<label for="userpw" class="col-xs-2 control-label">비밀번호</label>
 					<div class="col-xs-10">
-						<input type="password" id="userpw" name="userpw" class="form-control" required>
+						<input type="password" id="userpw" name="userpw" class="form-control" placeholder="8~16자 영문 대 소문자, 숫자, 특수문자를 사용가능" required>
 					</div>
 				</div>
 				<br>
@@ -149,26 +149,24 @@
 					<div class="button-wrap">
 						<label for="userphon" class="col-xs-2 control-label">휴대전화</label>
 						<div class="col-xs-10">
-							<input type="tel" id="userphon" name="userphon" class="form-control" required>
+							<input type="tel" id="userphon" name="userphon" class="form-control" placeholder="전화번호 입력" required>
 							<button class="w-btn-outline w-btn-gray-outline btn-sm btnsmall" type="button">
 								인증번호 받기</button>
 						</div>
 					</div>
 				</div>
-				<br>
 
 				<div class="form-group">
 					<div class="button-wrap">
 
 						<label for="chknum" class="col-xs-2 control-label"></label>
 						<div class="col-xs-10">
-							<input type="text" id="chknum" name="chknum" class="form-control" required>
+							<input type="text" id="chknum" name="chknum" class="form-control" placeholder="인증번호를 입력하세요." required>
 							<button class="w-btn-outline w-btn-gray-outline btn-sm btnsmall" type="button">
 								확인</button>
 							</div>	
 						</div>
 					</div>
-					<br>
 
 					<div class="form-group">
 						<label for="useremail" class="col-xs-2 control-label">이메일</label>
@@ -180,7 +178,7 @@
 				</div>
 			</div>
 		</form>
-		<br><br><br><br><br>
+		<br><br><br><br>
 			<div class="button">
 			<button type="submit" class="btn btn-block" id="join">회원가입</button><br>
 			</div>
@@ -188,8 +186,6 @@
 			<button type="submit" class="btn btn-block" id="cancel">취소</button>
 			</div><br><br><br>
 			
-
-
 </body>
 
 
