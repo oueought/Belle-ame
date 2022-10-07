@@ -6,17 +6,11 @@
 
 <style type="text/css">
 
-.SignUp {
-	margin: auto;
-	left: 555px;
-	width: 180px;
-	height: 69px;
-}
 
 .line {
-	size: 40px;
+/* 	size: 40px; */
 	height: 1px;
-	width: 50%;
+	width: 30%;
 	background: gray;
 }
 
@@ -35,7 +29,7 @@
     font-size: 16px; 
     min-height: 50px;
    border: 3px solid #6aafe6;
-   border-radius: 15px; /* 버튼 테두리 둥글게 */
+   border-radius: 0px; /* 버튼 테두리 둥글게 */
  }
  
 #cancel {
@@ -43,7 +37,7 @@
     font-size: 16px; 
     min-height: 50px;
    border: 3px solid #a3a1a1;
-   border-radius: 15px; /* 버튼 테두리 둥글게 */
+   border-radius: 0px; /* 버튼 테두리 둥글게 */
 }
 
 /* 취소 hover색상 */
@@ -65,9 +59,7 @@
 
 <body>
 
-	<div class="SignUp">
 		<h3 style="text-align: center; font-weight: bold;">회원탈퇴</h3>
-	</div>
 	<hr class="line">
 	<br><br><br>
 

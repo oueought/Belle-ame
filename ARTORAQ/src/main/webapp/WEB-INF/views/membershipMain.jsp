@@ -27,18 +27,18 @@ $(document).ready(function() {
     text-align: center;
     line-height: 2.5em;
     background-color: rgb(94, 94, 94);
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-bottom-left-radius: 4px;
+/*     border-top-left-rradadius: 4px; */
+/*     border-top-right-radius: 4px; */
+/*     border-bottom-right-radius: 4px; */
+    border-bottom-left-ius: 4px;
     width: 300px;
     height: 40px;
 }
 
 .line {
-   size: 40px;
+/*    size: 40px; */
    height: 1px;
-    width: 50%; 
+/*    width: 40%;   */
    background: gray;
 }
 
@@ -51,29 +51,27 @@ $(document).ready(function() {
 .SignUp form {
    background: #fff;
    padding: 40px;
-   border-radius: 6px;
+   border-radius: 0px;
 }
    
 .SignUp h3 {
    text-align: center;
-   font-size: 30px;
    margin: 0 0 15px;
 }
    
 .SignUp .form-control, .SignUp .btn  {        
-   border-radius: 2px;
+/*    border-radius: 2px; */
    min-height: 40px;
-   transition: all 0.5s;
+   transition: all 0.3s;
    outline: none;
 }
-
 
 .SignUp .btn { 
    background-color: white; /* 버튼 색상 */ 
    font-size: 16px; 
    min-height: 50px;
    border: 3px solid #6aafe6;
-   border-radius: 15px; /* 버튼 테두리 둥글게 */
+   border-radius: 0px; /* 버튼 테두리 둥글게 */
  }
  
 #btnjoin {
@@ -81,21 +79,20 @@ $(document).ready(function() {
    font-size: 16px; 
    min-height: 50px;
    border: 3px solid #a3a1a1;
-   border-radius: 15px; /* 버튼 테두리 둥글게 */
 }
 
 /* 일반 회원가입 hover색상 */
 #btnjoin:hover {
-     background: #a3a1a1;  /* 버튼 hover 색상 */ 
+   background: #a3a1a1;  /* 버튼 hover 색상 */ 
    outline: none;
-   color: #e3dede;
+   color: white;
 }
 
 /* 카카오 회원가입 hover색상 */
 #btnkakao:hover {
-    background: #6aafe6;
+   background: #6aafe6;
    outline: none;
-   color: d4dfe6;
+   color: white;
 }
 
 </style>
@@ -103,9 +100,9 @@ $(document).ready(function() {
 <body>
 
 <div class="SignUp">
-   <form>
       <h3 style="text-align: center; font-weight: bold;">회원가입</h3>
-   		<hr class="line"><br><br>
+         <hr class="line">
+   <form>
       <div class="SNS">
       <p style="font-size:14px; text-align: center; font-weight: bold;">SNS 계정으로 간편 회원가입</p>
       </div><br>
@@ -113,7 +110,7 @@ $(document).ready(function() {
       <div class="button">
             <button type="submit" class="btn btn-block" id="btnkakao">카카오 1초 회원가입</button>
       </div>
-      <hr class="line">
+      <hr>
       
       <div class="button">
          <button type="submit" class="btn btn-block" id="btnjoin">일반 회원가입</button>

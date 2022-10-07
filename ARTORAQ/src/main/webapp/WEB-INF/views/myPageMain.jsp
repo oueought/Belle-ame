@@ -23,7 +23,7 @@
 /*     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px !important;  */
     height: 200px;
     border: 2px solid #ccc;
-    border-radius: 10px;
+    border-radius: 0px;
     padding: 50px 10px;
     font-size: 16px;
 }

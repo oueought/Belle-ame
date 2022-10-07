@@ -7,17 +7,11 @@
 
 <style type="text/css">
 
-.SignUp {
-	margin: auto;
-	left: 555px;
-	width: 100px;
-	height: 69px;
-}
 
 .line {
-	size: 40px;
+/*    	size: 40px;    */
 	height: 1px;
-	width: 50%;
+   	width: 30%;   
 	background: gray;
 }
 
@@ -27,7 +21,7 @@
 }
 
 .form {
-	padding-left: 250px;
+	padding-left: 400px;
 }
 
 .label {
@@ -42,20 +36,20 @@
 /* 버튼 css */
 
 .w-btn-gray-outline {
-    border: 3px solid #a3a1a1;
+    border: 2px solid #a3a1a1;
     color: #6e6e6e;
 }
 
 .w-btn-outline {
     position: relative;
-    border-radius: 15px;
+    border-radius: 0px;
     font-family: "paybooc-Light", sans-serif;
     text-decoration: none;
     font-weight: 600;
 }
 
 .btnsmall {
-    padding: 1px 3px;
+    padding: 3.5px 4px;
 }
 
 
@@ -64,30 +58,30 @@
      background-color: white; /* 버튼 색상 */ 
     font-size: 16px; 
     min-height: 50px;
-   border: 3px solid #6aafe6;
-   border-radius: 15px; /* 버튼 테두리 둥글게 */
+   border: 2px solid #6aafe6;
+   border-radius: 0px; /* 버튼 테두리 둥글게 */
  }
  
 #cancel {
    background-color: white; /* 버튼 색상 */ 
     font-size: 16px; 
     min-height: 50px;
-   border: 3px solid #a3a1a1;
-   border-radius: 15px; /* 버튼 테두리 둥글게 */
+   border: 2px solid #a3a1a1;
+   border-radius: 0px; /* 버튼 테두리 둥글게 */
 }
 
 /* 취소 hover색상 */
 #cancel:hover {
      background: #a3a1a1;  /* 버튼 hover 색상 */ 
    outline: none;
-   color: #e3dede;
+   color: white;
 }
 
 /* 회원가입 hover색상 */
 #join:hover {
     background: #6aafe6;
    outline: none;
-   color: d4dfe6;
+   color: white;
 }
 
 .button {
@@ -97,11 +91,8 @@
 
 <body>
 
-		<div class="SignUp">
-      <h3 style="text-align: center; font-weight: bold;">회원가입</h3><br><br>
-		</div>
-		<hr class="line">
-		<br> <br>
+      <h3 style="text-align: center; font-weight: bold;">회원가입</h3>
+		<hr class="line"><br><br>
 
 		<form action="/join" method="post" class="form-horizontal">
 

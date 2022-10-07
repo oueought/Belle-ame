@@ -4,9 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>검색결과</title>
-
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<title>상단바</title>
 
 <!-- 부트스트랩 3 -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -21,7 +19,7 @@
 }
 
 .header {
-      display: inline;
+   display: inline;
     width: 1200px;
     height: 200px;
 }
@@ -48,7 +46,7 @@
   margin-right: 20px;
 }
 
-input {
+.searchinput {
   width: 100%;
   border: 1px solid #bbb;
   border-radius: 8px;
@@ -65,28 +63,29 @@ input {
 }
 
 </style>
-
 </head>
 <body>
-
+<div class="container">
 <div class="header">
 
    <div class="LogoContainer">
    
       <a href="main.jsp">
-       <img src="../image/Logo.png" alt="ARTORAQ" class="Logo" style="width: 100px; height: 100px;">
+       <img src="https://ifh.cc/g/LO3mkj.png" alt="ARTORAQ" class="Logo" style="width: 100px; height: 100px;">
       </a>
    
    </div>
    
    <div class="search">
      
-        <input type="text" placeholder="전시회 검색">
+        <input class="searchinput" type="text" placeholder="전시회 검색">
         <img src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
         
    </div>
 
 </div>
+</div>
+</head>
 
-
-<div class="container">
+</body>
+</html>

@@ -1,7 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
-</div><!-- .container end -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>하단바</title>
 
 <style type="text/css">
 
@@ -13,7 +17,7 @@
 
 .footer {
    display: flex;
-     flex-direction: column;
+   flex-direction: column;
    padding: 24px 0 25px;
    text-align: center;
    color: #909090;
@@ -60,18 +64,15 @@
    color: #b4b4b4;
 }
 
-hr {
-   width : 1200px;
-   height:1px;
-   border:0;
-   color: #909090;
-}
-
 
 </style>
 
+</head>
+<body>
+
 <br>
-<hr>
+
+<hr style="	height:1px; border:0; color: #909090;">
 
 <footer class="footer">
    <div class="FooterContainer">
@@ -95,9 +96,7 @@ hr {
          <a class="info">전시 정보 관리자 : 김명진, 윤지원, 이슬기</a>
          <a class="info">전시 기획 관리자 : 박소영, 서은영</a>
          <a class="info">주소 : 서울 특별시 강남구 테헤란로 130</a>
-         
          <br>
-         
          <a class="info">KH@Artoraq.com</a>
       </personal>
       <a class="pinfo">ARTORAQ는 개인정보 및 전시 정보에 대하여 책임을 지지 않습니다.</a>

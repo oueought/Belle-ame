@@ -7,25 +7,12 @@
 
 <style type="text/css">
 
-.SignUp {
-	margin: auto;
-	left: 555px;
-	width: 180px;
-	height: 69px;
-}
 
 .line {
-	size: 40px;
+/*    	size: 40px;    */
 	height: 1px;
-	width: 50%;
+   	width: 30%;   
 	background: gray;
-}
-
-.name {
- 	font-size:14px;
- 	font-weight:bold;
-    width: 400px;
-    height: 69px;
 }
 
 .form-control {
@@ -34,7 +21,7 @@
 }
 
 .form {
-	padding-left: 250px;
+	padding-left: 400px;
 }
 
 .label {
@@ -46,59 +33,55 @@
 	display: inline-block;
 }
 
-
 /* 버튼 css */
 
 .w-btn-gray-outline {
-    border: 3px solid #a3a1a1;
+    border: 2px solid #a3a1a1;
     color: #6e6e6e;
 }
 
 .w-btn-outline {
     position: relative;
-    border-radius: 15px;
+    border-radius: 0px;
     font-family: "paybooc-Light", sans-serif;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
     text-decoration: none;
     font-weight: 600;
-    transition: 0.25s;
 }
 
 .btnsmall {
-    padding: 1px 3px;
-    
+    padding: 3.5px 4px;
 }
 
 
 /* 하단 버튼 CSS */
-#save { 
+#join { 
      background-color: white; /* 버튼 색상 */ 
     font-size: 16px; 
     min-height: 50px;
-   border: 3px solid #6aafe6;
-   border-radius: 15px; /* 버튼 테두리 둥글게 */
+   border: 2px solid #6aafe6;
+   border-radius: 0px; /* 버튼 테두리 둥글게 */
  }
  
 #cancel {
    background-color: white; /* 버튼 색상 */ 
     font-size: 16px; 
     min-height: 50px;
-   border: 3px solid #a3a1a1;
-   border-radius: 15px; /* 버튼 테두리 둥글게 */
+   border: 2px solid #a3a1a1;
+   border-radius: 0px; /* 버튼 테두리 둥글게 */
 }
 
 /* 취소 hover색상 */
 #cancel:hover {
      background: #a3a1a1;  /* 버튼 hover 색상 */ 
    outline: none;
-   color: #e3dede;
+   color: white;
 }
 
-/* 저장 hover색상 */
-#save:hover {
+/* 회원가입 hover색상 */
+#join:hover {
     background: #6aafe6;
    outline: none;
-   color: d4dfe6;
+   color: white;
 }
 
 .button {
@@ -108,23 +91,21 @@
 
 <body>
 
-		<div class="SignUp">
-      <h3 style="text-align: center; font-weight: bold;">회원정보 수정</h3><br>
-		</div>
-		<hr class="line">
-		<br> <br><br>
-		
+      <h3 style="text-align: center; font-weight: bold;">회원정보 수정</h3>
+		<hr class="line"><br><br>
+
 		<form action="/join" method="post" class="form-horizontal">
 
 			<div class="form">
-		
 				<div class="form-group">
+					<div class="button-wrap">
+			
 					<label for="userpw" class="col-xs-2 control-label">비밀번호</label>
 					<div class="col-xs-10">
 						<input type="password" id="userpw" name="userpw" class="form-control" required>
 					</div>
 				</div>
-				<br>
+				<br><br>
 
 				<div class="form-group">
 					<label for="userpwchk" class="col-xs-2 control-label">비밀번호
@@ -173,19 +154,20 @@
 						<label for="useremail" class="col-xs-2 control-label">이메일</label>
 						<div class="col-xs-10">
 							<input type="email" id="useremail" name="usermail"
-								class="form-control"><br><br><br><br><br><br>
-				<a style="font-weight: bold; text-decoration: underline;" href="=">회원탈퇴</a>			
+								class="form-control"><br><br><br><br><br>
+					<a style="font-weight: bold; font-size:13pt; text-decoration: underline;" href="">회원탈퇴</a>			
 						</div>
 					</div>
-				</div><br>
+				</div>
+			</div>
 		</form>
-		
+		<br>
 			<div class="button">
-			<button type="submit" class="btn btn-block" id="save">저장</button><br>
+			<button type="submit" class="btn btn-block" id="join">저장</button><br>
 			</div>
 			<div class="button">
 			<button type="submit" class="btn btn-block" id="cancel">취소</button>
-			</div><br><br>
+			</div><br><br><br><br><br>
 			
 
 

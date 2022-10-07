@@ -7,9 +7,8 @@
 <style type="text/css">
 
 .line {
-	size: 50px;
 	height: 1px;
-	width: 100%;
+	width: 30%;
 	background: gray;
 }
 

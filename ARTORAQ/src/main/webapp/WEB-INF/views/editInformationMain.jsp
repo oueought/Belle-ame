@@ -6,18 +6,17 @@
 
 
 <style type="text/css">
-
 .wrapper {
-  max-width: 1024px;
-  width: 90%;
-  margin: 0 auto;
+	max-width: 1024px;
+	width: 90%;
+	margin: 0 auto;
 }
 
 .SignUp {
-	margin: auto;  
-    left: 555px;
-    width: 200px;
-    height: 69px;
+	margin: auto;
+	left: 555px;
+	width: 200px;
+	height: 69px;
 }
 
 .line {
@@ -28,51 +27,50 @@
 }
 
 .name {
- 	font-size:14px;
- 	font-weight:bold;
-    width: 400px;
-    height: 69px;
+	font-size: 14px;
+	font-weight: bold;
+	width: 400px;
+	height: 69px;
 }
 
 .form-group {
 	width: 40%;
 }
 
+.button-wrap {
+	width: 100%;
+	display: inline-block;
+}
 
+/* 버튼 css */
 .w-btn-gray-outline {
-    border: 3px solid #a3a1a1;
-    color: #6e6e6e;
+	border: 2px solid #a3a1a1;
+	color: #6e6e6e;
 }
 
 .w-btn-outline {
-    position: relative;
-    border-radius: 15px;
-    font-family: "paybooc-Light", sans-serif;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.25s;
-}
-
-.btnsmall {
-    padding: 5px 10px;
-    
-}
-
-.w-btn-outline:hover {
-    letter-spacing: 2px;
-    transform: scale(1.2);
-    cursor: pointer;
-}
-.w-btn-gray-outline:hover {
-    background-color: #a3a1a1;
-    color: #e3dede;
+	position: relative;
+	border-radius: 0px;
+	font-family: "paybooc-Light", sans-serif;
+	text-decoration: none;
+	font-weight: 600;
 }
 
 .button {
-	width: 100%;
+	background-color: white; /* 버튼 색상 */
+	font-size: 16px;
+	min-height: 50px;
+	border: 2px solid #6aafe6;
+	border-radius: 0px; /* 버튼 테두리 둥글게 */
+	width: 100%;	
 }
 
+/* 회원가입 hover색상 */
+.button:hover {
+	background: #6aafe6;
+	outline: none;
+	color: white;
+}
 </style>
 
 <body>
@@ -91,7 +89,7 @@
 	<div class="form-group">
 	<p style="font-size: 13px; font-weight: bold;">보안을 위해 비밀번호를 재확인합니다.</p>
 	<input type="password" id="passwordchk" name="passwordchk" class="form-control" required><br><br><br>
-	<button class="w-btn-outline w-btn-gray-outline btn-sm button" type="button">확인</button>
+	<button class="w-btn-outline w-btn-gray-outline button" type="button">확인</button>
 </div>
 	</div><br>
 			
