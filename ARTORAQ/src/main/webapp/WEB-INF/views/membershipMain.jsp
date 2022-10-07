@@ -18,21 +18,6 @@ $(document).ready(function() {
 <!-- css -->
 <style type="text/css">
 
-.kakao {
-    font-size: 16px;
-    color: white;
-    margin: auto;
-    text-align: center;
-    line-height: 2.5em;
-    background-color: rgb(94, 94, 94);
-/*     border-top-left-rradadius: 4px; */
-/*     border-top-right-radius: 4px; */
-/*     border-bottom-right-radius: 4px; */
-    border-bottom-left-ius: 4px;
-    width: 300px;
-    height: 40px;
-}
-
 .line {
 /*    size: 40px; */
    height: 1px;
@@ -86,13 +71,6 @@ $(document).ready(function() {
    color: white;
 }
 
-/* 카카오 회원가입 hover색상 */
-#btnkakao:hover {
-   background: #6aafe6;
-   outline: none;
-   color: white;
-}
-
 </style>
 
 <body>
@@ -105,9 +83,33 @@ $(document).ready(function() {
       <p style="font-size:14px; text-align: center; font-weight: bold;">SNS 계정으로 간편 회원가입</p>
       </div><br>
       
-      <div class="button">
-            <button type="submit" class="btn btn-block" id="btnkakao">카카오 1초 회원가입</button>
-      </div>
+ <a href="javascript:kakaoLogin();"><img src="/image/kakao_login.png" alt="카카오계정 로그인" style="height: 50px; width:420px;"/></a>
+
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script>
+        window.Kakao.init('f0ecbc1d9d75323d4f82f073f14941c7');
+
+        function kakaoLogin() {
+            window.Kakao.Auth.login({
+                scope: 'profile, account_email, gender, age_range, birthday', //동의항목 페이지에 있는 개인정보 보호 테이블의 활성화된 ID값을 넣습니다.
+                success: function(response) {
+                    console.log(response) // 로그인 성공하면 받아오는 데이터
+                    window.Kakao.API.request({ // 사용자 정보 가져오기 
+                        url: '/v2/user/me',
+                        success: (res) => {
+                            const kakao_account = res.kakao_account;
+                            console.log(kakao_account)
+                        }
+                    });
+                    // window.location.href='/ex/kakao_login.html' //리다이렉트 되는 코드
+                },
+                fail: function(error) {
+                    console.log(error);
+                }
+            });
+        }
+    </script>
+</body>
       <hr>
       <div class="button">
          <button type="button" class="btn btn-block" id="btnjoin">일반 회원가입</button>
