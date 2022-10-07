@@ -63,6 +63,7 @@ table.shoping-cart-table tr td:last-child {
 .ibox.collapsed .ibox-content {
   display: none;
 }
+
 .ibox:after,
 .ibox:before {
   display: table;
@@ -97,6 +98,49 @@ table.shoping-cart-table tr td:last-child {
   font-size: 90%;
   background: #ffffff;
   padding: 10px 15px;
+}
+
+/* 버튼 스타일 */
+.btn {
+     background-color: #ffffff;
+     font-size: 14px;
+   transition: all 0.2s;
+   padding: 3px 10px;
+   border-radius: 0;
+   margin: 3px;
+}
+
+#btnCheckout { 
+   border: 2px solid #6aafe6;
+   color: #6e6e6e;
+}
+
+#btnCheckout:hover {
+     background: #6aafe6;
+   outline: none;
+   color: white;
+}
+
+#btnShopContinue {
+   border: 2px solid #a3a1a1;
+   color: #6e6e6e;
+}
+
+#btnCancel {
+   border: 2px solid #a3a1a1;
+   color: #6e6e6e;
+}
+
+#btnShopContinue:hover {
+   background: #a3a1a1; 
+   outline: none;
+   color: white;
+}
+
+#btnCancel:hover {
+   background: #a3a1a1; 
+   outline: none;
+   color: white;
 }
 
 </style>
@@ -339,12 +383,12 @@ table.shoping-cart-table tr td:last-child {
                         </table>
                     </div>
                 </div>
-                <div class="ibox-content">
-                    <button class="btn btn-primary pull-right"><i class="fa fa fa-shopping-cart"></i> Checkout</button>
-                    <button class="btn btn-white"><i class="fa fa-arrow-left"></i> Continue shopping</button>
+						<div class="ibox-content">
+							<button type="button" class="btn" id="btnCheckout">결제하기</button>
+							<button type="button" class="btn" id="btnShopContinue">쇼핑 계속 하기</button>
 
-                </div>
-            </div>
+						</div>
+					</div>
 
         </div>
         <div class="col-md-3">
@@ -364,8 +408,8 @@ table.shoping-cart-table tr td:last-child {
          
                     <div class="m-t-sm">
                         <div class="btn-group">
-                        <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-shopping-cart"></i> Checkout</a>
-                        <a href="#" class="btn btn-white btn-sm"> Cancel</a>
+                        <button type="button" class="btn" id="btnCheckout">결제하기</button>
+                         <button type="button" class="btn" id="btnCancel">취소</button>
                         </div>
                     </div>
                 </div>
