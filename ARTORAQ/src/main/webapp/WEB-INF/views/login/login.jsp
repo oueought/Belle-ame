@@ -26,14 +26,50 @@ $(document).ready(function() {
     $("input").eq(1).keydown(function(e) {
         if( e.keyCode == 13 ) { //엔터키
             $("#btnLogin").click();
-        }
+     	}
     })
+  	
+    //카카오톡으로 로그인 버튼 클릭시 카카오 로그인 실행
+    $("#btnKakao").click(function() {
+    	kakaoLogin();
+    	$(location).attr('href', 'javascript:void(0)')
+    })
+    
 })
 
 </script>
 
+<!-- 카카오 로그인 API -->
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<script type="text/javascript">
+Kakao.init('de38421943e35b2dda8a0ae71d64c89e'); //카카오 로그인 API 앱 키
+console.log(Kakao.isinitialized()); //sdk초기화여부판단
+
+//카카오로그인
+function kakaoLogin() {
+    Kakao.Auth.login({
+      success: function (response) {
+        Kakao.API.request({
+          url: '/v2/user/me',
+          success: function (response) {
+        	  console.log(response)
+          },
+          fail: function (error) {
+            console.log(error)
+          },
+        })
+      },
+      fail: function (error) {
+        console.log(error)
+      },
+    })
+  }
+
+</script> <!-- 카카오 로그인 API end -->
+
+
 <!-- 로그인 css -->
-<style type="" >
+<style type="text/css" >
 
 .login-form > h3 {
 	font-weight: bold;
@@ -92,9 +128,45 @@ $(document).ready(function() {
 	font-weight: normal;
 }
 
+/* 카카오 로그인 버튼 */
+#btnKakao {
+	background: #ffffff;
+	font-size: 16px;
+	min-height: 50px;
+	border: 2px solid #fee500;
+	color: #6e6e6e;
+}
+
+#btnKakao:hover {	/* 카카오 로그인 버튼 hover */
+	background: #fee500;
+	outline: none;
+	color: #000000;
+}
+
+/* 로그인 밑 <hr>태그 or */
+.hr-or {
+	display: flex;
+	flex-basis: 100%;
+	align-items: center;
+	color: rgba(0, 0, 0, 0.35); /* 폰트 색상 */
+	font-size: 12px;
+	margin: 8px 0px;
+}
+
+.hr-or::before, .hr-or::after {
+	content: "";
+	flex-grow: 1;
+	background: rgba(0, 0, 0, 0.35); /* hr선 색상 */
+	height: 1px;
+	font-size: 0px;
+	line-height: 0px;
+	margin: 0px 16px;
+}
+
 </style>
 
 <!-- 로그인 -->
+
 <section>
 <div class="container">
 	<div class="login-form">
@@ -123,8 +195,11 @@ $(document).ready(function() {
 				</div>
 			</div>
 			
-			<button type="submit" class="btn btn-block" id="btnLogin">로그인</button>
+			<button type="submit" class="btn btn-block" id="btnLogin">로그인</button><br>
 			
+  			<div class="hr-or">or</div><br>
+		
+			<button type="button" class="btn btn-block" id="btnKakao">카카오톡으로 로그인</button>
 		</form>
 	</div>
 </div>
