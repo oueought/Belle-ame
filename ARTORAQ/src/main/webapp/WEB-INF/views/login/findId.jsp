@@ -2,28 +2,37 @@
     pageEncoding="UTF-8"%>
 
 
-<%@ include file="../../layout/header.jsp" %>
+<%@ include file="../layout/header.jsp" %>
 
 <!-- js -->
 <script type="text/javascript">
-    $(document).ready(function() {
-            
-        //이름 입력창에 포커스주기
-        $("input").eq(0).focus()
-        
-        //휴대폰 번호 입력창에 엔터키 입력 시 submit
-        $("input").eq(1).keydown(function(e) {
-            if( e.keyCode == 13 ) { //엔터키
-                $("#btnFindId").click();
-            }
-        })
 
+$(document).ready(function() {
+        
+    //이름 입력창에 포커스주기
+    $("input").eq(0).focus()
+    
+    //휴대폰 번호 입력창에 엔터키 입력 시 submit
+    $("input").eq(1).keydown(function(e) {
+        if( e.keyCode == 13 ) { //엔터키
+            $("#btnFindId").click();
+        }
     })
+})
+
 </script>
 
 <!-- css -->
+<style type="text/css">
 
-<style>
+.findId-form > h3 {
+	font-weight: bold;
+}
+
+.findId-form > hr {
+	height: 1px;
+	background: gray;
+}
 
 .findId-form { 
 	width: 500px;   
@@ -47,7 +56,7 @@
 }
 
 .findId-form .form-control, .findId-form .btn  {        
-	border-radius: 2px;
+	border-radius: 0px;
 	min-height: 40px;
 	transition: all 0.3s;
 	outline: none;
@@ -57,8 +66,7 @@
   	background-color: #ffffff; /* 버튼 색상 */ 
  	font-size: 16px; 
  	min-height: 50px;
-	border: 3px solid #6aafe6;
-	border-radius: 15px; /* 버튼 테두리 둥글게 */
+	border: 2px solid #6aafe6;
 	color: #6e6e6e;
 } 
 
@@ -66,19 +74,12 @@
   	background: #6aafe6;  /* 버튼 hover 색상 */ 
 	outline: none;
 	color: white;
-	font-weight: bold;
 }
 
 .findId-form label {
 	color: #black;
 	font-weight: normal;
 }
-
-.findId-form > hr {
-	height: 1px;
-	background: gray;
-}
-
 
 </style>
 
@@ -102,5 +103,4 @@
 	</form>
 </div>
 
-
-<%@ include file="../../layout/footer.jsp" %>
+<%@ include file="../layout/footer.jsp" %>

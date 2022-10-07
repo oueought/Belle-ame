@@ -2,8 +2,7 @@
     pageEncoding="UTF-8"%>
 
 
-<%@ include file="../../layout/header.jsp" %>
-
+<%@ include file="../layout/header.jsp" %>
 
 <!-- js -->
 <script type="text/javascript">
@@ -13,7 +12,7 @@ $(document).ready(function() {
 		$(location).attr('href', '/login') //로그인 url 이동
 	})
 	
-	$("#btnFindId").click(function() {
+	$("#btnFindPw").click(function() {
 		$(location).attr('href', '/login/findpw') //비밀번호 찾기 url 이동
 	})
 })
@@ -21,7 +20,16 @@ $(document).ready(function() {
 </script>
 
 <!-- css -->
-<style>
+<style type="text/css">
+
+.findIdRs-form > h3 {
+	font-weight: bold;
+}
+
+.findIdRs-form > hr {
+	height: 1px;
+	background: gray;
+}
 
 .findIdRs-form { 
 	width: 500px;   
@@ -60,15 +68,13 @@ $(document).ready(function() {
 
 #btnLogin { 
 	min-height: 50px;
-	border: 3px solid #6aafe6;
-	border-radius: 15px; /* 버튼 테두리 둥글게 */
+	border: 2px solid #6aafe6;
 	color: #6e6e6e;
 }
 
 #btnFindPw {
  	min-height: 50px;
-	border: 3px solid #a3a1a1;
-	border-radius: 15px;
+	border: 2px solid #a3a1a1;
 	color: #6e6e6e;
 }
 
@@ -76,26 +82,18 @@ $(document).ready(function() {
   	background: #6aafe6;  /* 버튼 hover 색상 */ 
 	outline: none;
 	color: white;
-	font-weight: bold;
 }
 
 #btnFindPw:hover {
   	background: #a3a1a1; 
 	outline: none;
 	color: white;
-	font-weight: bold;
 }
 
 .findIdRs-form label {
 	color: #black;
 	font-weight: normal;
 }
-
-.findIdRs-form > hr {
-	height: 1px;
-	background: gray;
-}
-
 	
 </style>
 
@@ -118,4 +116,4 @@ $(document).ready(function() {
 	</form>
 </div>
 
-<%@ include file="../../layout/footer.jsp" %>
+<%@ include file="../layout/footer.jsp" %>

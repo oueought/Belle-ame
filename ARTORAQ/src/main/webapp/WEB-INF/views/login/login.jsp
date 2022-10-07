@@ -1,11 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>login</title>
+</head>
+<body>
+	
+<!-- header include  -->
+<%@ include file="../layout/header.jsp" %>
 
-<%@ include file="../../layout/header.jsp" %>
-
-<!-- js -->
+<!-- 로그인 js -->
 <script type="text/javascript">
+
 $(document).ready(function() {
         
     //아이디 입력창에 포커스주기
@@ -17,17 +28,21 @@ $(document).ready(function() {
             $("#btnLogin").click();
         }
     })
-    
-    //회원가입 버튼
-    $("#btnJoin").click(function() {
-        $(location).attr('href', '/join') //회원가입 url 이동
-    })
-
 })
+
 </script>
 
-<!-- css -->
-<style>
+<!-- 로그인 css -->
+<style type="" >
+
+.login-form > h3 {
+	font-weight: bold;
+}
+
+.login-form > hr {
+	height: 1px;
+	background: gray;
+}
 
 .login-form { 
 	width: 500px;   
@@ -51,18 +66,18 @@ $(document).ready(function() {
 }
 
 .login-form .form-control, .login-form .btn  {        
-	border-radius: 2px;
+	border-radius: 0px;
 	min-height: 40px;
-	transition: all 0.5s;
+	transition: all 0.3s;
 	outline: none;
 }
 
 #btnLogin { 
   	background-color: #ffffff; /* 로그인 버튼 색상 */ 
+	border-radius: 0;
  	font-size: 16px; 
  	min-height: 50px;
-	border: 3px solid #6aafe6;
-	border-radius: 15px; /* 버튼 테두리 둥글게 */
+	border: 2px solid #6aafe6;
 	color: #6e6e6e;
  } 
 
@@ -70,48 +85,53 @@ $(document).ready(function() {
   	background: #6aafe6;  /* 로그인 버튼 hover 색상 */ 
 	outline: none;
 	color: white;
-	font-weight: bold;
 }
 
 .login-form label {
-	color: #black;
+	color: black;
 	font-weight: normal;
 }
-
 
 </style>
 
 <!-- 로그인 -->
-<div class="login-form">
-	<form action="/login" method="post">
-	
-        <h3 style="text-align: center;">로그인</h3><br><br>
-        
-		<div class="form-group">
-			<label for="userid">아이디</label>
-			<input type="text" class="form-control" id="userpw" required>
-		</div>
-		
-		<div class="form-group">
-			<label for="userpw">패스워드</label>
-			<input type="password" class="form-control" id="userpw" required>
-		</div>
-		
-		<div class="remember">
-			<div class="pull-left">
-				<input type="checkbox" id="remember" >
-				<label for="remember">아이디 저장</label>
+<section>
+<div class="container">
+	<div class="login-form">
+		<h3 style="text-align: center;">로그인</h3><hr>
+
+		<form action="/login" method="post">
+			<div class="form-group">
+				<label for="userid">아이디</label>
+				<input type="text" class="form-control" id="userpw" required>
 			</div>
 			
-			<div class="pull-right">
-	            <a href="/login/findid" id="findId">아이디 찾기</a> |
-	            <a href="/login/findpw" id="findPw">비밀번호 찾기</a>
+			<div class="form-group">
+				<label for="userpw">패스워드</label>
+				<input type="password" class="form-control" id="userpw" required>
 			</div>
-		</div>
-		
-		<button type="submit" class="btn btn-block" id="btnLogin">로그인</button>
-		
-	</form>
+			
+			<div class="remember">
+				<div class="pull-left">
+					<input type="checkbox" id="remember" >
+					<label for="remember">아이디 저장</label>
+				</div>
+				
+				<div class="pull-right">
+					<a href="/login/findid" id="findId">아이디 찾기</a> |
+					<a href="/login/findpw" id="findPw">비밀번호 찾기</a>
+				</div>
+			</div>
+			
+			<button type="submit" class="btn btn-block" id="btnLogin">로그인</button>
+			
+		</form>
+	</div>
 </div>
+</section>
 
-<%@ include file="../../layout/footer.jsp" %>
+
+<!-- footer include -->
+<%@ include file="../layout/footer.jsp" %>
+</body>
+</html>

@@ -2,10 +2,28 @@
     pageEncoding="UTF-8"%>
 
 
-<%@ include file="../../layout/header.jsp" %>
+<%@ include file="../layout/header.jsp" %>
+
+<!-- js -->
+<script type="text/javascript">
+
+$(document).ready(function() {
+	$("#mypage").click(function() {
+		$(location).attr('href', '/mypage') //마이페이지 url 이동
+	})
+})
+
+</script>
 
 <!-- css -->
-<style>
+<style type="text/css">
+
+.bcontent h3 {
+	text-align: center;
+	font-size: 30px;
+	margin: 0 0 15px;
+	font-weight: bold;
+}
 
 .bcontent {
     margin: 0 auto;
@@ -17,14 +35,7 @@
 	margin-top: 30px;
 }
 
-.bcontent h3 {
-	text-align: center;
-	font-size: 30px;
-	margin: 0 0 15px;
-}
-
 .card {
-/*     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px !important;  */
     border: 1px solid #ccc;
     border-radius: 10px;
     padding: 20px 20px;
@@ -52,12 +63,13 @@
 .btn {
   	background-color: #ffffff;
   	font-size: 14px;
-	transition: all 0.3s;
+	transition: all 0.2s;
+	padding: 3px 10px;
+	border-radius: 0;
 }
 
 #btnReview { 
 	border: 2px solid #6aafe6;
-	border-radius: 15px;
 	color: #6e6e6e;
 }
 
@@ -65,12 +77,10 @@
   	background: #6aafe6;
 	outline: none;
 	color: white;
-	font-weight: bold;
 }
 
 #btnRefund {
 	border: 2px solid #a3a1a1;
-	border-radius: 15px;
 	color: #6e6e6e;
 }
 
@@ -78,13 +88,12 @@
   	background: #a3a1a1; 
 	outline: none;
 	color: white;
-	font-weight: bold;
 }
+
 </style>
 
-
 <div class="container bcontent">
-	<h3 style="text-align: center;">마이 페이지</h3><hr>
+	<h3 style="text-align: center;" id="mypage">마이 페이지</h3><hr>
     <div class="list"  style="width: 700px;">
     	<p style="font-size:16px; font-weight: bold;">결제내역</p><br>
 	    <div class="card">
@@ -152,5 +161,4 @@
 	</div>
 </div>
 
-
-<%@ include file="../../layout/footer.jsp" %>
+<%@ include file="../layout/footer.jsp" %>

@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 
 
-<%@ include file="../../layout/header.jsp" %>
+<%@ include file="../layout/header.jsp" %>
 
 
 <!-- js -->
@@ -17,7 +17,20 @@ $(document).ready(function() {
 </script>
 
 <!-- css -->
-<style>
+<style type="text/css">
+
+p {
+	text-align: center;
+}
+
+.findPwRs-form > h3 {
+	font-weight: bold;
+}
+
+.findPwRs-form > hr {
+	height: 1px;
+	background: gray;
+}
 
 .findPwRs-form {
 	width: 500px;   
@@ -51,8 +64,7 @@ $(document).ready(function() {
   	background-color: #ffffff;
  	font-size: 16px; 
  	min-height: 50px;
-	border: 3px solid #6aafe6;
-	border-radius: 15px; /* 버튼 테두리 둥글게 */
+	border: 2px solid #6aafe6;
 	color: #6e6e6e;
  } 
 
@@ -60,21 +72,11 @@ $(document).ready(function() {
   	background: #6aafe6;  /* 버튼 hover 색상 */ 
 	outline: none;
 	color: white;
-	font-weight: bold;
 }
 
 .findPwRs-form label {
 	color: #black;
 	font-weight: normal;
-}
-
-p {
-	text-align: center;
-}
-
-.findPwRs-form > hr {
-	height: 1px;
-	background: gray;
 }
 
 </style>
@@ -103,4 +105,5 @@ p {
 		
 	</form>
 </div>
-<%@ include file="../../layout/footer.jsp" %>
+
+<%@ include file="../layout/footer.jsp" %>

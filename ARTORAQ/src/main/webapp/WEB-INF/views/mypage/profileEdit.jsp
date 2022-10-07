@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 
 
-<%@ include file="../../layout/header.jsp" %>
+<%@ include file="../layout/header.jsp" %>
 
 <!-- js -->
 <script type="text/javascript">
@@ -15,8 +15,15 @@ $(document).ready(function() {
 
 </script>
 
-<style>
+<style type="text/css">
 
+.profile-form h3 {
+	text-align: center;
+	font-size: 30px;
+	margin: 0 0 15px;
+	font-weight: bold;
+}
+   
 .profile-form {
 	width: 500px;
 	margin: 0 auto;
@@ -28,12 +35,6 @@ $(document).ready(function() {
 	border-radius: 6px;
 }
 
-.profile-form h3 {
-	text-align: center;
-	font-size: 30px;
-	margin: 0 0 15px;
-}
-   
 .profile-form .form-group {
 	margin-bottom: 20px;
 }
@@ -63,8 +64,7 @@ $(document).ready(function() {
 
 #btnSave { 
   	background-color: #ffffff; 
-	border: 3px solid #6aafe6;
-	border-radius: 15px;
+	border: 2px solid #6aafe6;
  	min-height: 45px;
 	color: #6e6e6e;
  } 
@@ -73,13 +73,11 @@ $(document).ready(function() {
   	background: #6aafe6;
 	outline: none;
 	color: white;
-	font-weight: bold;
 }
 
 #btnCancel {
  	min-height: 50px;
-	border: 3px solid #a3a1a1;
-	border-radius: 15px;
+	border: 2px solid #a3a1a1;
  	min-height: 45px;
 	color: #6e6e6e;
 }
@@ -88,31 +86,29 @@ $(document).ready(function() {
   	background: #a3a1a1; 
 	outline: none;
 	color: white;
-	font-weight: bold;
 }
 
 /* 파일업로드 삭제 버튼 */
 .btnsmall {
-	padding: 2px 6px;
+	padding: 3.5px 4px;
 }
 
 #btnDelete {
 	border: 2px solid #a3a1a1;
 	color: black;
 	position: relative;
-	border-radius: 6px;
 	text-decoration: none;
   	line-height: normal;
+  	font-weight: 500px;
 }
 
 /* 파일업로드 버튼 */
 .filebox label {
   display: inline-block;
-  padding: 2px 6px;
+  padding: 3.5px 4px;
   background-color: #f0f0f0;
   cursor: pointer;
   border: 2px solid #a3a1a1;
-  border-radius: 6px;
   line-height: normal;
 }
 
@@ -163,4 +159,4 @@ $(document).ready(function() {
 	</form>
 </div>
 
-<%@ include file="../../layout/footer.jsp" %>
+<%@ include file="../layout/footer.jsp" %>

@@ -2,10 +2,22 @@
     pageEncoding="UTF-8"%>
 
 
-<%@ include file="../../layout/header.jsp" %>
+<%@ include file="../layout/header.jsp" %>
 
 <!-- css -->
-<style>
+<style type="text/css">
+
+.mypage h3 {
+	text-align: center;
+	font-size: 30px;
+	margin: 0 0 15px;
+	font-weight: bold;
+}
+
+.mypage > hr {
+	height: 1px;
+	background: gray;
+}
 
 .mypage { 
 	margin: 0 auto;
@@ -14,12 +26,6 @@
 
 .menu {
 	margin-top: 60px;
-}
-
-.mypage h3 {
-	text-align: center;
-	font-size: 30px;
-	margin: 0 0 15px;
 }
 
 .card {
@@ -42,13 +48,9 @@
 	height: 40px;
 }
 
-.mypage > hr {
-	height: 1px;
-	background: gray;
-}
-
 </style>
 
+<div class="container">
 <div class="row mypage">
 	<h3 style="text-align: center;">마이 페이지</h3><hr>
 	<div class="menu">
@@ -93,5 +95,5 @@
 	    </div>
     </div>
 </div>
-
-<%@ include file="../../layout/footer.jsp" %>
+</div>
+<%@ include file="../layout/footer.jsp" %>
