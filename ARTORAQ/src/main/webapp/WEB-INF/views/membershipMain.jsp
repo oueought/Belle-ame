@@ -8,12 +8,10 @@
 <script type="text/javascript">
 
 $(document).ready(function() {
-   
-    //회원가입 버튼
-   $("#btnJoin").click(function() {
-      $(this).parents("form").submit();
-   })
-}
+	$("#btnjoin").click(function() {
+		$(location).attr('href', '/join') //회원가입 url 이동
+	})
+})
 
 </script>
 
@@ -111,11 +109,10 @@ $(document).ready(function() {
             <button type="submit" class="btn btn-block" id="btnkakao">카카오 1초 회원가입</button>
       </div>
       <hr>
-      
       <div class="button">
-         <button type="submit" class="btn btn-block" id="btnjoin">일반 회원가입</button>
+         <button type="button" class="btn btn-block" id="btnjoin">일반 회원가입</button>
       </div>
-   </form>
+      </form>
 </div>
 
 </body>

@@ -4,6 +4,15 @@
 
 <%@ include file="../layout/header.jsp" %>
 
+<script type="text/javascript">
+
+// $(document).ready(function() {
+// 	$("#identity").click(function() {	//확인버튼 클릭 시
+// 		$(location).attr('href', '/join') //회원정보 수정 url 이동
+// 	})
+// })
+
+</script>
 
 <style type="text/css">
 .wrapper {
@@ -89,7 +98,7 @@
 	<div class="form-group">
 	<p style="font-size: 13px; font-weight: bold;">보안을 위해 비밀번호를 재확인합니다.</p>
 	<input type="password" id="passwordchk" name="passwordchk" class="form-control" required><br><br><br>
-	<button class="w-btn-outline w-btn-gray-outline button" type="button">확인</button>
+	<button class="w-btn-outline w-btn-gray-outline button" type="button" id="identify">확인</button>
 </div>
 	</div><br>
 			

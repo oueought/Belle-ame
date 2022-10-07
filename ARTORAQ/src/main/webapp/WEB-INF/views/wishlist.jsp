@@ -4,6 +4,16 @@
 
 <%@ include file="../layout/header.jsp"%>
 
+<script type="text/javascript">
+
+$(document).ready(function() {
+	$("#btnCancel").click(function() {	//취소버튼 클릭시
+		$(location).attr('href', '/') //메인페이지 이동
+	})
+})
+
+</script>
+
 <style type="text/css">
 
 .line {

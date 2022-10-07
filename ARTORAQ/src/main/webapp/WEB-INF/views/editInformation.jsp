@@ -5,6 +5,23 @@
 <%@ include file="../layout/header.jsp"%>
 
 
+<script type="text/javascript">
+
+// $(document).ready(function() {
+// 	$("#save").click(function() {	//저장버튼 클릭시
+// 		$(location).attr('href', '') //마이페이지 메인링크
+// 	})
+// })
+
+// $(document).ready(function() {
+// 	$("#cancel").click(function() {	//취소버튼 클릭시
+// 		$(location).attr('href', '') //메인 이동링크
+// 	})
+// })
+
+</script>
+
+
 <style type="text/css">
 
 
@@ -55,7 +72,7 @@
 
 
 /* 하단 버튼 CSS */
-#join { 
+#save { 
      background-color: white; /* 버튼 색상 */ 
     font-size: 16px; 
     min-height: 50px;
@@ -79,7 +96,7 @@
 }
 
 /* 회원가입 hover색상 */
-#join:hover {
+#save:hover {
     background: #6aafe6;
    outline: none;
    color: white;
@@ -164,10 +181,10 @@
 		</form>
 		<br>
 			<div class="button">
-			<button type="submit" class="btn btn-block" id="join">저장</button><br>
+			<button type="button" class="btn btn-block" id="save">저장</button><br>
 			</div>
 			<div class="button">
-			<button type="submit" class="btn btn-block" id="cancel">취소</button>
+			<button type="button" class="btn btn-block" id="cancel">취소</button>
 			</div><br><br><br>
 			
 
