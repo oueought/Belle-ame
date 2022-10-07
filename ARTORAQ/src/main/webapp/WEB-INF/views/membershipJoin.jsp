@@ -49,7 +49,9 @@
 }
 
 .btnsmall {
-    padding: 3.5px 4px;
+     padding: 3.5px 4px;
+     margin: 5px;
+
 }
 
 
@@ -166,7 +168,7 @@
 							</div>	
 						</div>
 					</div>
-					<br> <br> <br>
+					<br>
 
 					<div class="form-group">
 						<label for="useremail" class="col-xs-2 control-label">이메일</label>
@@ -184,7 +186,7 @@
 			</div>
 			<div class="button">
 			<button type="submit" class="btn btn-block" id="cancel">취소</button>
-			</div><br><br><br><br><br>
+			</div><br><br><br>
 			
 
 
