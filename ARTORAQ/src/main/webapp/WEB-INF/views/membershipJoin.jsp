@@ -4,6 +4,21 @@
 
 <%@ include file="../layout/header.jsp"%>
 
+<script type="text/javascript">
+
+//회원가입 버튼
+$("#join").click(function() {
+	$(this).parents("form").submit();
+})
+
+//취소 버튼
+$("#cancel").click(function() {
+//		history.go(-1) //뒤로가기
+	$(location).attr('href', '/') //메인으로 가기
+})
+
+</script>
+
 
 <style type="text/css">
 
@@ -176,7 +191,6 @@
 						</div>
 					</div>
 				</div>
-			</div>
 		</form>
 		<br><br><br><br>
 			<div class="button">
