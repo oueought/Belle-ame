@@ -108,8 +108,9 @@ for (let i = 0; i < 3; i++) {
 </script>
 
 <script>
+
 <!-- comment탭 메뉴 스크립트 -->
-<script type="text/javascript">
+
 document.cookie = "safeCookie1=foo; SameSite=Lax"; 
 document.cookie = "safeCookie2=foo"; 
 document.cookie = "crossCookie=bar; SameSite=None; Secure";
