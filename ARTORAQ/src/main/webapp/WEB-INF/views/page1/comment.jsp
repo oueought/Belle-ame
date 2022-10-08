@@ -1,5 +1,10 @@
+<%@page import="dto.ReviewComment"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%	List<ReviewComment> list = (List) request.getAttribute("list"); %>    
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -109,7 +114,7 @@ body {
     position: relative;
     width: 19px;
     font-size: 25px;
-    color: #fd070763;
+    color: #ffe87c;
     cursor: pointer;
 }
 
@@ -161,78 +166,88 @@ body {
 
 </head>
 <body>
+<form action="/comment" method="post">
 <div class="container">
 <div class="card">
-               
               <div class="row">
-                  
                   <div class="col-2">
-                      
-                      
                       <img src="https://ifh.cc/g/vL0zKT.jpg" width="50px" class="rounded-circle mt-2">
-                  
-                  
                   </div>
-                  
                   <div class="col-10">
-                      
                       <div class="comment-box ml-2">
-                          
                           <h5 class="guide">감상 후 댓글은 모다?</h5>
-                          
                           <div class="rating"> 
-                              <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label>
-                              <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label> 
-                              <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
-                              <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
-                              <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
+                              <input type="radio" name="reviewRating" value="5" id="5"><label for="5">☆</label>
+                              <input type="radio" name="reviewRating" value="4" id="4"><label for="4">☆</label> 
+                              <input type="radio" name="reviewRating" value="3" id="3"><label for="3">☆</label>
+                              <input type="radio" name="reviewRating" value="2" id="2"><label for="2">☆</label>
+                              <input type="radio" name="reviewRating" value="1" id="1"><label for="1">☆</label>
                           </div>
-                          
                           <div class="comment-area">
-                              
-                              <textarea class="form-control" placeholder="you review??" rows="4"></textarea>
-                          
+                              <textarea class="form-control" placeholder="you review??" rows="4" name="cmContents"></textarea>
                           </div>
-                          
                           <div class="comment-btns mt-2">
-                              
                               <div class="row">
-                                  
                                   <div class="col-6">
-                                      
                                       <div class="pull-left">
-                                      
                                       <button class="btn-dark cancel btn-sm" type="reset">취소</button>      
-                                          
                                       </div>
-                                  
                                   </div>
-                                  
                                   <div class="col-6">
-                                      
                                       <div class="pull-right">
-                                      
                                       <button class="btn-dark send btn-sm">등록 <i class="fa fa-long-arrow-right ml-1"></i></button>      
-                                          
                                       </div>
-                                  
                                   </div>
-                              
                               </div>
-                          
                           </div>
-                      
-                      
                       </div>
-                  
                   </div>
-              
-              
               </div>
-    
           </div>
-
 </div>
+
+</form>
+
+<% for(int i=0; i<list.size();i++) { %>
+<div class="container">
+<div class="card">
+              <div class="row">
+                  <div class="col-2">
+                      <img src="https://ifh.cc/g/vL0zKT.jpg" width="50px" class="rounded-circle mt-2">
+                  </div>
+                  <div class="col-10">
+                      <div class="comment-box ml-2">
+                          <h5 class="guide">감상 후 댓글은 모다?</h5>
+                          <div class="rating"> 
+                              <input type="radio" value=<%=list.get(i).getReviewRating() %> name="reviewRating" value="5" id="5"><label for="5">☆</label>
+                              <input type="radio" value=<%=list.get(i).getReviewRating() %> name="reviewRating" value="4" id="4"><label for="4">☆</label> 
+                              <input type="radio" value=<%=list.get(i).getReviewRating() %> name="reviewRating" value="3" id="3"><label for="3">☆</label>
+                              <input type="radio" value=<%=list.get(i).getReviewRating() %> name="reviewRating" value="2" id="2"><label for="2">☆</label>
+                              <input type="radio" value=<%=list.get(i).getReviewRating() %> name="reviewRating" value="1" id="1"><label for="1">☆</label>
+                          </div>
+                          <div class="comment-area">
+                              <textarea class="form-control" placeholder="you review??" rows="4" name="cmContents"><%=list.get(i).getCmContents() %></textarea>
+                          </div>
+                          <div class="comment-btns mt-2">
+                              <div class="row">
+                                  <div class="col-6">
+                                      <div class="pull-left">
+                                      <button class="btn-dark cancel btn-sm" type="reset">수정</button>      
+                                      </div>
+                                  </div>
+                                  <div class="col-6">
+                                      <div class="pull-right">
+                                      <button class="btn-dark send btn-sm">삭제 <i class="fa fa-long-arrow-right ml-1"></i></button>      
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+</div>
+<%} %> 
 
 </body>
 </html>
