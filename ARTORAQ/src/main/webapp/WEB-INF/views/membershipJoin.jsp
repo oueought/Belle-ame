@@ -24,6 +24,28 @@ $("#cancel").click(function() {
 
 	})
 })
+
+//아이디 중복 체크
+
+function check(){ 
+	//아이디가 입력이 안되어있을 경우 아이디입력하라는 메세지 출력
+	if(document.fr.userid.value == "" || document.fr.userid.value.length < 0){ 
+		alert("아이디를 입력해주세요")
+		history.back()
+		document.fr.userid.focus();
+		return false;
+	}
+				
+function winopen(){
+
+	if(document.fr.userid.value =="" || document.fr.userid.value.length < 0){
+		alert("아이디를 입력해주세요")
+		document.fr.userid.focus();
+	}else{
+			
+		window.open("joinIdCheck.jsp?coustomerid="+document.fr.userid.value,"","width=500, height=300");
+	}
+}
 </script>
 
 
@@ -118,7 +140,7 @@ $("#cancel").click(function() {
       <h3 style="text-align: center; font-weight: bold;">회원가입</h3>
 		<hr class="line"><br><br><br>
 
-		<form action="/join" method="post" class="form-horizontal">
+		<form action="/join" method="post" class="form-horizontal" name="fr" onsubmit="return check();">
 
 			<div class="form">
 				<div class="form-group">
@@ -199,6 +221,13 @@ $("#cancel").click(function() {
 					</div>
 				</div>
 		</form>
+		
+		<!-- 아이디중복체크 -->
+		<script type="text/javascript">
+		
+		</script>
+
+
 		<br><br><br><br>
 			<div class="button">
 			<button type="button" class="btn btn-block" id="join">회원가입</button><br>

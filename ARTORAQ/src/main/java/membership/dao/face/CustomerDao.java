@@ -42,7 +42,7 @@ public interface CustomerDao {
 
 	Customer selectCustomerrByCustomerid(Connection conn, Customer customer);
 
-
+	
 }
 
 

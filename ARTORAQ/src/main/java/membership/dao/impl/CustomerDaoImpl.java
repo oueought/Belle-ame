@@ -129,5 +129,84 @@ public class CustomerDaoImpl implements CustomerDao {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+//	//회원가입메서드
+//		private void insertCustomer(Connection conn, Customer customer) {
+//			try {
+//				conn = (Connection) getCon();
+//				String sql = "";
+//				sql = "insert into fun_member values (?,?,?,?,?, "
+//						+"?,?,?,?)";
+//				ps = conn.prepareStatement(sql);
+//				ps.setString(1, customer.getCustomer_id());
+//				ps.setString(2, customer.getCustomer_pw());
+//				ps.setString(3, customer.getCustomer_name());
+//				ps.setString(4, customer.getCustomer_email());
+//				ps.setString(5, customer.getCustomer_nickname());
+//				ps.setString(6, customer.getCustomer_phone());
+//	
+//				
+//				ps.executeUpdate();
+//				System.out.println("회원가입성공");
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			} finally {
+//				closeDB();
+//			}
+//		}//insertMember메서드닫음
+//		
+//		private void closeDB() {
+//			// TODO Auto-generated method stub
+//			
+//		}
+//
+//		private Object getCon() {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+
+		//아이디중복체크 메서드
+		public int joinIdCheck(String id){
+			int result = -1;
+			try {
+				//1. DB연결
+				Connection conn = (Connection) getConn();
+				//2. sql 구문 & ps생성
+				String sql = "";
+				sql = "select id from fun_member where id=?";
+				ps = conn.prepareStatement(sql);
+				ps.setString(1, id);
+
+				//3. 실행 -> select -> rs저장
+				rs = ps.executeQuery();
+
+				//4. 데이터처리
+
+				if(rs.next()){	
+					result = 0;
+				}else{
+					result = 1;
+				}
+
+				System.out.println("아이디 중복체크결과 : "+result);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} finally {
+				closeDB();
+			}
+			return result;
+		}//joinIdCheck 메서드닫음
+
+		private Connection getConn() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		private void closeDB() {
+			// TODO Auto-generated method stub
+			
+		}
+
 
 }
