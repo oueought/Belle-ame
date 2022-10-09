@@ -45,6 +45,7 @@ body {
     border-radius: 6px;
     -moz-box-shadow: 0px 0px 5px 0px rgba(212, 182, 212, 1);
     margin:-10px; 
+	margin-top: 50px;
 }
 .comment-box{
     
@@ -90,7 +91,7 @@ body {
     position: relative;
     width: 19px;
     font-size: 25px;
-    color: #fd070763;
+    color: #ffe87c;
     cursor: pointer;
 }
 .rating>label::before {
@@ -148,7 +149,7 @@ body {
                   <div class="col-2">
                       
                       
-                      <img src="https://ifh.cc/g/vL0zKT.jpg" width="50px" class="rounded-circle mt-2">
+                      <img src="https://ifh.cc/g/QyVr5T.jpg" width="50px" class="rounded-circle mt-2">
                   
                   
                   </div>
@@ -157,7 +158,7 @@ body {
                       
                       <div class="comment-box ml-2">
                           
-                          <h5 class="guide">감상 후 댓글은 모다?</h5>
+                          <h6 class="guide">별점을 선택해주세요</h6>
                           
                           <div class="rating"> 
                               <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label>
@@ -169,7 +170,7 @@ body {
                           
                           <div class="comment-area">
                               
-                              <textarea class="form-control" placeholder="you review??" rows="4"></textarea>
+                              <textarea class="form-control" placeholder="후기를 남겨주세요" rows="4"></textarea>
                           
                           </div>
                           

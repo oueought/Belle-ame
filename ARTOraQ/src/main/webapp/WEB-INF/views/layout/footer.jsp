@@ -80,7 +80,7 @@
       <div class="footer-top">
          <a class="footer-list">전시회 소개</a>
          <a class="footer-list">이용약관</a>
-         <a class="footer-list"">개인정보처리방침</a>
+         <a class="footer-list">개인정보처리방침</a>
          <a class="footer-list">채용관리</a>
          <a class="footer-list">권리침해신고</a>
          <a class="footer-list">ARTORAQ</a>
@@ -98,7 +98,7 @@
          <a class="info">주소 : 서울 특별시 강남구 테헤란로 130</a>
          <br>
          <a class="info">KH@Artoraq.com</a>
-      </personal>
+   		</personal>
       <a class="pinfo">ARTORAQ는 개인정보 및 전시 정보에 대하여 책임을 지지 않습니다.</a>
 
    </div>   
