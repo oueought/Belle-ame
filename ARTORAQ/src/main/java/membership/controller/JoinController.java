@@ -11,8 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import dto.Customer;
 import membership.service.face.CustomerService;
 import membership.service.impl.CustomerServiceImpl;
-import membership.service.face.CustomerService;
-import membership.service.impl.CustomerServiceImpl;
+
 
 @WebServlet("/join")
 public class JoinController extends HttpServlet {
@@ -38,7 +37,7 @@ public class JoinController extends HttpServlet {
 		customerService.join(customer);
 
 		//메인으로 리다이렉트
-		resp.sendRedirect("/");
+		resp.sendRedirect("/main");
 
 
 

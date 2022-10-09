@@ -7,16 +7,23 @@
 <script type="text/javascript">
 
 //회원가입 버튼
+$(document).ready(function() {
+
 $("#join").click(function() {
-	$(this).parents("form").submit();
+// 	$(this).parents("form").submit();
+	$(".form-horizontal").attr("action", "/login"); 
+	$(".form-horizontal").submit();
 })
+
 
 //취소 버튼
 $("#cancel").click(function() {
 //		history.go(-1) //뒤로가기
-	$(location).attr('href', '/') //메인으로 가기
-})
+	$(location).attr('href', '/main') //메인으로 가기
 
+
+	})
+})
 </script>
 
 
@@ -129,7 +136,7 @@ $("#cancel").click(function() {
 				<div class="form-group">
 					<label for="userpw" class="col-xs-2 control-label">비밀번호</label>
 					<div class="col-xs-10">
-						<input type="password" id="userpw" name="userpw" class="form-control" placeholder="8~16자 영문 대 소문자, 숫자, 특수문자를 사용가능" required>
+						<input type="password" id="userpw" name="userpw" class="form-control" placeholder="8~16자 영문 대 소문자, 숫자, 특수문자 사용가능" required>
 					</div>
 				</div>
 				<br>
@@ -194,10 +201,10 @@ $("#cancel").click(function() {
 		</form>
 		<br><br><br><br>
 			<div class="button">
-			<button type="submit" class="btn btn-block" id="join">회원가입</button><br>
+			<button type="button" class="btn btn-block" id="join">회원가입</button><br>
 			</div>
 			<div class="button">
-			<button type="submit" class="btn btn-block" id="cancel">취소</button>
+			<button type="button" class="btn btn-block" id="cancel">취소</button>
 			</div><br><br><br>
 			
 </body>
