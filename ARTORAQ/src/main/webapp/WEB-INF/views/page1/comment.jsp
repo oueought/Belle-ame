@@ -89,13 +89,11 @@ body {
    /*  background-color: #ff0000;
     border-color: #ff0000; */
     position: absolute;
-    bottom: 5px;
-    right: 15px;
+    bottom: 9px;
+    right: 4px;
 }
 
-
-
-
+/* 별점 부여 */
 .rating {
 	 position:absolute;
 	 display: flex;
@@ -109,6 +107,7 @@ body {
 .rating>input {
     display: none
 }
+
 
 .rating>label {
     position: relative;
@@ -137,6 +136,30 @@ body {
     opacity: 0.4
 }
 
+/* 부여된 별점 */
+.ratin {
+	 position:absolute;
+	 display: flex;
+     margin-top: -7px;
+     flex-direction: row-reverse;
+     margin-left: 65px;
+     float: left;
+     top: 50px;
+}
+
+.ratin>input {
+    display: none
+}
+
+
+.ratin>label {
+    position: relative;
+    width: 19px;
+    font-size: 25px;
+    color: #ffe87c;
+}
+
+
 .guide{
 	position: absolute;
 	top: 10px;
@@ -153,15 +176,23 @@ body {
 
 .cancel{
     position: absolute;
-    bottom: 5px;
-    right: 66px;
+    bottom: 9px;
+    right: 52px;
 }
 .btn-sm{
 	/* background-color: grey;  */
-	border: none; !important
-	
+	border: none; !important;
+	padding: 1px 9px;
+	margin: 10px;
 }
 
+.customerId{
+    position: absolute;
+    bottom: 27px;
+    left: 21px;
+	font-size: 10px;
+
+}
 </style>
 
 </head>
@@ -181,10 +212,10 @@ body {
                               <input type="radio" name="reviewRating" value="4" id="4"><label for="4">☆</label> 
                               <input type="radio" name="reviewRating" value="3" id="3"><label for="3">☆</label>
                               <input type="radio" name="reviewRating" value="2" id="2"><label for="2">☆</label>
-                              <input type="radio" name="reviewRating" value="1" id="1"><label for="1">☆</label>
+                              <input type="radio" name="reviewRating" value="1" id="1" checked="checked"><label for="1">☆</label>
                           </div>
                           <div class="comment-area">
-                              <textarea class="form-control" placeholder="you review??" rows="4" name="cmContents"></textarea>
+                              <textarea class="form-control text" placeholder="you review??" rows="4" name="cmContents"></textarea>
                           </div>
                           <div class="comment-btns mt-2">
                               <div class="row">
@@ -195,7 +226,7 @@ body {
                                   </div>
                                   <div class="col-6">
                                       <div class="pull-right">
-                                      <button class="btn-dark send btn-sm">등록 <i class="fa fa-long-arrow-right ml-1"></i></button>      
+                                      <button class="btn-dark send btn-sm">등록</button>      
                                       </div>
                                   </div>
                               </div>
@@ -207,7 +238,7 @@ body {
 </div>
 
 </form>
-
+<%if( list != null){ %>
 <% for(int i=0; i<list.size();i++) { %>
 <div class="container">
 <div class="card">
@@ -218,15 +249,48 @@ body {
                   <div class="col-10">
                       <div class="comment-box ml-2">
                           <h5 class="guide">감상 후 댓글은 모다?</h5>
-                          <div class="rating"> 
-                              <input type="radio" value=<%=list.get(i).getReviewRating() %> name="reviewRating" value="5" id="5"><label for="5">☆</label>
-                              <input type="radio" value=<%=list.get(i).getReviewRating() %> name="reviewRating" value="4" id="4"><label for="4">☆</label> 
-                              <input type="radio" value=<%=list.get(i).getReviewRating() %> name="reviewRating" value="3" id="3"><label for="3">☆</label>
-                              <input type="radio" value=<%=list.get(i).getReviewRating() %> name="reviewRating" value="2" id="2"><label for="2">☆</label>
-                              <input type="radio" value=<%=list.get(i).getReviewRating() %> name="reviewRating" value="1" id="1"><label for="1">☆</label>
+                          <div class="ratin"> 
+							 <% int l = list.get(i).getReviewRating();%>
+							 <% if( l == 5) { %>
+                              <input type="radio" disabled="disabled" checked name="reviewRatin" value="5" id="5"><label for="5">★</label>
+                              <input type="radio" disabled="disabled" name="reviewRatin" value="4" id="4"><label for="4">★</label> 
+ 		                      <input type="radio" disabled="disabled" name="reviewRatin" value="3" id="3"><label for="3">★</label>
+		                      <input type="radio" disabled="disabled" name="reviewRatin" value="2" id="2"><label for="2">★</label>
+                              <input type="radio" disabled="disabled" name="reviewRatin" value="1" id="1"><label for="1">★</label>
+                             				 		
+							 <%	} else if( l == 4) {	%>
+                              <input type="radio" name="reviewRatin" value="5" id="5"><label for="5">☆</label>
+                              <input type="radio" checked name="reviewRatin" value="4" id="4"><label for="4">★</label> 
+ 		                      <input type="radio" name="reviewRatin" value="3" id="3"><label for="3">★</label>
+		                      <input type="radio" name="reviewRatin" value="2" id="2"><label for="2">★</label>
+                              <input type="radio" name="reviewRatin" value="1" id="1"><label for="1">★</label>
+							 	
+							 <%	} else if( l == 3) {	%>
+                              <input type="radio" name="reviewRatin" value="5" id="5"><label for="5">☆</label>
+                              <input type="radio" name="reviewRatin" value="4" id="4"><label for="4">☆</label> 
+ 		                      <input type="radio" checked name="reviewRatin" value="3" id="3"><label for="3">★</label>
+		                      <input type="radio" name="reviewRatin" value="2" id="2"><label for="2">★</label>
+                              <input type="radio" name="reviewRatin" value="1" id="1"><label for="1">★</label>
+                                               		
+							 <%	} else if( l == 2) {	%>
+                              <input type="radio" name="reviewRatin" value="5" id="5"><label for="5">☆</label>
+                              <input type="radio" name="reviewRatin" value="4" id="4"><label for="4">☆</label> 
+ 		                      <input type="radio" name="reviewRatin" value="3" id="3"><label for="3">☆</label>
+		                      <input type="radio" checked name="reviewRatin" value="2" id="2"><label for="2">★</label>
+                              <input type="radio" name="reviewRatin" value="1" id="1" readonly><label for="1">★</label>
+
+							 <%	} else if( l == 1) {	%>
+                              <input type="radio" name="reviewRatin" value="5" id="5" readonly><label for="5">☆</label>
+                              <input type="radio" name="reviewRatin" value="4" id="4" readonly><label for="4">☆</label> 
+ 		                      <input type="radio" name="reviewRatin" value="3" id="3" readonly><label for="3">☆</label>
+		                      <input type="radio" name="reviewRatin" value="2" id="2" readonly><label for="2">☆</label>
+                              <input type="radio" checked name="reviewRatin" value="1" id="1" readonly ><label for="1">★</label>
+                              
+                             <% } %> 		 
+                              	
                           </div>
                           <div class="comment-area">
-                              <textarea class="form-control" placeholder="you review??" rows="4" name="cmContents"><%=list.get(i).getCmContents() %></textarea>
+                              <textarea class="form-control" style="background-color: white; cursor:text; ;" readonly placeholder="you review??" rows="4" name="cmContents"><%=list.get(i).getCmContents() %></textarea>
                           </div>
                           <div class="comment-btns mt-2">
                               <div class="row">
@@ -240,6 +304,11 @@ body {
                                       <button class="btn-dark send btn-sm">삭제 <i class="fa fa-long-arrow-right ml-1"></i></button>      
                                       </div>
                                   </div>
+                                  <div class="col-6">
+                                      <div class="pull-right">
+                                      <div class="btn-dark send customerId"> 작성자 : <%=list.get(i).getCustomerId() %>  </div>      
+                                      </div>
+                                  </div>
                               </div>
                           </div>
                       </div>
@@ -247,7 +316,13 @@ body {
               </div>
           </div>
 </div>
-<%} %> 
+<% } %>
+<%} %>
+
+<script type="text/javascript">
+ $(".text").focus();
+ $("input[name='reviewRatin']").attr('disabled',true);
+</script>
 
 </body>
 </html>

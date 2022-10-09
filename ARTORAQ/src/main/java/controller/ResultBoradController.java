@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 
 @WebServlet("/result/board")
-public class resultBoradController extends HttpServlet {
+public class ResultBoradController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 
