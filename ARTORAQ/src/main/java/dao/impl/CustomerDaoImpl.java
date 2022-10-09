@@ -19,8 +19,8 @@ public class CustomerDaoImpl implements CustomerDao {
 		
 		String sql = "";
 		sql += "SELECT count(*) cnt FROM customer";
-		sql += " WHERE customer_id = ? ";
-		sql += " AND customer_pw = ? ";
+		sql += " WHERE customer_id = ?";
+		sql += " AND customer_pw = ?";
 		
 		int cnt = 0;
 		
@@ -51,7 +51,7 @@ public class CustomerDaoImpl implements CustomerDao {
 		
 		String sql = "";
 		sql += "SELECT customer_id, customer_pw, customer_phone FROM customer";
-		sql += " WHERE customer_id = ? ";
+		sql += " WHERE customer_id = ?";
 		
 		Customer res = null;
 		
@@ -74,6 +74,73 @@ public class CustomerDaoImpl implements CustomerDao {
 		} finally {
 			JDBCTemplate.close(rs);
 			JDBCTemplate.close(ps);
+		}
+		
+		return res;
+	}
+
+	@Override
+	public int selectCntCustomerByUsernameUserphone(Connection conn, Customer customer) {
+		
+		String sql = "";
+		sql += "SELECT count(*) cnt FROM customer";
+		sql += " WHERE customer_name = ?";
+		sql += " AND customer_phone = ?";
+		
+		int cnt = 0;
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, customer.getCustomer_name());
+			ps.setString(2, customer.getCustomer_phone());
+			
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				cnt = rs.getInt("cnt");
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JDBCTemplate.close(rs);
+			JDBCTemplate.close(ps);
+		}
+		
+		return cnt;
+	}
+
+	@Override
+	public Customer selectCustomerByUsername(Connection conn, Customer customer) {
+		
+		String sql = "";
+		sql += "SELECT customer_name, customer_phone FROM customer";
+		sql += " WHERE customer_id = ?";
+		
+		Customer res = null;
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, customer.getCustomer_name());
+			ps.setString(2, customer.getCustomer_phone());
+			
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				
+				res = new Customer();
+				
+				res.setCustomer_name(rs.getString("customer_name"));
+				res.setCustomer_phone(rs.getString("customer_phone"));
+				res.setCustomer_id(rs.getString("customer_id"));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JDBCTemplate.close(rs);
+			JDBCTemplate.close(ps);
+			
 		}
 		
 		return res;

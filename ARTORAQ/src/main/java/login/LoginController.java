@@ -20,7 +20,6 @@ public class LoginController extends HttpServlet {
 	//서비스 객체
 	private CustomerService customerService = new CustomerServiceImpl();  
 	
-	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
@@ -55,7 +54,7 @@ public class LoginController extends HttpServlet {
 		}
 		
 		//로그인 성공시 메인페이지로 리다이렉트
-		resp.sendRedirect("/");
+		resp.sendRedirect("/main");
 	}
 
 	
