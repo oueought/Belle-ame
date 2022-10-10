@@ -39,9 +39,8 @@ public class CustomerServiceImpl implements CustomerService {
 		return false;
 	}
 	
-	
 	//--- 아이디 찾기 ---
-	//전달 파라미터 값 가져오기 
+	//전달 파라미터 가져오기
 	@Override
 	public Customer getFindIdCustomer(HttpServletRequest req) {
 		
@@ -52,23 +51,23 @@ public class CustomerServiceImpl implements CustomerService {
 		
 		return customer;
 	}
-	
-	@Override
-	public boolean FindId(Customer customer) {
-		
-		//해당하는 회원정보가 있음
-		if( customerDao.selectCntCustomerByUsernameUserphone(JDBCTemplate.getConnection(), customer) > 0) {
-			return true;
-		}
-		
-		//회원정보 없음
-		return false;
-	}
 
 	@Override
-	public Customer FindIdinfo(Customer customer) {
+	public boolean findId(Customer customer) {
 		
+		//인증 성공
+		if( customerDao.selectCntCustomerByUsernameUserphone(JDBCTemplate.getConnection(), customer) > 0 ) {
+			return true;
+		}
+		//인증 실패
+		return false;
+	}
+	
+	@Override
+	public Customer info(Customer customer) {
 		return customerDao.selectCustomerByUsername(JDBCTemplate.getConnection(), customer);
 	}
+	
+
 
 }

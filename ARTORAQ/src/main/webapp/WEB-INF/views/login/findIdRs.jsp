@@ -102,13 +102,17 @@ $(document).ready(function() {
 
 	<form>
 		<div class="form-group">
-			<label for="username">이름</label>
-			 <% %>
+			<label for="customer_name">이름</label>
+			<div class="pull-right">
+				<%=session.getAttribute("customer_name") %>
+			</div>
 		</div><br>
 		
 		<div class="form-group">
-			<label for="userph">휴대폰 번호</label>
-			<% %>
+			<label for="customer_phone">회원 아이디</label>
+			<div class="pull-right">
+				<%=session.getAttribute("customer_id") %>
+			</div>
 		</div><br>
 		
 		<button type="button" class="btn btn-block" id="btnLogin">로그인</button>

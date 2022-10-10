@@ -29,28 +29,29 @@ public class FindIdController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		//전달 파라미터 회원 정보 얻어오기(이름, 휴대폰 번호)
+		//전달파라미터 가져오기
 		Customer customer = customerService.getFindIdCustomer(req);
 		
-		//전달값에 해당하는 행 찾기
-		boolean isFindId = customerService.FindId(customer);
+		//전달받은값에 해당하는 데이터 찾기
+		boolean isFindId = customerService.findId(customer);
 		
 		//인증 성공
-		if (isFindId) {
+		if(isFindId) {
 			
-			//해당 회원 정보 조회
-			customer = customerService.FindIdinfo(customer);
+			//사용자 정보 조회
+			customer = customerService.info(customer);
 			
 			//세션정보 객체
 			HttpSession session = req.getSession();
 			
-			session.setAttribute("FindId", isFindId);
+			session.setAttribute("findId", isFindId);
 			session.setAttribute("customer_name", customer.getCustomer_name());
+			session.setAttribute("customer_id", customer.getCustomer_id());
 			session.setAttribute("customer_phone", customer.getCustomer_phone());
 			
 		}
 		
-		//아이디 찾기 결과 화면으로 이동
+		//아이디 찾기 결과화면으로 이동
 		req.getRequestDispatcher("/WEB-INF/views/login/findIdRs.jsp").forward(req, resp);
 		
 	}

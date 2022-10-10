@@ -14,7 +14,7 @@ public class CustomerDaoImpl implements CustomerDao {
 	private PreparedStatement ps;
 	private ResultSet rs;
 	
-	//로그인
+	//--- 로그인 ---
 	@Override
 	public int selectCntCustomerByUseridUserpw(Connection conn, Customer customer) {
 		
@@ -46,15 +46,14 @@ public class CustomerDaoImpl implements CustomerDao {
 		return cnt;
 	}
 	
-	
-	//아이디 찾기
+	//--- 아이디찾기 ---
 	@Override
 	public int selectCntCustomerByUsernameUserphone(Connection conn, Customer customer) {
 		
 		String sql = "";
 		sql += "SELECT count(*) cnt FROM customer";
 		sql += " WHERE customer_name = ?";
-		sql += " AND customer_phone = ?";
+		sql += "	AND customer_phone = ?";
 		
 		int cnt = 0;
 		
@@ -95,7 +94,6 @@ public class CustomerDaoImpl implements CustomerDao {
 			rs = ps.executeQuery();
 			
 			while(rs.next()) {
-				
 				res = new Customer();
 				
 				res.setCustomer_name(rs.getString("customer_name"));
@@ -108,10 +106,10 @@ public class CustomerDaoImpl implements CustomerDao {
 		} finally {
 			JDBCTemplate.close(rs);
 			JDBCTemplate.close(ps);
-			
 		}
 		
 		return res;
 	}
+
 
 }
