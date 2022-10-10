@@ -6,6 +6,7 @@ import dto.Customer;
 
 public interface CustomerService {
 	
+	//로그인
 	/**
 	 * 로그인 정보 추출하기
 	 * 
@@ -22,13 +23,6 @@ public interface CustomerService {
 	 */
 	public boolean login(Customer customer);
 	
-	/**
-	 * 유저 정보 가져오기
-	 * 
-	 * @param customer - 조회할 회원 아이디를 가진 객체
-	 * @return customer - 조회된 회원 정보(id, pw, name, phone)
-	 */
-	public Customer info(Customer customer);
 	
 	//아이디 찾기
 	/**
@@ -53,8 +47,5 @@ public interface CustomerService {
 	 * @return customer - 조회된 회원 정보(name, phone, id)
 	 */
 	public Customer FindIdinfo(Customer customer);
-
-
-
 
 }

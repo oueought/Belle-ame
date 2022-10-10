@@ -39,7 +39,33 @@ $(document).ready(function() {
 
 </script>
 
+<!-- 카카오 로그인 API -->
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<script type="text/javascript">
+Kakao.init('de38421943e35b2dda8a0ae71d64c89e'); //카카오 로그인 API 앱 키
+console.log(Kakao.isinitialized()); //sdk초기화여부판단
 
+//카카오로그인
+function kakaoLogin() {
+    Kakao.Auth.login({
+      success: function (response) {
+        Kakao.API.request({
+          url: '/v2/user/me',
+          success: function (response) {
+        	  console.log(response)
+          },
+          fail: function (error) {
+            console.log(error)
+          },
+        })
+      },
+      fail: function (error) {
+        console.log(error)
+      },
+    })
+  }
+
+</script> <!-- 카카오 로그인 API end -->
 
 
 <!-- 로그인 css -->
@@ -102,7 +128,20 @@ $(document).ready(function() {
 	font-weight: normal;
 }
 
+/* 카카오 로그인 버튼 */
+#btnKakao {
+	background: #ffffff;
+	font-size: 16px;
+	min-height: 50px;
+	border: 2px solid #fee500;
+	color: #6e6e6e;
+}
 
+#btnKakao:hover {	/* 카카오 로그인 버튼 hover */
+	background: #fee500;
+	outline: none;
+	color: #000000;
+}
 
 /* 로그인 밑 <hr>태그 or */
 .hr-or {
@@ -159,8 +198,8 @@ $(document).ready(function() {
 			<button type="submit" class="btn btn-block" id="btnLogin">로그인</button><br>
 			
   			<div class="hr-or">or</div><br>
-		
-
+  					
+			<button type="button" class="btn btn-block" id="btnKakao">카카오톡으로 로그인</button>
 		</form>
 	</div>
 </div>

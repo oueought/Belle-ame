@@ -13,7 +13,7 @@ public class CustomerServiceImpl implements CustomerService {
 	//DAO 객체
 	private CustomerDao customerDao = new CustomerDaoImpl();
 	
-	
+	//--- 로그인 ---
 	//전달 파라미터 가져오기
 	@Override
 	public Customer getLoginCustomer(HttpServletRequest req) {
@@ -39,14 +39,9 @@ public class CustomerServiceImpl implements CustomerService {
 		return false;
 	}
 	
-	//---
-	@Override
-	public Customer info(Customer customer) {
-		
-		return customerDao.selectCustomerByUserid(JDBCTemplate.getConnection(), customer);
-	}
 	
-	// 아이디 찾기
+	//--- 아이디 찾기 ---
+	//전달 파라미터 값 가져오기 
 	@Override
 	public Customer getFindIdCustomer(HttpServletRequest req) {
 		

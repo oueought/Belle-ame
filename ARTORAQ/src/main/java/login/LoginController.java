@@ -39,24 +39,17 @@ public class LoginController extends HttpServlet {
 		boolean isLogin = customerService.login(customer);	
 		
 		//로그인 인증 성공
-		//id를 이용해 유저 정보 가져오기
 		if( isLogin ) {
-			
-			//로그인 사용자 정보 조회
-			customer = customerService.info(customer);
 			
 			//세션 정보 객체
 			HttpSession session = req.getSession();
 			
 			session.setAttribute("login", isLogin);
-			session.setAttribute("customer_id", customer.getCustomer_id());
-			session.setAttribute("customer_phone", customer.getCustomer_phone());
 		}
 		
 		//로그인 성공시 메인페이지로 리다이렉트
 		resp.sendRedirect("/main");
 	}
 
-	
 
 }

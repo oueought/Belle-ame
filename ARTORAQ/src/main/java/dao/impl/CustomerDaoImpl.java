@@ -14,6 +14,7 @@ public class CustomerDaoImpl implements CustomerDao {
 	private PreparedStatement ps;
 	private ResultSet rs;
 	
+	//로그인
 	@Override
 	public int selectCntCustomerByUseridUserpw(Connection conn, Customer customer) {
 		
@@ -45,40 +46,8 @@ public class CustomerDaoImpl implements CustomerDao {
 		return cnt;
 	}
 	
-	//---
-	@Override
-	public Customer selectCustomerByUserid(Connection conn, Customer customer) {
-		
-		String sql = "";
-		sql += "SELECT customer_id, customer_pw, customer_phone FROM customer";
-		sql += " WHERE customer_id = ?";
-		
-		Customer res = null;
-		
-		try {
-			ps = conn.prepareStatement(sql);
-			ps.setString(1, customer.getCustomer_id());
-			
-			rs = ps.executeQuery();
-			
-			while(rs.next()) {
-				res = new Customer();
-				
-				res.setCustomer_id(rs.getString("customer_id"));
-				res.setCustomer_pw(rs.getString("customer_pw"));
-				res.setCustomer_phone(rs.getString("customer_phone"));
-			}
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			JDBCTemplate.close(rs);
-			JDBCTemplate.close(ps);
-		}
-		
-		return res;
-	}
-
+	
+	//아이디 찾기
 	@Override
 	public int selectCntCustomerByUsernameUserphone(Connection conn, Customer customer) {
 		
@@ -109,20 +78,19 @@ public class CustomerDaoImpl implements CustomerDao {
 		
 		return cnt;
 	}
-
+	
 	@Override
 	public Customer selectCustomerByUsername(Connection conn, Customer customer) {
 		
 		String sql = "";
-		sql += "SELECT customer_name, customer_phone FROM customer";
-		sql += " WHERE customer_id = ?";
+		sql += "SELECT customer_name, customer_phone, customer_id FROM customer";
+		sql += " WHERE customer_name = ?";
 		
 		Customer res = null;
 		
 		try {
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, customer.getCustomer_name());
-			ps.setString(2, customer.getCustomer_phone());
 			
 			rs = ps.executeQuery();
 			

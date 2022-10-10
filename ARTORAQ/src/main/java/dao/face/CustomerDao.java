@@ -16,15 +16,6 @@ public interface CustomerDao {
 	 */
 	public int selectCntCustomerByUseridUserpw(Connection conn, Customer customer);
 	
-	//----
-	/**
-	 * id를 이용해 회원정보 조회하기
-	 * 
-	 * @param conn - DB 연결객체
-	 * @param customer - 조회할 userid를 가진 객체
-	 * @return Customer - 조회된 회원정보
-	 */
-	public Customer selectCustomerByUserid(Connection conn, Customer customer);
 	
 	//아이디 찾기
 	/**
