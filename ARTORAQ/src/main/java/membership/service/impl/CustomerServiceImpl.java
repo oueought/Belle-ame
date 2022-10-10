@@ -21,8 +21,8 @@ public class CustomerServiceImpl implements CustomerService{
 			
 			Customer customer = new Customer();
 
-			customer.setCustomer_id( req.getParameter("customerid") );
-			customer.setCustomer_pw( req.getParameter("customerpw") );
+			customer.setCustomer_id( req.getParameter("customer_id") );
+			customer.setCustomer_pw( req.getParameter("customer_pw") );
 			
 			return customer;
 		}
@@ -31,7 +31,7 @@ public class CustomerServiceImpl implements CustomerService{
 		public boolean login(Customer customer) {
 
 			//로그인 인증 성공
-			if( customerDao.selectCntCustomerByCustomeridCustomerpw(JDBCTemplate.getConnection(), customer) > 0 ) {
+			if( customerDao.selectCntCustomerByCustomer_idCustomer_pw(JDBCTemplate.getConnection(), customer) > 0 ) {
 				return true;
 			}
 			
@@ -49,9 +49,12 @@ public class CustomerServiceImpl implements CustomerService{
 
 			Customer customer = new Customer();
 
-			customer.setCustomer_id( req.getParameter("customerid") );
-			customer.setCustomer_pw( req.getParameter("customerpw") );
-			customer.setCustomer_nickname( req.getParameter("customernickname") );
+			customer.setCustomer_id( req.getParameter("customer_id") );
+			customer.setCustomer_pw( req.getParameter("customer_pw") );
+			customer.setCustomer_nickname( req.getParameter("customer_nickname") );
+			customer.setCustomer_name( req.getParameter("customer_name"));
+			customer.setCustomer_phone( req.getParameter("customer_phone"));
+			customer.setCustomer_email( req.getParameter("customer_email"));
 			
 			return customer;
 

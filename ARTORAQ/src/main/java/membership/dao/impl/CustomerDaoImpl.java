@@ -5,52 +5,52 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import dto.Customer;
 import common.JDBCTemplate;
+import dto.Customer;
 import membership.dao.face.CustomerDao;
 
 public class CustomerDaoImpl implements CustomerDao {
-	
+
 	private PreparedStatement ps;
 	private ResultSet rs;
 	
-	@Override
-	public int selectCntCustomerByCustomer_idCustomer_pw(Connection conn, Customer customer) {
-		
-		String sql = "";
-		sql += "SELECT count(*) cnt FROM customer";
-		sql += " WHERE customer_id = ?";
-		sql += "	AND customer_pw = ?";
-		
-		int cnt = 0;
-		
-		try {
-			ps = conn.prepareStatement(sql);
-			ps.setString(1, customer.getCustomer_id());
-			ps.setString(2, customer.getCustomer_pw());
-			
-			rs = ps.executeQuery();
-			
-			while(rs.next()) {
-				cnt = rs.getInt("cnt");
-			}
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			JDBCTemplate.close(rs);
-			JDBCTemplate.close(ps);
-		}
-				
-		return cnt;
-	}
+//	@Override
+//	public int selectCntCustomerByUseridUserpw(Connection conn, Customer customer) {
+//		
+//		String sql = "";
+//		sql += "SELECT count(*) cnt FROM customer";
+//		sql += " WHERE customer_id = ?";
+//		sql += "	AND customer_pw = ?";
+//		
+//		int cnt = 0;
+//		
+//		try {
+//			ps = conn.prepareStatement(sql);
+//			ps.setString(1, customer.getCustomer_id());
+//			ps.setString(2, customer.getCustomer_pw());
+//			
+//			rs = ps.executeQuery();
+//			
+//			while(rs.next()) {
+//				cnt = rs.getInt("cnt");
+//			}
+//			
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		} finally {
+//			JDBCTemplate.close(rs);
+//			JDBCTemplate.close(ps);
+//		}
+//				
+//		return cnt;
+//	}
 	
 	@Override
-	public Customer selectCustomerByCustomer_id1(Connection conn, Customer customer) {
+	public Customer selectCustomerByUserid(Connection conn, Customer customer) {
 
 		String sql = "";
-		sql += "SELECT customerid, customerpw, customernickname FROM customer";
-		sql += " WHERE customerid = ?";
+		sql += "SELECT customer_id, customer_pw, customer_nickname, customer_name, customer_phone FROM customer";
+		sql += " WHERE customer_id = ?";
 		
 		Customer result = null;
 		
@@ -63,9 +63,12 @@ public class CustomerDaoImpl implements CustomerDao {
 			while(rs.next()) {
 				result = new Customer();
 				
-				result.setCustomer_id( rs.getString("customerid") );
-				result.setCustomer_pw( rs.getString("customerpw") );
-				result.setCustomer_nickname( rs.getString("customernickname") );
+				result.setCustomer_id(result.getCustomer_id());
+				result.setCustomer_pw(result.getCustomer_pw());
+				result.setCustomer_nickname(result.getCustomer_nickname());
+				result.setCustomer_name(result.getCustomer_name());
+				result.setCustomer_phone(result.getCustomer_phone());
+				result.setCustomer_email(result.getCustomer_email());
 			}
 			
 		} catch (SQLException e) {
@@ -80,11 +83,11 @@ public class CustomerDaoImpl implements CustomerDao {
 	}
 	
 	@Override
-	public int insert1(Connection conn, Customer customer) {
+	public int insert(Connection conn, Customer customer) {
 		
 		String sql = "";
-		sql += "INSERT INTO customer ( customerid, customerpw, customernickname )";
-		sql += " VALUES ( ?, ?, ? )";
+		sql += "INSERT INTO customer ( customer_id, customer_pw, customer_nickname, customer_name, customer_phone, customer_email )";
+		sql += " VALUES ( ?, ?, ?, ?, ?, ? )";
 		
 		int res = 0;
 		
@@ -94,6 +97,9 @@ public class CustomerDaoImpl implements CustomerDao {
 			ps.setString(1, customer.getCustomer_id());
 			ps.setString(2, customer.getCustomer_pw());
 			ps.setString(3, customer.getCustomer_nickname());
+			ps.setString(4, customer.getCustomer_name());
+			ps.setString(5, customer.getCustomer_phone());
+			ps.setString(6, customer.getCustomer_email());
 			
 			res = ps.executeUpdate();
 			
@@ -107,19 +113,7 @@ public class CustomerDaoImpl implements CustomerDao {
 	}
 
 	@Override
-	public int selectCntCustomerByCustomeridCustomerpw(Connection conn, Customer customer) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public Customer selectCustomerrByCustomerid(Connection conn, Customer customer) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int insert(Connection conn, Customer customer) {
+	public int selectCntCustomerByCustomer_idCustomer_pw(Connection conn, Customer customer) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
@@ -129,84 +123,13 @@ public class CustomerDaoImpl implements CustomerDao {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public int selectCntCustomerByUseridUserpw(Connection conn, Customer customer) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
 	
-//	//회원가입메서드
-//		private void insertCustomer(Connection conn, Customer customer) {
-//			try {
-//				conn = (Connection) getCon();
-//				String sql = "";
-//				sql = "insert into fun_member values (?,?,?,?,?, "
-//						+"?,?,?,?)";
-//				ps = conn.prepareStatement(sql);
-//				ps.setString(1, customer.getCustomer_id());
-//				ps.setString(2, customer.getCustomer_pw());
-//				ps.setString(3, customer.getCustomer_name());
-//				ps.setString(4, customer.getCustomer_email());
-//				ps.setString(5, customer.getCustomer_nickname());
-//				ps.setString(6, customer.getCustomer_phone());
-//	
-//				
-//				ps.executeUpdate();
-//				System.out.println("회원가입성공");
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//			} finally {
-//				closeDB();
-//			}
-//		}//insertMember메서드닫음
-//		
-//		private void closeDB() {
-//			// TODO Auto-generated method stub
-//			
-//		}
-//
-//		private Object getCon() {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-
-		//아이디중복체크 메서드
-		public int joinIdCheck(String id){
-			int result = -1;
-			try {
-				//1. DB연결
-				Connection conn = (Connection) getConn();
-				//2. sql 구문 & ps생성
-				String sql = "";
-				sql = "select id from fun_member where id=?";
-				ps = conn.prepareStatement(sql);
-				ps.setString(1, id);
-
-				//3. 실행 -> select -> rs저장
-				rs = ps.executeQuery();
-
-				//4. 데이터처리
-
-				if(rs.next()){	
-					result = 0;
-				}else{
-					result = 1;
-				}
-
-				System.out.println("아이디 중복체크결과 : "+result);
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} finally {
-				closeDB();
-			}
-			return result;
-		}//joinIdCheck 메서드닫음
-
-		private Connection getConn() {
-			// TODO Auto-generated method stub
-			return null;
-		}
-
-		private void closeDB() {
-			// TODO Auto-generated method stub
-			
-		}
-
-
 }

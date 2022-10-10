@@ -1,51 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
 
 
 <%@ include file="../layout/header.jsp"%>
 
 <script type="text/javascript">
 
-//회원가입 버튼
-$(document).ready(function() {
-
-$("#join").click(function() {
-// 	$(this).parents("form").submit();
-	$(".form-horizontal").attr("action", "/login"); 
-	$(".form-horizontal").submit();
-})
-
-
 //취소 버튼
 $("#cancel").click(function() {
 //		history.go(-1) //뒤로가기
 	$(location).attr('href', '/main') //메인으로 가기
 
-
 	})
 })
 
-//아이디 중복 체크
 
-function check(){ 
-	//아이디가 입력이 안되어있을 경우 아이디입력하라는 메세지 출력
-	if(document.fr.userid.value == "" || document.fr.userid.value.length < 0){ 
-		alert("아이디를 입력해주세요")
-		history.back()
-		document.fr.userid.focus();
-		return false;
-	}
-				
-function winopen(){
-
-	if(document.fr.userid.value =="" || document.fr.userid.value.length < 0){
-		alert("아이디를 입력해주세요")
-		document.fr.userid.focus();
-	}else{
-			
-		window.open("joinIdCheck.jsp?coustomerid="+document.fr.userid.value,"","width=500, height=300");
-	}
-}
 </script>
 
 
@@ -60,12 +34,12 @@ function winopen(){
 }
 
 .form-control {
-	width: 40%;
+	width: 60%;
 	display: inline;
 }
 
 .form {
-	padding-left: 400px;
+	padding-left: 200px;
 }
 
 .label {
@@ -136,29 +110,28 @@ function winopen(){
 </style>
 
 <body>
-
+<div class="container">
       <h3 style="text-align: center; font-weight: bold;">회원가입</h3>
-		<hr class="line"><br><br><br>
+		<hr class="line"><br><br>
 
-		<form action="/join" method="post" class="form-horizontal" name="fr" onsubmit="return check();">
+		<form action="/join" method="post" accept-charset="utf-8">
 
 			<div class="form">
 				<div class="form-group">
 					<div class="button-wrap">
 						<label for="userid" class="col-xs-2 control-label">아이디</label>
 						<div class="col-xs-10">
-							<input type="text" id="userid" name="userid" class="form-control" placeholder="5~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 사용 가능" required>
+							<input type="text" id="customer_id" name="customer_id" class="form-control" placeholder="5~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 사용 가능" required>
 							<button class="w-btn-outline w-btn-gray-outline btn-sm btnsmall" type="button">
 								중복확인</button>
 						</div>
 					</div>
 				</div>
-				<br>
 
 				<div class="form-group">
 					<label for="userpw" class="col-xs-2 control-label">비밀번호</label>
 					<div class="col-xs-10">
-						<input type="password" id="userpw" name="userpw" class="form-control" placeholder="8~16자 영문 대 소문자, 숫자, 특수문자 사용가능" required>
+						<input type="password" id="customer_pw" name="customer_pw" class="form-control" placeholder="8~16자 영문 대 소문자, 숫자, 특수문자 사용가능" required><br><br>
 					</div>
 				</div>
 				<br>
@@ -167,7 +140,7 @@ function winopen(){
 					<label for="userpwchk" class="col-xs-2 control-label">비밀번호
 						확인</label>
 					<div class="col-xs-10">
-						<input type="password" id="userpwchk" name="userpwchk" class="form-control" required>
+						<input type="password" id="customer_pwchk" name="customer_pwchk" class="form-control" required><br><br>
 					</div>
 				</div>
 				<br>
@@ -175,7 +148,7 @@ function winopen(){
 				<div class="form-group">
 					<label for="username" class="col-xs-2 control-label">이름</label>
 					<div class="col-xs-10">
-						<input type="text" id="username" name="username" class="form-control" required>
+						<input type="text" id="customer_name" name="customer_name" class="form-control" required><br><br>
 					</div>
 				</div>
 				<br>
@@ -183,8 +156,8 @@ function winopen(){
 				<div class="form-group">
 					<label for="usernick" class="col-xs-2 control-label">닉네임</label>
 					<div class="col-xs-10">
-						<input type="text" id="usernick" name="usernick"
-							class="form-control">
+						<input type="text" id="customer_nickname" name="customer_nickname"
+							class="form-control"><br><br>
 					</div>
 				</div>
 				<br>
@@ -193,9 +166,9 @@ function winopen(){
 					<div class="button-wrap">
 						<label for="userphon" class="col-xs-2 control-label">휴대전화</label>
 						<div class="col-xs-10">
-							<input type="tel" id="userphon" name="userphon" class="form-control" placeholder="전화번호 입력" required>
+							<input type="tel" id="customer_phone" name="customer_phone" class="form-control" placeholder="전화번호 입력" required>
 							<button class="w-btn-outline w-btn-gray-outline btn-sm btnsmall" type="button">
-								인증번호 받기</button>
+								인증번호 받기</button><br>
 						</div>
 					</div>
 				</div>
@@ -205,9 +178,9 @@ function winopen(){
 
 						<label for="chknum" class="col-xs-2 control-label"></label>
 						<div class="col-xs-10">
-							<input type="text" id="chknum" name="chknum" class="form-control" placeholder="인증번호를 입력하세요." required>
+							<input type="text" id="customer_chknum" name="customer_chknum" class="form-control" placeholder="인증번호를 입력하세요." required>
 							<button class="w-btn-outline w-btn-gray-outline btn-sm btnsmall" type="button">
-								확인</button>
+								확인</button><br>
 							</div>	
 						</div>
 					</div>
@@ -215,26 +188,20 @@ function winopen(){
 					<div class="form-group">
 						<label for="useremail" class="col-xs-2 control-label">이메일</label>
 						<div class="col-xs-10">
-							<input type="email" id="useremail" name="usermail"
-								class="form-control">
+							<input type="email" id="customer_email" name="customer_email"
+								class="form-control"><br>
 						</div>
 					</div>
 				</div>
-		</form>
-		
-		<!-- 아이디중복체크 -->
-		<script type="text/javascript">
-		
-		</script>
-
-
 		<br><br><br><br>
 			<div class="button">
-			<button type="button" class="btn btn-block" id="join">회원가입</button><br>
+			<button type="submit" class="btn btn-block" id="join">회원가입</button><br>
 			</div>
 			<div class="button">
 			<button type="button" class="btn btn-block" id="cancel">취소</button>
 			</div><br><br><br>
+		</form>
+</div>
 			
 </body>
 

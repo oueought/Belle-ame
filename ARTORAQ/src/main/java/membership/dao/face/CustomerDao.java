@@ -34,13 +34,10 @@ public interface CustomerDao {
 	 */
 	public int insert(Connection conn, Customer customer);
 
-	Customer selectCustomerByCustomer_id1(Connection conn, Customer customer);
+	int selectCntCustomerByUseridUserpw(Connection conn, Customer customer);
 
-	int insert1(Connection conn, Customer customer);
+	Customer selectCustomerByUserid(Connection conn, Customer customer);
 
-	int selectCntCustomerByCustomeridCustomerpw(Connection conn, Customer customer);
-
-	Customer selectCustomerrByCustomerid(Connection conn, Customer customer);
 
 	
 }

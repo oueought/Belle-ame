@@ -24,20 +24,25 @@ public class JoinController extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		req.getRequestDispatcher("/WEB-INF/views/membershipJoin.jsp").forward(req, resp);
-
+		
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+	
+		req.setCharacterEncoding("UTF-8");
+		
 		//회원가입 전달파라미터 추출하기
 		Customer customer = customerService.getJoinCustomer(req);
+		
 
 		//회원가입 처리
 		customerService.join(customer);
+		
 
 		//메인으로 리다이렉트
-		resp.sendRedirect("/main");
+		resp.sendRedirect("/login");
+		
 
 
 
