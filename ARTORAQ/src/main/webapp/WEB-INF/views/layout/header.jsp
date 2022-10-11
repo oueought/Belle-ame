@@ -7,7 +7,6 @@
 <meta charset="UTF-8">
 <title>상단바</title>
 
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 
 <!-- 부트스트랩 3 -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -90,22 +89,6 @@ body {
   margin: 0;
 }
 
-.default {
-        position : absolute;
-        width: 175px;
-        top: 0px;
-        right : 10px;
-        z-index: 100;
-      }
-      
-.default a{
-        text-decoration: none;
-        color: black;
-        font-size:12px;
-        font-weight: bolder;  
-  }
-
-
 
 
 </style>
@@ -127,12 +110,6 @@ body {
      <img src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
    </div>
 </div>
-
-   <div class="default">
-         <a href="#">로그인 |</a>
-         <a href="#">회원가입 |</a>
-         <a href="#">마이페이지</a>
-   </div>
 
 </body>
 </html>
