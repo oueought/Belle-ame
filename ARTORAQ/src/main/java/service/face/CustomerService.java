@@ -47,8 +47,32 @@ public interface CustomerService {
 	 * @param customer - 조회할 회원 이름을 가진 객체
 	 * @return Customer - 조회된 회원 정보(name, phone, id)
 	 */
-	public Customer info(Customer customer);
-
+	public Customer Idinfo(Customer customer);
+	
+	//--- 비밀번호 찾기 ---
+	/**
+	 * 아이디찾기 정보 추출하기
+	 * 
+	 * @param req - 요청 정보 객체
+	 * @return Customer - 비밀번호찾기 정보
+	 */
+	public Customer getFindPwCustomer(HttpServletRequest req);
+	
+	/**
+	 * 인증 처리
+	 * 
+	 * @param customer - 정보(id, phone)
+	 * @return boolean - true: 성공, false: 실패
+	 */
+	public boolean findPw(Customer customer);
+	
+	/**
+	 * 유저 정보 가져오기
+	 * 
+	 * @param customer - 조회할 회원 아이디를 가진 객체
+	 * @return Customer - 조회된 회원 정보(id, phone, pw)
+	 */
+	public Customer Pwinfo(Customer customer);
 	
 
 }

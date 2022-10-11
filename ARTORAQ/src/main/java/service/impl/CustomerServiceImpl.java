@@ -64,10 +64,40 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 	
 	@Override
-	public Customer info(Customer customer) {
+	public Customer Idinfo(Customer customer) {
 		return customerDao.selectCustomerByUsername(JDBCTemplate.getConnection(), customer);
 	}
 	
+	//--- 비밀번호 찾기 ---
+	//전달 파라미터 가져오기
+	@Override
+	public Customer getFindPwCustomer(HttpServletRequest req) {
+		
+		Customer customer = new Customer();
+		
+		customer.setCustomer_id(req.getParameter("customer_id"));
+		customer.setCustomer_phone(req.getParameter("customer_phone"));
+		
+		return customer;
+	}
+
+	@Override
+	public boolean findPw(Customer customer) {
+		
+		//인증 성공
+		if( customerDao.selectCntCustomerByUseridUserphone(JDBCTemplate.getConnection(), customer) > 0 ) {
+			return true;
+		}
+		//인증 실패
+		return false;
+		
+	}
+
+	@Override
+	public Customer Pwinfo(Customer customer) {
+		return customerDao.selectCustomerByUserid(JDBCTemplate.getConnection(), customer);
+	}
+
 
 
 }

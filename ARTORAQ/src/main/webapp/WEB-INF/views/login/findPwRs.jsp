@@ -12,6 +12,11 @@ $(document).ready(function() {
 	$("#btnLogin").click(function() {
 		$(location).attr('href', '/login') //로그인 url 이동
 	})
+	
+	$("#btnFindPw").click(function() {
+		$(location).attr('href', '/login/findpw') //비밀번호 찾기 url 이동
+	})
+	
 })
 
 </script>
@@ -60,7 +65,7 @@ p {
 	outline: none;
 }
 
-#btnLogin { 
+#btnLogin, #btnFindPw { 
   	background-color: #ffffff;
  	font-size: 16px; 
  	min-height: 50px;
@@ -68,7 +73,7 @@ p {
 	color: #6e6e6e;
  } 
 
-#btnLogin:hover {
+#btnLogin:hover, #btnFindPw:hover {
   	background: #6aafe6;  /* 버튼 hover 색상 */ 
 	outline: none;
 	color: white;
@@ -81,28 +86,39 @@ p {
 
 </style>
 
-<!-- 비밀번호 재설정 -->
+<!-- 비밀번호 찾기 -->
 <div class="findPwRs-form">
-	<h3 style="text-align: center;">비밀번호 재설정</h3><hr>
+	<h3 style="text-align: center;">비밀번호 찾기</h3><hr>
+
 	
 	<form action="/login/findpw" method="post">
-        <div>
-        	<p>임시 비밀번호가 고객님의 휴대폰 번호로 전송되었습니다.</p>
-       		<p>로그인 후 마이페이지 -> 회원정보수정에서 변경해주세요.</p><br><br>
-		</div>
+
+		<!-- 등록된 회원 정보가 없을 경우 -->
+		<% if(session.getAttribute("findPw") == null ) { %>
+		<p style="text-align:center;">등록된 회원 정보가 없습니다</p>
+		<p style="text-align:center;">아이디와 휴대폰 번호를 다시 확인해주세요.</p><br>
 		
+		<button type="button" class="btn btn-block" id="btnFindPw">비밀번호 찾기</button>
+		<% } %>
+
+
+		<!-- 등록된 회원 정보가 있을 경우 아이디/비밀번호 보여주기 -->
+		<% if(session.getAttribute("findPw") != null && (boolean) session.getAttribute("findPw") ) { %>
 		<div class="form-group">
-			<label for="userid">아이디</label>
-			<% %>
+			<label for="customer_id">아이디</label>
+			<div class="pull-right">
+				<%=session.getAttribute("customer_id") %>
+			</div>
 		</div><br>
 		
 		<div class="form-group">
-			<label for="userph">휴대폰 번호</label>
-			<% %>
+			<label for="customer_pw">비밀번호</label>
+			<div class="pull-right">
+				<%=session.getAttribute("customer_pw") %>
+			</div>
 		</div><br>
-		
 		<button type="button" class="btn btn-block" id="btnLogin">로그인</button>
-		
+		<% } %>
 	</form>
 </div>
 

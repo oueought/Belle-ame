@@ -15,6 +15,15 @@ $(document).ready(function() {
 	$("#btnFindPw").click(function() {
 		$(location).attr('href', '/login/findpw') //비밀번호 찾기 url 이동
 	})
+	
+	$("#btnFindId").click(function() {
+		$(location).attr('href', '/login/findid') //아이디 찾기 url 이동
+	})
+	
+	$("#btnJoin").click(function() {
+		$(location).attr('href', '/join') //회원가입 url 이동
+	})
+	
 })
 
 </script>
@@ -66,25 +75,25 @@ $(document).ready(function() {
  	min-height: 50px;
 }
 
-#btnLogin { 
+#btnLogin, #btnFindId { 
 	min-height: 50px;
 	border: 2px solid #6aafe6;
 	color: #6e6e6e;
 }
 
-#btnFindPw {
+#btnFindPw, #btnJoin {
  	min-height: 50px;
 	border: 2px solid #a3a1a1;
 	color: #6e6e6e;
 }
 
-#btnLogin:hover {
+#btnLogin:hover, #btnFindId:hover {
   	background: #6aafe6;  /* 버튼 hover 색상 */ 
 	outline: none;
 	color: white;
 }
 
-#btnFindPw:hover {
+#btnFindPw:hover, #btnJoin:hover {
   	background: #a3a1a1; 
 	outline: none;
 	color: white;
@@ -99,8 +108,18 @@ $(document).ready(function() {
 
 <div class="findIdRs-form">
 	<h3 style="text-align: center;">아이디 찾기</h3><hr>
-
 	<form>
+
+	<!-- 등록된 회원 정보가 없을 경우 -->
+	<% if(session.getAttribute("findId") == null ) { %>
+	<p style="text-align:center;">등록된 회원 정보가 없습니다</p><br>
+	
+	<button type="button" class="btn btn-block" id="btnFindId">아이디 찾기</button>
+	<button type="button" class="btn btn-block" id="btnJoin">회원가입</button>
+	<% } %>
+
+	<!-- 등록된 회원 정보가 있을 경우 이름/아이디 보여주기 -->
+	<% if(session.getAttribute("findId") != null && (boolean) session.getAttribute("findId") ) { %>
 		<div class="form-group">
 			<label for="customer_name">이름</label>
 			<div class="pull-right">
@@ -109,7 +128,7 @@ $(document).ready(function() {
 		</div><br>
 		
 		<div class="form-group">
-			<label for="customer_phone">회원 아이디</label>
+			<label for="customer_id">아이디</label>
 			<div class="pull-right">
 				<%=session.getAttribute("customer_id") %>
 			</div>
@@ -117,6 +136,7 @@ $(document).ready(function() {
 		
 		<button type="button" class="btn btn-block" id="btnLogin">로그인</button>
 		<button type="button" class="btn btn-block" id="btnFindPw">비밀번호 찾기</button>
+	<% } %>
 	</form>
 </div>
 

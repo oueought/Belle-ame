@@ -88,28 +88,22 @@ p {
 
 </style>
 
-<!-- 비밀번호 재설정 -->
+<!-- 비밀번호 찾기 -->
 <div class="findPw-form">
-	<h3 style="text-align: center;">비밀번호 재설정</h3><hr>
+	<h3 style="text-align: center;">비밀번호 찾기</h3><hr>
 	
 	<form action="/login/findpw" method="post">
-        <div>
-        	<p>등록하신 회원 아이디와</p>
-       		<p>인증번호를 받으실 휴대폰 번호를 입력해주세요.</p><br><br>
+		<div class="form-group">
+			<label for="customer_id">아이디</label>
+			<input type="text" class="form-control" id="customer_id" name="customer_id" required>
 		</div>
 		
 		<div class="form-group">
-			<label for="userid">아이디</label>
-			<input type="text" class="form-control" id="userid" required>
-		</div>
-		
-		<div class="form-group">
-			<label for="userph">휴대폰 번호</label>
-			<input type="text" class="form-control" id="userph" required>
+			<label for="customer_phone">휴대폰 번호</label>
+			<input type="text" class="form-control" id="customer_phone" name="customer_phone" required>
 		</div>
 		
 		<button type="submit" class="btn btn-block" id="btnFindPw">확인</button>
-		
 	</form>
 </div>
 

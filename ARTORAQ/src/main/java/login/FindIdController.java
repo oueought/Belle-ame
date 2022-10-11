@@ -39,7 +39,7 @@ public class FindIdController extends HttpServlet {
 		if(isFindId) {
 			
 			//사용자 정보 조회
-			customer = customerService.info(customer);
+			customer = customerService.Idinfo(customer);
 			
 			//세션정보 객체
 			HttpSession session = req.getSession();
@@ -54,6 +54,8 @@ public class FindIdController extends HttpServlet {
 		//아이디 찾기 결과화면으로 이동
 		req.getRequestDispatcher("/WEB-INF/views/login/findIdRs.jsp").forward(req, resp);
 		
+		//세션 정보 삭제
+		req.getSession().invalidate();
 	}
 
 }
