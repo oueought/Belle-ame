@@ -17,7 +17,7 @@ function buildCalendar(){
   	cell = row.insertCell();
   	cnt += 1;
   }
-
+		
   row = calendarTable.insertRow();
 
   for(i = 1; i <= lastDate.getDate(); i++){

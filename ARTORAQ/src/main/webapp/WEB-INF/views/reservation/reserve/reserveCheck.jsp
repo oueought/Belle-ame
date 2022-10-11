@@ -8,5 +8,15 @@
 </head>
 <body>
 
+<form action="/reserveCheck.do" method="post">
+
+<div>
+
+	<a href="#" id="totalcost"></a>
+
+</div>
+
+</form>
+
 </body>
 </html>
