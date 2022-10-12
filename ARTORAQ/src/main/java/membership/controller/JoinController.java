@@ -40,7 +40,7 @@ public class JoinController extends HttpServlet {
 		customerService.join(customer);
 		
 
-		//메인으로 리다이렉트
+		//로그인으로 리다이렉트
 		resp.sendRedirect("/login");
 		
 

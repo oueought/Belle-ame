@@ -11,6 +11,7 @@
 // 		$(location).attr('href', '/join') //회원정보 수정 url 이동
 // 	})
 // })
+  
 
 </script>
 
@@ -97,7 +98,7 @@
 <div class="psw-check">
 	<div class="form-group">
 	<p style="font-size: 13px; font-weight: bold;">보안을 위해 비밀번호를 재확인합니다.</p>
-	<input type="password" id="passwordchk" name="passwordchk" class="form-control" required><br><br><br>
+	<input type="password" id="customer_pw" name="customer_pw" class="form-control" required><br><br><br>
 	<button class="w-btn-outline w-btn-gray-outline button" type="button" id="identify">확인</button>
 </div>
 	</div><br>

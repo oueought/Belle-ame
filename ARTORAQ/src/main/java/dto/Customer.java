@@ -8,6 +8,7 @@ public class Customer {
 	private String customer_nickname;
 	private String customer_phone;
 	private String customer_email;
+	private String customer_birth;
 	
 	public Customer() {}
 
@@ -15,11 +16,11 @@ public class Customer {
 	public String toString() {
 		return "Join_customer [customer_id=" + customer_id + ", customer_pw=" + customer_pw + ", customer_name="
 				+ customer_name + ", customer_nickname=" + customer_nickname + ", customer_phone=" + customer_phone
-				+ ", customer_email=" + customer_email + "]";
+				+ ", customer_email=" + customer_email + ", customer_birth=" + customer_birth + "]";
 	}
 
 	public Customer(String customer_id, String customer_pw, String customer_name, String customer_nickname,
-			String customer_phone, String customer_email) {
+			String customer_phone, String customer_email, String customer_birth) {
 		super();
 		this.customer_id = customer_id;
 		this.customer_pw = customer_pw;
@@ -27,6 +28,7 @@ public class Customer {
 		this.customer_nickname = customer_nickname;
 		this.customer_phone = customer_phone;
 		this.customer_email = customer_email;
+		this.customer_birth = customer_birth;
 	}
 
 	public String getCustomer_id() {
@@ -72,9 +74,17 @@ public class Customer {
 	public String getCustomer_email() {
 		return customer_email;
 	}
-
+	
 	public void setCustomer_email(String customer_email) {
 		this.customer_email = customer_email;
+	}
+	
+	public String getCustomer_birth() {
+		return customer_birth;
+	}
+
+	public void setCustomer_birth(String customer_birth) {
+		this.customer_birth = customer_birth;
 	}
 	
 	

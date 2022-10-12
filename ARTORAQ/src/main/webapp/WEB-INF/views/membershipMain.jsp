@@ -89,11 +89,14 @@ $(document).ready(function() {
     <script>
         window.Kakao.init('f0ecbc1d9d75323d4f82f073f14941c7');
 
+        
         function kakaoLogin() {
             window.Kakao.Auth.login({
-                scope: 'profile, account_email, gender, age_range, birthday', //동의항목 페이지에 있는 개인정보 보호 테이블의 활성화된 ID값을 넣습니다.
+//                 scope: 'profile, account_email, gender, age_range, birthday', //동의항목 페이지에 있는 개인정보 보호 테이블의 활성화된 ID값을 넣습니다.
+                scope: 'profile_image, account_email, gender, age_range, birthday', //동의항목 페이지에 있는 개인정보 보호 테이블의 활성화된 ID값을 넣습니다.
                 success: function(response) {
                     console.log(response) // 로그인 성공하면 받아오는 데이터
+                    
                     window.Kakao.API.request({ // 사용자 정보 가져오기 
                         url: '/v2/user/me',
                         success: (res) => {

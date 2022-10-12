@@ -11,6 +11,7 @@
 // 		$(location).attr('href', '/') //메인페이지 이동
 // 	})
 // })
+ 
 
 </script>
 
@@ -69,10 +70,13 @@
 
 <body>
 
-		<h3 style="text-align: center; font-weight: bold;">회원탈퇴</h3>
+	<h3 style="text-align: center; font-weight: bold;">회원탈퇴</h3>
 	<hr class="line">
 	<br><br><br>
 
+ <form name="memberWithdrawal" method="post" action="editInformationMain.jsp?contentPage=/DeletePro.jsp"
+		onsubmit="return checkValue()">
+		
 	<div class="message">
 	<div class="text">
 	탈퇴시 회원님의 모든 정보가 삭제되며, 이후 복구가 불가능합니다.<br><br>
@@ -81,12 +85,12 @@
 	탈퇴하시겠습니까?<br><br>
 	</div>
 	</div><br>
-	
+	</form>
 	<div class="button">
 			<button type="submit" class="btn btn-block" id="withdrawing">탈퇴하기</button><br>
 			</div>
 			<div class="button">
-			<button type="submit" class="btn btn-block" id="cancel">취소</button>
+			<button type="submit" class="btn btn-block" id="cancel" onclick="javascript:window.location='editinformation'">취소</button>
 			</div><br><br><br>
 
 </body>

@@ -1,6 +1,7 @@
+<%@page import="dto.Customer"%>
+<%@page import="membership.dao.face.CustomerDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
 
 <%@ include file="../layout/header.jsp"%>
 
@@ -13,11 +14,13 @@
 // 	})
 // })
 
-// $(document).ready(function() {
-// 	$("#cancel").click(function() {	//취소버튼 클릭시
-// 		$(location).attr('href', '') //메인 이동링크
-// 	})
-// })
+//취소 버튼
+$("#cancel").click(function() {
+//		history.go(-1) //뒤로가기
+	$(location).attr('href', '/main') //메인으로 가기
+	})
+})
+
 
 </script>
 
@@ -112,32 +115,32 @@
       <h3 style="text-align: center; font-weight: bold;">회원정보 수정</h3>
 		<hr class="line"><br><br>
 
-		<form action="/join" method="post" class="form-horizontal">
+		<form action="/editinformation" method="post" class="form-horizontal">
 
 			<div class="form">
 				<div class="form-group">
 					<div class="button-wrap">
 			
-					<label for="userpw" class="col-xs-2 control-label">비밀번호</label>
+					<label for="customer_pw" class="col-xs-2 control-label">비밀번호</label>
 					<div class="col-xs-10">
-						<input type="password" id="userpw" name="userpw" class="form-control" required>
+						<input type="password" id="customer_pw" name="customer_pw" class="form-control" placeholder="8~16자 영문 대 소문자, 숫자, 특수문자 사용가능" required>
 					</div>
 				</div>
 				<br><br>
 
 				<div class="form-group">
-					<label for="userpwchk" class="col-xs-2 control-label">비밀번호
+					<label for="custsomer_pwchk" class="col-xs-2 control-label">비밀번호
 						확인</label>
 					<div class="col-xs-10">
-						<input type="password" id="userpwchk" name="userpwchk" class="form-control" required>
+						<input type="password" id="custsomer_pwchk" name="custsomer_pwchk" class="form-control" required>
 					</div>
 				</div>
 				<br>
 
 				<div class="form-group">
-					<label for="usernick" class="col-xs-2 control-label">닉네임</label>
+					<label for="customer_nickname" class="col-xs-2 control-label">닉네임</label>
 					<div class="col-xs-10">
-						<input type="text" id="usernick" name="usernick"
+						<input type="text" id="customer_nickname" name="customer_nickname"
 							class="form-control">
 					</div>
 				</div>
@@ -145,9 +148,9 @@
 
 				<div class="form-group">
 					<div class="button-wrap">
-						<label for="userphon" class="col-xs-2 control-label">휴대전화</label>
+						<label for="customer_phone" class="col-xs-2 control-label">휴대전화</label>
 						<div class="col-xs-10">
-							<input type="tel" id="userphon" name="userphon" class="form-control" required>
+							<input type="tel" id="customer_phone" name="customer_phone" class="form-control" placeholder="전화번호 입력" required>
 							<button class="w-btn-outline w-btn-gray-outline btn-sm btnsmall" type="button">
 								인증번호 받기</button>
 						</div>
@@ -158,9 +161,9 @@
 				<div class="form-group">
 					<div class="button-wrap">
 
-						<label for="chknum" class="col-xs-2 control-label"></label>
+						<label for="customer_chknum" class="col-xs-2 control-label"></label>
 						<div class="col-xs-10">
-							<input type="text" id="chknum" name="chknum" class="form-control" required>
+							<input type="text" id="custsomer_chknum" name="custsomer_chknum" class="form-control" placeholder="인증번호를 입력하세요." required>
 							<button class="w-btn-outline w-btn-gray-outline btn-sm btnsmall" type="button">
 								확인</button>
 							</div>	
@@ -169,23 +172,23 @@
 					<br>
 
 					<div class="form-group">
-						<label for="useremail" class="col-xs-2 control-label">이메일</label>
+						<label for="custsomer_email" class="col-xs-2 control-label">이메일</label>
 						<div class="col-xs-10">
-							<input type="email" id="useremail" name="usermail"
+							<input type="email" id="customer_email" name="customer_email"
 								class="form-control"><br><br><br>
-					<a style="font-weight: bold; font-size:13pt; text-decoration: underline;" href="">회원탈퇴</a>			
+					<a href="/withdrawal" style="font-weight: bold; font-size:13pt; text-decoration: underline;">회원탈퇴</a>			
 						</div>
 					</div>
 				</div>
-			</div>
-		</form>
-		<br>
+			</div>		
 			<div class="button">
-			<button type="button" class="btn btn-block" id="save">저장</button><br>
+			<button type="submit" class="btn btn-block" id="save">저장</button><br>
 			</div>
 			<div class="button">
 			<button type="button" class="btn btn-block" id="cancel">취소</button>
 			</div><br><br><br>
+		</form>
+		<br>
 			
 
 
