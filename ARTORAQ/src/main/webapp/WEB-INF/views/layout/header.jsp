@@ -185,11 +185,13 @@ body {
    </a>
    </div>
    
-   
+   <form action="/result/board" method="post">
    <div class="search">
-     <input class="searchinput" type="text" placeholder="전시회 검색">
-     <img src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
+     <input class="searchinput" type="text" name="search" placeholder="전시회 검색">
+     <button type="submit" ><img src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png"></button>
 	</div>
+	</form>
+	
 </div>
 
 	<div class="default">

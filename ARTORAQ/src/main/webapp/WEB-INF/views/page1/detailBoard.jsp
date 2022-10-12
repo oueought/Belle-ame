@@ -9,7 +9,7 @@
         <title>살바도르 달리전</title>
         
 
-
+<script type="text/javascript" src="<%=request.getContextPath() %>/resources/se2/js/httpRequest.js"></script>
 
         <style>
             /* 상단 이미지박스  */

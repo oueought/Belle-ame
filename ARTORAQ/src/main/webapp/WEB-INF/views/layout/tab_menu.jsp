@@ -240,7 +240,7 @@
            
         </div>
         <div class="tab-content">
-        	<p class="result"></p>
+	       	<p class="result"></p>
             
         </div>
    </div>
@@ -272,7 +272,8 @@ document.cookie = "crossCookie=bar; SameSite=None; Secure";
 		                async : true,
 		                type : "GET",
 		                dataType : "html",
-		                cache : false
+		                cache : false,
+						async : false
 			        };
 			        
 		        $.ajax(ajaxOption).done(function(data){

@@ -65,7 +65,7 @@
 	<h3>게시글 작성</h3>
 	<hr>
 	
-	<form action="/write" method="post" enctype="multipart/form-data">
+	<form action="/write" method="post">
 	
 	<div>
 	<table class="table table-bordered board"  >

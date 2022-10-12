@@ -1,9 +1,9 @@
-<%@page import="dto.ReviewComment"%>
+<%@page import="dto.Comment"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-<%	List<ReviewComment> list = (List) request.getAttribute("list"); %>    
+<%	List<Comment> list = (List) request.getAttribute("list"); %>    
     
 <!DOCTYPE html>
 <html>
@@ -201,12 +201,12 @@ body {
 <div class="container">
 <div class="card">
               <div class="row">
-                  <div class="col-2">
+              <div class="col-2">
                       <img src="https://ifh.cc/g/vL0zKT.jpg" width="50px" class="rounded-circle mt-2">
-                  </div>
+                  </div> 
                   <div class="col-10">
                       <div class="comment-box ml-2">
-                          <h5 class="guide">감상 후 댓글은 모다?</h5>
+                          <h5 class="guide">리뷰를 써주세요</h5>
                           <div class="rating"> 
                               <input type="radio" name="reviewRating" value="5" id="5"><label for="5">☆</label>
                               <input type="radio" name="reviewRating" value="4" id="4"><label for="4">☆</label> 
@@ -226,7 +226,7 @@ body {
                                   </div>
                                   <div class="col-6">
                                       <div class="pull-right">
-                                      <button class="btn-dark send btn-sm">등록</button>      
+                                      <button class="btn-dark send btn-sm" >등록</button>      
                                       </div>
                                   </div>
                               </div>
@@ -237,7 +237,7 @@ body {
           </div>
 </div>
 
-</form>
+</form> 
 <%if( list != null){ %>
 <% for(int i=0; i<list.size();i++) { %>
 <div class="container">
@@ -323,6 +323,9 @@ body {
  $(".text").focus();
  $("input[name='reviewRatin']").attr('disabled',true);
 </script>
+
+
+
 
 </body>
 </html>

@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dto.ReviewComment;
+import dto.Comment;
 import service.ReviewCommentService;
 import service.ReviewCommentServiceImpl;
 
@@ -23,7 +23,7 @@ public class CommentController extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		//게시글 번호로 조회된 모든 리뷰 데이터 받아와야 하나 현재 게시글번호 알수 없음에 전체 댓글 데이터 조회 
-		List<ReviewComment> list = reviewCommentService.commentAllByInfoId();
+		List<Comment> list = reviewCommentService.commentAllByInfoId();
 		req.setAttribute("list", list);
 		req.getRequestDispatcher("/WEB-INF/views/page1/comment.jsp").forward(req, resp);
 	}
@@ -37,9 +37,12 @@ public class CommentController extends HttpServlet {
 		
 		reviewCommentService.getReviewCommnet(req);
 		
-		List<ReviewComment> list = reviewCommentService.commentAllByInfoId();
+		List<Comment> list = reviewCommentService.commentAllByInfoId();
 		req.setAttribute("list", list);
-		req.getRequestDispatcher("/WEB-INF/views/page1/comment.jsp").forward(req, resp);
+//		req.getRequestDispatcher("/WEB-INF/views/page1/comment.jsp").forward(req, resp);
+		
+		//페이지 새로고침
+		resp.sendRedirect("/DetailBoardController");
 		
 		
 		
