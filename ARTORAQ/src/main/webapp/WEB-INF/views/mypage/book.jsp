@@ -1,8 +1,14 @@
+<%@page import="dto.Book"%>
+<%@page import="dto.Member"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-
 <%@ include file="../layout/header.jsp" %>
+
+<%	List<Book> bookList = (List) request.getAttribute("bookList"); %>
 
 <!-- js -->
 <script type="text/javascript">
@@ -96,6 +102,8 @@ $(document).ready(function() {
 	<h3 style="text-align: center;" id="mypage">마이 페이지</h3><hr>
     <div class="list"  style="width: 700px;">
     	<p style="font-size:16px; font-weight: bold;">결제내역</p><br>
+
+		<%	for(int i=0; i<bookList.size(); i++) { %>
 	    <div class="card">
 	    	<div class="row no-gutters">
 	        	<div class="col-sm-5">
@@ -103,11 +111,10 @@ $(document).ready(function() {
 	        	</div>
 	        	<div class="col-sm-7">
 	            	<div class="card-body">
-	                	<p class="card-title">살바도르 달리전</p><br><br>
-	                	<p>장소: DDP배움터 디자인전시관(B2F)</p>
-	                	<p>기간: 2021.11.27 ~ 2023.04.03</p>
-	                	<p>수량: 1매</p>
-	                	<p>금액: 15,000원</p>
+<%-- 	                	<p class="card-title"><%=bookList.get(i).getBook_title() %></p><br><br> --%>
+	                	<p>기간: <%=bookList.get(i).getBookdate() %></p>
+	                	<p>수량: <%=bookList.get(i).getAmount() %> 매</p>
+	                	<p>금액: <%=bookList.get(i).getBookprice() %> 원</p>
 		                <div class="pull-right">
 		                	<button type="button" class="btn" id="btnReview">리뷰</button>
 		                	<button type="button" class="btn" id="btnRefund">환불</button>
@@ -116,48 +123,7 @@ $(document).ready(function() {
 	       	    </div>
 		    </div>
 		</div><br><br>
-		
-	    <div class="card">
-	    	<div class="row no-gutters">
-	        	<div class="col-sm-5">
-	            	<img class="card-img" src="https://ifh.cc/g/wcRJ0K.jpg" alt="장 줄리앙">
-	        	</div>
-	        	<div class="col-sm-7">
-	            	<div class="card-body">
-	                	<p class="card-title">장 줄리앙 : 그러면, 거기</p><br><br>
-	                	<p>장소: DDP배움터 디자인전시관(B2F)</p>
-	                	<p>기간: 2022.10.01~2023.01.08</p>
-	                	<p>수량: 2매</p>
-	                	<p>금액: 40,000원</p>
-		                <div class="pull-right">
-		                	<button type="button" class="btn" id="btnReview">리뷰</button>
-		                	<button type="button" class="btn" id="btnRefund">환불</button>
-	                	</div>
-	       	    	</div>
-	       	    </div>
-		    </div>
-		</div><br><br>
-		
-	    <div class="card">
-	    	<div class="row no-gutters">
-	        	<div class="col-sm-5">
-	            	<img class="card-img" src="https://ifh.cc/g/f5D0xB.png" alt="모네 인사이드">
-	        	</div>
-	        	<div class="col-sm-7">
-	            	<div class="card-body">
-	                	<p class="card-title">모네 인사이드</p><br><br>
-	                	<p>장소: 그라운드시소 명동</p>
-	                	<p>기간: 2022.09.01~2023.08.19</p>
-	                	<p>수량: 1매</p>
-	                	<p>금액: 15,000원</p>
-		                <div class="pull-right">
-		                	<button type="button" class="btn" id="btnReview">리뷰</button>
-		                	<button type="button" class="btn" id="btnRefund">환불</button>
-	                	</div>
-	       	    	</div>
-	       	    </div>
-		    </div>
-		</div>
+		<%	} %>
 	</div>
 </div>
 

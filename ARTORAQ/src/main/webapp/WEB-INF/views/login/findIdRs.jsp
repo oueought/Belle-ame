@@ -121,16 +121,16 @@ $(document).ready(function() {
 	<!-- 등록된 회원 정보가 있을 경우 이름/아이디 보여주기 -->
 	<% if(session.getAttribute("findId") != null && (boolean) session.getAttribute("findId") ) { %>
 		<div class="form-group">
-			<label for="customer_name">이름</label>
+			<label for="memname">이름</label>
 			<div class="pull-right">
-				<%=session.getAttribute("customer_name") %>
+				<%=session.getAttribute("memname") %>
 			</div>
 		</div><br>
 		
 		<div class="form-group">
-			<label for="customer_id">아이디</label>
+			<label for="memid">아이디</label>
 			<div class="pull-right">
-				<%=session.getAttribute("customer_id") %>
+				<%=session.getAttribute("memid") %>
 			</div>
 		</div><br>
 		

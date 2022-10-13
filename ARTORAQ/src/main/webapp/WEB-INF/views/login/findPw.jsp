@@ -94,13 +94,13 @@ p {
 	
 	<form action="/login/findpw" method="post">
 		<div class="form-group">
-			<label for="customer_id">아이디</label>
-			<input type="text" class="form-control" id="customer_id" name="customer_id" required>
+			<label for="memid">아이디</label>
+			<input type="text" class="form-control" id="memid" name="memid" required>
 		</div>
 		
 		<div class="form-group">
-			<label for="customer_phone">휴대폰 번호</label>
-			<input type="text" class="form-control" id="customer_phone" name="customer_phone" required>
+			<label for="memphone">휴대폰 번호</label>
+			<input type="text" class="form-control" id="memphone" name="memphone" required>
 		</div>
 		
 		<button type="submit" class="btn btn-block" id="btnFindPw">확인</button>

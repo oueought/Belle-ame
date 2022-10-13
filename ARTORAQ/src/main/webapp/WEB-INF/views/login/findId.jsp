@@ -89,13 +89,13 @@ $(document).ready(function() {
 
 	<form action="/login/findid" method="post">
 		<div class="form-group">
-			<label for="customer_name">이름</label>
-			<input type="text" class="form-control" id="customer_name" name="customer_name" required>
+			<label for="memname">이름</label>
+			<input type="text" class="form-control" id="memname" name="memname" required>
 		</div>
 		
 		<div class="form-group">
-			<label for="customer_phone">휴대폰 번호</label>
-			<input type="text" class="form-control" id="customer_phone" name="customer_phone" required>
+			<label for="memphone">휴대폰 번호</label>
+			<input type="text" class="form-control" id="memphone" name="memphone" required>
 		</div>
 		
 		<button type="submit" class="btn btn-block" id="btnLoginCk">아이디 찾기</button>

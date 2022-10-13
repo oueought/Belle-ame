@@ -9,16 +9,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dto.Customer;
-import service.face.CustomerService;
-import service.impl.CustomerServiceImpl;
+import dto.Member;
+import service.face.MemberService;
+import service.impl.MemberServiceImpl;
 
 @WebServlet("/login/findpw")
 public class FindPwController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	//서비스 객체
-	private CustomerService customerService = new CustomerServiceImpl();
+	private MemberService memberService = new MemberServiceImpl();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -30,24 +30,24 @@ public class FindPwController extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		//전달파라미터 가져오기
-		Customer customer = customerService.getFindPwCustomer(req);
+		Member member = memberService.getFindPwMember(req);
 				
 		//전달받은값에 해당하는 데이터 찾기
-		boolean isFindPw = customerService.findPw(customer);
+		boolean isFindPw = memberService.findPw(member);
 		
 		//인증 성공
 		if(isFindPw) {
 			
 			//사용자 정보 조회
-			customer = customerService.Pwinfo(customer);
+			member = memberService.Pwinfo(member);
 			
 			//세션정보 객체
 			HttpSession session = req.getSession();
 			
 			session.setAttribute("findPw", isFindPw);
-			session.setAttribute("customer_id", customer.getCustomer_id());
-			session.setAttribute("customer_phone", customer.getCustomer_phone());
-			session.setAttribute("customer_pw", customer.getCustomer_pw());
+			session.setAttribute("memid", member.getMemid());
+			session.setAttribute("memphone", member.getMemphone());
+			session.setAttribute("mempw", member.getMempw());
 			
 		}
 		

@@ -105,16 +105,16 @@ p {
 		<!-- 등록된 회원 정보가 있을 경우 아이디/비밀번호 보여주기 -->
 		<% if(session.getAttribute("findPw") != null && (boolean) session.getAttribute("findPw") ) { %>
 		<div class="form-group">
-			<label for="customer_id">아이디</label>
+			<label for="memid">아이디</label>
 			<div class="pull-right">
-				<%=session.getAttribute("customer_id") %>
+				<%=session.getAttribute("memid") %>
 			</div>
 		</div><br>
 		
 		<div class="form-group">
-			<label for="customer_pw">비밀번호</label>
+			<label for="mempw">비밀번호</label>
 			<div class="pull-right">
-				<%=session.getAttribute("customer_pw") %>
+				<%=session.getAttribute("mempw") %>
 			</div>
 		</div><br>
 		<button type="button" class="btn btn-block" id="btnLogin">로그인</button>

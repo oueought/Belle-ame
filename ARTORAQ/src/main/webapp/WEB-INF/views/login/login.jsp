@@ -35,6 +35,11 @@ $(document).ready(function() {
     	$(location).attr('href', 'javascript:void(0)')
     })
     
+    //아이디 저장 체크시 쿠키 저장
+    $("#remember").click(function() {
+
+    })
+    
 })
 
 </script>
@@ -174,13 +179,13 @@ function kakaoLogin() {
 
 		<form action="/login" method="post">
 			<div class="form-group">
-				<label for="customer_id">아이디</label>
-				<input type="text" class="form-control" id="customer_id" name="customer_id" required>
+				<label for="memid">아이디</label>
+				<input type="text" class="form-control" id="memid" name="memid" required>
 			</div>
 			
 			<div class="form-group">
-				<label for="customer_pw">패스워드</label>
-				<input type="password" class="form-control" id="customer_pw" name="customer_pw" required>
+				<label for="mempw">패스워드</label>
+				<input type="password" class="form-control" id="mempw" name="mempw" required>
 			</div>
 			
 			<div class="remember">
@@ -204,7 +209,6 @@ function kakaoLogin() {
 	</div>
 </div>
 </section>
-
 
 <!-- footer include -->
 <%@ include file="../layout/footer.jsp" %>

@@ -9,16 +9,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dto.Customer;
-import service.face.CustomerService;
-import service.impl.CustomerServiceImpl;
+import dto.Member;
+import service.face.MemberService;
+import service.impl.MemberServiceImpl;
 
 @WebServlet("/login/findid")
 public class FindIdController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	//서비스 객체
-	private CustomerService customerService = new CustomerServiceImpl();
+	private MemberService memberService = new MemberServiceImpl();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -29,25 +29,28 @@ public class FindIdController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
+		//한글 인코딩
+		req.setCharacterEncoding("UTF-8");
+		
 		//전달파라미터 가져오기
-		Customer customer = customerService.getFindIdCustomer(req);
+		Member member = memberService.getFindIdMember(req);
 		
 		//전달받은값에 해당하는 데이터 찾기
-		boolean isFindId = customerService.findId(customer);
+		boolean isFindId = memberService.findId(member);
 		
 		//인증 성공
 		if(isFindId) {
 			
 			//사용자 정보 조회
-			customer = customerService.Idinfo(customer);
+			member = memberService.Idinfo(member);
 			
 			//세션정보 객체
 			HttpSession session = req.getSession();
 			
 			session.setAttribute("findId", isFindId);
-			session.setAttribute("customer_name", customer.getCustomer_name());
-			session.setAttribute("customer_id", customer.getCustomer_id());
-			session.setAttribute("customer_phone", customer.getCustomer_phone());
+			session.setAttribute("memname", member.getMemname());
+			session.setAttribute("memid", member.getMemid());
+			session.setAttribute("memphone", member.getMemphone());
 			
 		}
 		
