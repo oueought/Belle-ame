@@ -2,7 +2,11 @@ package service.face;
 
 
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
+
+import dto.Board;
 
 
 public interface BoardService {
@@ -10,13 +14,12 @@ public interface BoardService {
 	
 	
 	/**
-	 * 전달된 데이터를 이용하여 댓글 처리
+	 * 게시글 전체 조회
 	 * 
-	 * @param req 
-	 * @return 
+	 * @return List<Board> getList();
 	 */
-	public int getComment(HttpServletRequest req);
-
+	public List<Board> getList();
+	
 	
 	
 	/**
@@ -26,6 +29,22 @@ public interface BoardService {
 	 */
 	public void write(HttpServletRequest req);
 
+	
+	
+	
+// -------------------------------- 댓글 추후에 추가 -------------------------------------------------	
+	
+//	/**
+//	 * 전달된 데이터를 이용하여 댓글 처리
+//	 * 
+//	 * @param req 
+//	 * @return 
+//	 */
+//	public int getComment(HttpServletRequest req);
+//
+//	
+	
+	
 
 
 	

@@ -7,9 +7,11 @@ public class Board {
 	private String title;
 	private String content;
 	private String period;
-	private String adminId;
+	private String location;
 	private int price;
 	
+	
+
 	
 	public Board() {}
 
@@ -19,7 +21,7 @@ public class Board {
 		this.title = title;
 		this.content = content;
 		this.period = period;
-		this.adminId = adminId;
+		this.location = location;
 		this.price = price;
 	}
 
@@ -27,7 +29,7 @@ public class Board {
 	@Override
 	public String toString() {
 		return "Board [boardno=" + boardno + ", title=" + title + ", content=" + content + ", period=" + period
-				+ ", adminId=" + adminId + ", price=" + price + "]";
+				+ ", location=" + location + ", price=" + price + "]";
 	}
 
 
@@ -71,13 +73,13 @@ public class Board {
 	}
 
 
-	public String getAdminId() {
-		return adminId;
+	public String getLocation() {
+		return location;
 	}
 
 
-	public void setAdminId(String adminId) {
-		this.adminId = adminId;
+	public void setLocation(String location) {
+		this.location = location;
 	}
 
 
