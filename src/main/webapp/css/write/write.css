@@ -1,0 +1,65 @@
+@charset "UTF-8";
+
+
+html,
+body {
+    position: relative;
+    height: 100%;
+}
+
+body {
+
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px !important;
+    color: #696969 !important;
+    margin: 0;
+    padding: 0;
+
+}
+
+
+.bodybox {
+    width: 100%;
+    height: auto;
+    top: 18%;
+    margin-top: 5%
+}
+
+
+
+textarea {
+	 width: 100%;
+    height: 50em !important;
+    resize: none;
+    border: none;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+.period {
+    /* p태그 전시기간 */
+    font-size: 15px;
+}
+
+input {
+	border: 1px solid #ccc;
+}
+
+input:focus {
+	 outline: none;
+}
+
+.table {
+    width: 100% !important;
+}
+
+._text-align {
+    text-align: center;
+}
+
+#btnWrite {
+	
+	margin-left: 0.2%;
+}
