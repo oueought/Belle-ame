@@ -8,9 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dto.Customer;
-import membership.service.face.CustomerService;
-import membership.service.impl.CustomerServiceImpl;
+import dto.Member;
+import membership.service.face.MemberService;
+import membership.service.impl.MemberServiceImpl;
 
 
 @WebServlet("/join")
@@ -18,7 +18,7 @@ public class JoinController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	//서비스 객체
-	private CustomerService customerService = new CustomerServiceImpl();
+	private MemberService memberService = new MemberServiceImpl();
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -33,11 +33,11 @@ public class JoinController extends HttpServlet {
 		req.setCharacterEncoding("UTF-8");
 		
 		//회원가입 전달파라미터 추출하기
-		Customer customer = customerService.getJoinCustomer(req);
+		Member member = memberService.getJoinMember(req);
 		
 
 		//회원가입 처리
-		customerService.join(customer);
+		memberService.join(member);
 		
 
 		//로그인으로 리다이렉트

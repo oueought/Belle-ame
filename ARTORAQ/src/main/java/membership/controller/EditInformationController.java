@@ -7,21 +7,30 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import dto.Customer;
-import membership.service.face.CustomerService;
-import membership.service.impl.CustomerServiceImpl;
+import javax.servlet.http.HttpSession;
+
+import dto.Member;
+import membership.service.face.MemberService;
+import membership.service.impl.MemberServiceImpl;
 
 @WebServlet("/editinformation")
 public class EditInformationController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	//서비스 객체
-	private CustomerService customerService = new CustomerServiceImpl();
+	private MemberService memberService = new MemberServiceImpl();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		req.getRequestDispatcher("/WEB-INF/views/editInformation.jsp").forward(req, resp);
+		
+		//로그인 세션 값 가져오기
+		HttpSession session = req.getSession();
+		String memid = (String)session.getAttribute("memid");
+	
+		System.out.println("/editinformation memid : " + memid);
+	
 	}
 	
 	@Override
@@ -31,17 +40,14 @@ public class EditInformationController extends HttpServlet {
 		req.setCharacterEncoding("UTF-8");
 		
 		//전달 파라미터 얻어오기
-		Customer customer = customerService.getMypageUpdate(req);
+		Member member = memberService.getMypageUpdate(req);
 		
-//		//세션값에 해당하는 회원 정보 저장
-//		req.setAttribute("updatePw", customer.getCustomer_pw());
-//		req.setAttribute("updateNickname", customer.getCustomer_nickname());
-//		req.setAttribute("updatePhone", customer.getCustomer_phone());
-//		req.setAttribute("updateEmail", customer.getCustomer_email());
-//		
+		
 		//업데이트 처리
-		customerService.update(customer);
+		memberService.update(member);
+		
 		
 		resp.sendRedirect("/mypage");
 	}
+	
 }
