@@ -92,7 +92,7 @@ body {
 
 .default {
          position : absolute;
-        width: 168px;
+        width: 170px;
         top: 0px;
         right : 10px;
         z-index: 100;

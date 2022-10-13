@@ -40,22 +40,11 @@ public class CommentController extends HttpServlet {
 
 		// 요청 데이터의 한글 인코딩 방식 지정하기 : UTF-8
 		req.setCharacterEncoding("UTF-8");
-	
-	
 		
 		int result = commentService.getComment(req);
 		
 		System.out.println(result);
 		
-//		if(result > 0) {
-//			List<Comment> list = commentService.commentAllByInfoId();
-//			req.setAttribute("list", list);
-//		} else {
-//			resp.sendRedirect("page1/errorPage");
-//			return;
-//		}
-//		
-//		req.getRequestDispatcher("/WEB-INF/views/comment/comment.jsp").forward(req, resp);
 		
 	}
 	
