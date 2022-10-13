@@ -98,7 +98,7 @@
         <ul class="list">
             <li class="tab-button color">전시 정보</li>
             <li class="tab-button">전시 유의사항</li>
-            <li class="tab-button" onclick="move('/comment')">관람 후기</li>
+            <li class="tab-button" onclick="move('/Comment')">관람 후기</li>
         </ul>
       
         <div class="tab-content show">

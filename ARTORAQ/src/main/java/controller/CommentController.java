@@ -1,6 +1,8 @@
 package controller;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -9,43 +11,60 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dto.Comment;
-import service.ReviewCommentService;
-import service.ReviewCommentServiceImpl;
+import com.google.gson.Gson;
+
+import dto.Review;
+import service.ReviewService;
+import service.ReviewServiceImpl;
 
 
-@WebServlet("/comment")
+
+@WebServlet("/Comment")
 public class CommentController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-	private ReviewCommentService reviewCommentService = new ReviewCommentServiceImpl();
+
+	// 서비스 객체
 	
+	private ReviewService reviewService = new ReviewServiceImpl();
+	
+	
+	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		//게시글 번호로 조회된 모든 리뷰 데이터 받아와야 하나 현재 게시글번호 알수 없음에 전체 댓글 데이터 조회 
-		List<Comment> list = reviewCommentService.commentAllByInfoId();
-		req.setAttribute("list", list);
-		req.getRequestDispatcher("/WEB-INF/views/page1/comment.jsp").forward(req, resp);
+		System.out.println("/Comment [Get]");
+		
+		req.getRequestDispatcher("/WEB-INF/views/detailPage/tab_content03.jsp").forward(req, resp);
+	
 	}
-
+	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("/comment [POST]");
-		
-		resp.setContentType("text/html; charset=UTF-8");
+		System.out.println("/Comment [Post]");
 
 		
-		reviewCommentService.getReviewCommnet(req);
+		BufferedReader br = req.getReader();
+		String reqData = br.readLine();
+		Gson gson = new Gson();
+		Review review = gson.fromJson(reqData, Review.class);
 		
-		List<Comment> list = reviewCommentService.commentAllByInfoId();
-		req.setAttribute("list", list);
-//		req.getRequestDispatcher("/WEB-INF/views/page1/comment.jsp").forward(req, resp);
+		System.out.println(review);
 		
-		//페이지 새로고침
-		resp.sendRedirect("/DetailBoardController");
+		int result = reviewService.write(review);
 		
-		
-		
+
 		
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
