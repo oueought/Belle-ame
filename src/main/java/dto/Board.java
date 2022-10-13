@@ -10,13 +10,11 @@ public class Board {
 	private String location;
 	private int price;
 	
-	
 
-	
 	public Board() {}
 
 
-	public Board(int boardno, String title, String content, String period, String adminId, int price) {
+	public Board(int boardno, String title, String content, String period, String location, int price) {
 		this.boardno = boardno;
 		this.title = title;
 		this.content = content;
@@ -91,8 +89,6 @@ public class Board {
 	public void setPrice(int price) {
 		this.price = price;
 	}
-	
-	
-	
-	
+
+
 }	

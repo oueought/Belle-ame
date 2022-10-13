@@ -10,29 +10,7 @@ public interface BoardDao {
 
 	
 	
-	/**
-	 * 테이블 전체 조회
-	 * 
-	 * @param conn - DB연결 객체
-	 * @return List<Board> - 테이블 전체 조회 결과 목록
-	 */
-	public List<Board> selectAll(Connection conn);
 
-	
-	
-	
-	
-	/**
-	 * 게시글 입력
-	 * 
-	 * @param conn  - DB연결 객체
-	 * @param board - 삽입될 게시글 내용
-	 * @return int - INSERT 쿼리 수행 결과
-	 */
-	public int insert(Connection conn, Board board);
-
-	
-	
 	
 	
 	

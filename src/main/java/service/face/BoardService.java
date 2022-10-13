@@ -13,22 +13,6 @@ public interface BoardService {
 	
 	
 	
-	/**
-	 * 게시글 전체 조회
-	 * 
-	 * @return List<Board> getList();
-	 */
-	public List<Board> getList();
-	
-	
-	
-	/**
-	 * 게시글 작성
-	 * 입력한 게시글을 DB에 저장
-	 * @param req - 요청 정보 객체
-	 */
-	public void write(HttpServletRequest req);
-
 	
 	
 	

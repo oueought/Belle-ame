@@ -1,6 +1,7 @@
 package dao.impl;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,7 +11,6 @@ import java.util.List;
 import common.JDBCTemplate;
 import dao.face.BoardDao;
 import dto.Board;
-import dto.Comment;
 
 public class BoardDaoImpl implements BoardDao {
 
@@ -19,51 +19,6 @@ public class BoardDaoImpl implements BoardDao {
 	
 	
 	
-	@Override
-	public List<Board> selectAll(Connection conn) {
-		
-		
-		String sql = "";
-		sql += "SELECT * FROM info_board";
-		sql += " ORDER BY boardno DESC";
-		
-		
-		// 결과 저장 List
-		List<Board> boardList = new ArrayList<>();
-		
-		try {
-
-			ps = conn.prepareStatement(sql);	// SQL 수행
-			
-			rs = ps.executeQuery();		// SQL 수행 및 결과 집합 저장
-			
-			while(rs.next()) {
-				Board b = new Board();	// 결과 값 저장
-				
-				b.setBoardno(rs.getInt("boardno"));
-				b.setTitle(rs.getString("title"));
-				b.setContent(rs.getString("content"));
-				b.setPeriod(rs.getString("period"));
-				b.setLocation(rs.getString("location"));
-				b.setPrice(rs.getInt("price"));
-				
-				// 리스트에 결과 값 저장 
-				boardList.add(b);
-				
-			}
-					
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}finally {
-			JDBCTemplate.close(rs);
-			JDBCTemplate.close(ps);
-		}
-				
-		
-		
-		
-		return boardList;
-	}
 	
 	
 	
@@ -78,41 +33,6 @@ public class BoardDaoImpl implements BoardDao {
 	
 	
 	
-	// 게시글 입력
-	@Override
-	public int insert(Connection conn, Board board) {
-		
-		String sql = "";
-		sql += "INSERT INTO info_board ( boardno, title, content, period, location, price )";
-		sql += " VALUES (info_board_seq.nextval, ?, ? , ?, ?,? )";
-		
-		
-		int res = 0;
-		
-		try {
-			ps = conn.prepareStatement(sql);
-			
-			ps.setString(1, board.getTitle());
-			ps.setString(2, board.getContent());
-			ps.setString(3, board.getPeriod());
-			ps.setString(4, board.getLocation());
-			ps.setInt(5, board.getPrice());
-			
-			res = ps.executeUpdate();
-			
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}finally {
-			JDBCTemplate.close(ps);
-		}
-		
-		return res;
-	}
-
-
-
-
 	
 	
 	
