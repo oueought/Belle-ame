@@ -66,7 +66,7 @@
 		
 	    <div class="col-md-3">
 	        <div class="card"
-				style=" cursor: pointer;" onclick="location.href='#';">
+				style=" cursor: pointer;" onclick="location.href='/mypage/edit';">
 	            <div class="card-body text-center">
 	            	<img alt="" src="https://ifh.cc/g/rygRtf.png"><br>
 	                <br><p class="card-title">회원 정보 수정</p>
@@ -86,7 +86,7 @@
 	
 	    <div class="col-md-3">
 	        <div class="card"
-				style=" cursor: pointer;" onclick="location.href='/mypage/order';">
+				style=" cursor: pointer;" onclick="location.href='/mypage/book';">
 	            <div class="card-body text-center">
 	            	<img alt="" src="https://ifh.cc/g/JvZRMY.png"><br>
 	                <br><p class="card-title">결제 내역</p>

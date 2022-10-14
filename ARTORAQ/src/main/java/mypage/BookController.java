@@ -2,6 +2,7 @@ package mypage;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -34,14 +35,14 @@ public class BookController extends HttpServlet {
 		
 		System.out.println("/mypage/book memid : " + memid);
 		
-		//게시글 전체 조회
-//		List<Book> bookList = bookService.getBookList();
-		
 		//로그인한 사람의 내역 조회
-		List<Book> bookList = bookService.getMyBookList(memid);
+//		List<Book> bookList = bookService.getMybookList(memid);
+		List<Map<String, Object>> bookList = bookService.getMyBookListWithBoard(memid);
 
 		System.out.println("--- TEST ---");
-		for(Book b : bookList)	System.out.println(b);
+//		for(Book b : bookList)	System.out.println(b);
+		for(Map m : bookList)	System.out.println(m);
+		
 		
 		//조회결과 MODEL값 전달
 		req.setAttribute("bookList", bookList);

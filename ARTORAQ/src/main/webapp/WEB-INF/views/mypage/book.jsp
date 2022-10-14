@@ -1,4 +1,6 @@
+<%@page import="java.util.Map"%>
 <%@page import="dto.Book"%>
+<%@page import="dto.Board"%>
 <%@page import="dto.Member"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
@@ -8,7 +10,8 @@
 
 <%@ include file="../layout/header.jsp" %>
 
-<%	List<Book> bookList = (List) request.getAttribute("bookList"); %>
+<%-- <%	List<Book> bookList = (List) request.getAttribute("bookList"); %> --%>
+<%	List<Map<String, Object>> bookList = (List) request.getAttribute("bookList"); %>
 
 <!-- js -->
 <script type="text/javascript">
@@ -111,10 +114,11 @@ $(document).ready(function() {
 	        	</div>
 	        	<div class="col-sm-7">
 	            	<div class="card-body">
-<%-- 	                	<p class="card-title"><%=bookList.get(i).getBook_title() %></p><br><br> --%>
-	                	<p>기간: <%=bookList.get(i).getBookdate() %></p>
-	                	<p>수량: <%=bookList.get(i).getAmount() %> 매</p>
-	                	<p>금액: <%=bookList.get(i).getBookprice() %> 원</p>
+	                	<p class="card-title"><%= ((Board) bookList.get(i).get("board")).getTitle() %></p><br><br>
+							<p>기간: <%= ((Board) bookList.get(i).get("board")).getPeriod() %></p>
+<%-- 							<p>결제일: <%=bookList.get(i).get("book")).getPrice() %></p> --%>
+	                		<p>수량: <%= ((Book) bookList.get(i).get("book")).getAmount() %> 매</p>
+	                		<p>결제금액: <%= ((Book) bookList.get(i).get("book")).getBookprice() %> 원</p>
 		                <div class="pull-right">
 		                	<button type="button" class="btn" id="btnReview">리뷰</button>
 		                	<button type="button" class="btn" id="btnRefund">환불</button>
