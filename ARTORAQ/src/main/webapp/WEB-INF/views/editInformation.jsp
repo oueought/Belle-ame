@@ -6,6 +6,7 @@
 <%@ include file="../layout/header.jsp"%>
 
 
+
 <script type="text/javascript">
 
 // $(document).ready(function() {
@@ -121,26 +122,26 @@ $("#cancel").click(function() {
 				<div class="form-group">
 					<div class="button-wrap">
 			
-					<label for="customer_pw" class="col-xs-2 control-label">비밀번호</label>
+					<label for="mempw" class="col-xs-2 control-label">비밀번호</label>
 					<div class="col-xs-10">
-						<input type="password" id="customer_pw" name="customer_pw" class="form-control" placeholder="8~16자 영문 대 소문자, 숫자, 특수문자 사용가능" required>
+						<input type="password" id="mempw" name="mempw" class="form-control" placeholder="8~16자 영문 대 소문자, 숫자, 특수문자 사용가능" required>
 					</div>
 				</div>
 				<br><br>
 
 				<div class="form-group">
-					<label for="custsomer_pwchk" class="col-xs-2 control-label">비밀번호
+					<label for="mempwchk" class="col-xs-2 control-label">비밀번호
 						확인</label>
 					<div class="col-xs-10">
-						<input type="password" id="custsomer_pwchk" name="custsomer_pwchk" class="form-control" required>
+						<input type="password" id="mempwchk" name="mempwchk" class="form-control" required>
 					</div>
 				</div>
 				<br>
 
 				<div class="form-group">
-					<label for="customer_nickname" class="col-xs-2 control-label">닉네임</label>
+					<label for="memnick" class="col-xs-2 control-label">닉네임</label>
 					<div class="col-xs-10">
-						<input type="text" id="customer_nickname" name="customer_nickname"
+						<input type="text" id="memnick" name="memnick"
 							class="form-control">
 					</div>
 				</div>
@@ -148,9 +149,9 @@ $("#cancel").click(function() {
 
 				<div class="form-group">
 					<div class="button-wrap">
-						<label for="customer_phone" class="col-xs-2 control-label">휴대전화</label>
+						<label for="memphone" class="col-xs-2 control-label">휴대전화</label>
 						<div class="col-xs-10">
-							<input type="tel" id="customer_phone" name="customer_phone" class="form-control" placeholder="전화번호 입력" required>
+							<input type="tel" id="memphonephone" name="memphonephone" class="form-control" placeholder="전화번호 입력 ( ex 010-0000-0000)" required>
 							<button class="w-btn-outline w-btn-gray-outline btn-sm btnsmall" type="button">
 								인증번호 받기</button>
 						</div>
