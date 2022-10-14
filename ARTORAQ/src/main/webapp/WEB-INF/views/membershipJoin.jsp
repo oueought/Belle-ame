@@ -102,9 +102,9 @@ $("#cancel").click(function() {
 			<div class="form">
 				<div class="form-group">
 					<div class="button-wrap">
-						<label for="userid" class="col-xs-2 control-label">아이디</label>
+						<label for="memid" class="col-xs-2 control-label">아이디</label>
 						<div class="col-xs-10">
-							<input type="text" id="customer_id" name="customer_id" class="form-control" placeholder="5~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 사용 가능" required>
+							<input type="text" id="memid" name="memid" class="form-control" placeholder="5~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 사용 가능" required>
 							<button class="w-btn-outline w-btn-gray-outline btn-sm btnsmall" type="button">
 								중복확인</button>
 						</div>
@@ -112,9 +112,9 @@ $("#cancel").click(function() {
 				</div>
 
 				<div class="form-group">
-					<label for="userpw" class="col-xs-2 control-label">비밀번호</label>
+					<label for="mempw" class="col-xs-2 control-label">비밀번호</label>
 					<div class="col-xs-10">
-						<input type="password" id="customer_pw" name="customer_pw" class="form-control" placeholder="8~16자 영문 대 소문자, 숫자, 특수문자 사용가능" required><br><br>
+						<input type="password" id="mempw" name="mempw" class="form-control" placeholder="8~16자 영문 대 소문자, 숫자, 특수문자 사용가능" required><br><br>
 					</div>
 				</div>
 				<br>
@@ -123,24 +123,24 @@ $("#cancel").click(function() {
 					<label for="userpwchk" class="col-xs-2 control-label">비밀번호
 						확인</label>
 					<div class="col-xs-10">
-						<input type="password" id="customer_pwchk" name="customer_pwchk" class="form-control" required><br><br>
+						<input type="password" id="mempwchk" name="mempwchk" class="form-control" required><br><br>
 					</div>
 				</div>
 				<br>
 
 				<div class="form-group">
-					<label for="username" class="col-xs-2 control-label">이름</label>
+					<label for="memname" class="col-xs-2 control-label">이름</label>
 					<div class="col-xs-10">
-						<input type="text" id="customer_name" name="customer_name"
+						<input type="text" id="memname" name="memname"
 							class="form-control" required><br> <br>
 					</div>
 				</div>
 				<br> <br> <br>
 					<div class="form-group">
-						<label for="usernick" class="col-xs-2 control-label">닉네임</label>
+						<label for="memnick" class="col-xs-2 control-label">닉네임</label>
 						<div class="col-xs-10">
-							<input type="text" id="customer_nickname"
-								name="customer_nickname" class="form-control"><br>
+							<input type="text" id="memnick"
+								name="memnick" class="form-control"><br>
 							<br>
 						</div>
 					</div>
@@ -148,10 +148,10 @@ $("#cancel").click(function() {
 
 					<div class="form-group">
 						<div class="button-wrap">
-							<label for="userphon" class="col-xs-2 control-label">휴대전화</label>
+							<label for="memphone" class="col-xs-2 control-label">휴대전화</label>
 							<div class="col-xs-10">
-								<input type="tel" id="customer_phone" name="customer_phone"
-									class="form-control" placeholder="전화번호 입력" required>
+								<input type="tel" id="memphone" name="memphone"
+									class="form-control" placeholder="전화번호 입력 (ex 010-0000-0000)" required>
 								<button class="w-btn-outline w-btn-gray-outline btn-sm btnsmall"
 									type="button">인증번호 받기</button>
 								<br>
@@ -162,9 +162,9 @@ $("#cancel").click(function() {
 					<div class="form-group">
 						<div class="button-wrap">
 
-							<label for="chknum" class="col-xs-2 control-label"></label>
+							<label for="memchknum" class="col-xs-2 control-label"></label>
 							<div class="col-xs-10">
-								<input type="text" id="customer_chknum" name="customer_chknum"
+								<input type="text" id="memchknum" name="memchknum"
 									class="form-control" placeholder="인증번호를 입력하세요." required>
 								<button class="w-btn-outline w-btn-gray-outline btn-sm btnsmall"
 									type="button">확인</button>
@@ -174,17 +174,17 @@ $("#cancel").click(function() {
 					</div>
 
 					<div class="form-group">
-						<label for="useremail" class="col-xs-2 control-label">이메일</label>
+						<label for="mememail" class="col-xs-2 control-label">이메일</label>
 						<div class="col-xs-10">
-							<input type="email" id="customer_email" name="customer_email"
+							<input type="email" id="mememail" name="mememail"
 								class="form-control"><br>
 						</div>
 					</div><br><br><br>
 				<div class="form-group">
-					<label for="customer_birth" class="col-xs-2 control-label">생년월일</label>&nbsp;&nbsp;&nbsp;
-					<tr>
-						<td><input type="date" name="customer_birth" style="height: 35px; width: 100px; margin: auto;"></td>
-					</tr>
+				<label for="membirth" class="col-xs-2 control-label">생년월일</label>
+					<div class="col-xs-10">
+						<input type="text" id="membirth" name="membirth" class="form-control" placeholder="YYYYMMDD 형식으로 입력" required><br><br>
+					</div>
 				</div>
 				</div>
 				<br><br><br><br>

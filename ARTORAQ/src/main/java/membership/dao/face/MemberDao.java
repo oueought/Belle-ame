@@ -25,7 +25,6 @@ public interface MemberDao {
 	public int update(Connection conn, Member member);
 	
 		
-		
 
 	}
 

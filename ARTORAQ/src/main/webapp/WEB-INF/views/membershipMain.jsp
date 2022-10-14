@@ -83,36 +83,35 @@ $(document).ready(function() {
       <p style="font-size:14px; text-align: center; font-weight: bold;">SNS 계정으로 간편 회원가입</p>
       </div><br>
       
- <a href="javascript:kakaoLogin();"><img src="/image/kakao_login.png" alt="카카오계정 로그인" style="height: 50px; width:420px;"/></a>
+ <a href="javascript:kakaoLogin();"><img src="https://developers.kakao.com/tool/resource/static/img/button/login/full/ko/kakao_login_medium_wide.png"
+ 	alt="카카오계정 로그인" style="height: 50px; width:420px;"/></a>
 
-    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-    <script>
-        window.Kakao.init('f0ecbc1d9d75323d4f82f073f14941c7');
+			<!-- 카카오 로그인 API -->
+			<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+			<script type="text/javascript">
+				Kakao.init('07342ca3cd0f77a0ba1a1383fb5a9435'); //카카오 로그인 API 앱 키
+				console.log(Kakao.isinitialized()); //sdk초기화여부판단
 
-        
-        function kakaoLogin() {
-            window.Kakao.Auth.login({
-//                 scope: 'profile, account_email, gender, age_range, birthday', //동의항목 페이지에 있는 개인정보 보호 테이블의 활성화된 ID값을 넣습니다.
-                scope: 'profile_image, account_email, gender, age_range, birthday', //동의항목 페이지에 있는 개인정보 보호 테이블의 활성화된 ID값을 넣습니다.
-                success: function(response) {
-                    console.log(response) // 로그인 성공하면 받아오는 데이터
-                    
-                    window.Kakao.API.request({ // 사용자 정보 가져오기 
-                        url: '/v2/user/me',
-                        success: (res) => {
-                            const kakao_account = res.kakao_account;
-                            console.log(kakao_account)
-                        }
-                    });
-                    // window.location.href='/ex/kakao_login.html' //리다이렉트 되는 코드
-                },
-                fail: function(error) {
-                    console.log(error);
-                }
-            });
-        }
-    </script>
-</body>
+				//카카오로그인
+				function kakaoLogin() {
+					Kakao.Auth.login({
+						success : function(response) {
+							Kakao.API.request({
+								url : '/v2/user/me',
+								success : function(response) {
+									console.log(response)
+								},
+								fail : function(error) {
+									console.log(error)
+								},
+							})
+						},
+						fail : function(error) {
+							console.log(error)
+						},
+					})
+				}
+			</script></body>
       <hr>
       <div class="button">
          <button type="button" class="btn btn-block" id="btnjoin">일반 회원가입</button>

@@ -22,15 +22,13 @@ public class EditInformationController extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		req.getRequestDispatcher("/WEB-INF/views/editInformation.jsp").forward(req, resp);
-		
-		//로그인 세션 값 가져오기
+
+		//세션값 가져오기
 		HttpSession session = req.getSession();
 		String memid = (String)session.getAttribute("memid");
-	
-		System.out.println("/editinformation memid : " + memid);
-	
+		
+		req.getRequestDispatcher("/WEB-INF/views/editInformation.jsp").forward(req, resp);
+
 	}
 	
 	@Override
@@ -46,6 +44,7 @@ public class EditInformationController extends HttpServlet {
 		//업데이트 처리
 		memberService.update(member);
 		
+
 		
 		resp.sendRedirect("/mypage");
 	}

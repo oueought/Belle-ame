@@ -1,8 +1,18 @@
+<%@page import="dto.Board"%>
+<%@page import="java.util.Map"%>
+<%@page import="dto.Wish"%>
+
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
 
 <%@ include file="../layout/header.jsp"%>
+
+<%
+// 	List<Wish> wish = (List) request.getAttribute("wishList");
+	List<Map<String, Object>> wish = (List) request.getAttribute("wishList");
+%>
 
 <script type="text/javascript">
 
@@ -156,6 +166,8 @@ table.shoping-cart-table tr td:last-child {
 </style>
 
 <body>
+
+<%=session.getAttribute("memid") %>
 	<div class="mypage" >마이페이지</div>
 	<hr class="line"><br><br>
 	
@@ -174,6 +186,8 @@ table.shoping-cart-table tr td:last-child {
                     <div class="table-responsive">
                         <table class="table shoping-cart-table">
                             <tbody>
+                            
+         					<% for(int i=0; i<wish.size(); i++) { %>
                             <tr>
                                 <td width="90">
                                     <img src="https://ifh.cc/g/wcRJ0K.jpg" alt="..." class="cart-product-imitation">
@@ -181,11 +195,11 @@ table.shoping-cart-table tr td:last-child {
                                 <td class="desc">
                                     <h3>
                                     <a href="#" class="text-navy">
-										줄리앙 : 그러면, 거기(Then, There)
+										<%= ((Board) wish.get(i).get("board")).getTitle() %>
                                     </a>
                                     </h3>
                                     <p class="small">
-                                        2022년 10월 1일 - 2023년 1월 8일
+										<%= ((Board) wish.get(i).get("board")).getPeriod() %>
                                     </p>
                                     <dl class="small m-b-none">
                                         <dt>전시장</dt>
@@ -208,6 +222,46 @@ table.shoping-cart-table tr td:last-child {
                                     </h4>
                                 </td>
                             </tr>
+                            <% } %>
+<%--            <% for(int i=0; i<wish.size(); i++) { %> --%>
+<!--                             <tr> -->
+<!--                                 <td width="90"> -->
+<!--                                     <img src="https://ifh.cc/g/wcRJ0K.jpg" alt="..." class="cart-product-imitation"> -->
+<!--                                 </td> -->
+<!--                                 <td class="desc"> -->
+<!--                                     <h3> -->
+<!--                                     <a href="#" class="text-navy"> -->
+<!-- 										줄리앙 : 그러면, 거기(Then, There) -->
+<%-- 									  <p>결제일: <%=wish.get(i).getBoardno() %></p> --%>
+										
+<!--                                     </a> -->
+<!--                                     </h3> -->
+<!--                                     <p class="small"> -->
+<!--                                         2022년 10월 1일 - 2023년 1월 8일 -->
+<!--                                     </p> -->
+<!--                                     <dl class="small m-b-none"> -->
+<!--                                         <dt>전시장</dt> -->
+<!--                                         <dd>동대문디자인플라자 디자인 전시관</dd> -->
+<!--                                     </dl> -->
+
+<!--                                     <div class="m-t-sm"> -->
+<!--                                         <a href="#" class="text-muted"><i class="fa fa-trash"></i> Remove item</a> -->
+<!--                                     </div> -->
+<!--                                 </td> -->
+<!--    								<td> -->
+<!--                                     ₩13,000 -->
+<!--                                 </td> -->
+<!--                                 <td width="65"> -->
+<!--                                     <input type="text" class="form-control" placeholder="1"> -->
+<!--                                 </td> -->
+<!--                                 <td> -->
+<!--                                     <h4> -->
+<!--                                     ₩13,000 -->
+<!--                                     </h4> -->
+<!--                                 </td> -->
+<!--                             </tr> -->
+                            
+<%--                             <% } %> --%>
                             </tbody>
                         </table>
                     </div>

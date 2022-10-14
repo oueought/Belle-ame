@@ -39,6 +39,7 @@ public interface MemberService {
 	 * @param member - 업데이트 정보 객체
 	 */
 	public void update(Member member);
+
 	
 	
 
