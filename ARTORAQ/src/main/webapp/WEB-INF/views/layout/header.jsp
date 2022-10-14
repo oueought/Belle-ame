@@ -3,48 +3,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>상단바</title>
-
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 
 <!-- 부트스트랩 3 -->
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-<link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
 
- 
-  
+
+<meta charset="UTF-8">
+<title>상단바</title>
 <style type="text/css">
-
-
-
-html,
-      body {
-        position: relative;
-        height: 100%;
-      }
-
-      body {
-
-        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-        font-size: 14px;
-        color: #000;
-        margin: 0;
-        padding: 0;
-      }
-
-
+ 
 * {
    box-sizing: border-box;
-    padding: 45px;
-}
-
-body {
- width: 90%; 
-    margin: 2em auto !important;
-    font: 1em/1.3 Arial, Helvetica, sans-serif;
+   padding: 45px;
 }
 
 .header {
@@ -91,114 +64,30 @@ body {
   margin: 0;
 }
 
-.default {
-         position : absolute;
-        width: 168px;
-        top: 0px;
-        right : 10px;
-        z-index: 100;
-      }
-      
-.default a{
-        text-decoration: none;
-        color: black;
-        font-size:12px;
-        font-weight: bolder;  
-  }
-
-
-
-/* footer css */
-
-* {
-   box-sizing: border-box;
-   padding: 0;
-   margin: 0 auto;
-}
-
-.footer {
-	display: flex;
-  	flex-direction: column;
-	padding: 24px 0 25px;
-	text-align: center;
-	color: #909090;
-	border-top: 1px solid rgba(0,0,0,.05);
-	width: 1200px;
-	height: 200px;
-}
-
-.footer-list > a:hover {
-  color : #007bff;
-}
-
-.footer-list {
-	text-decoration: none;
-	font-size: 11px;
-	color: rgb(144, 144, 144);
-	width: 50px;
-	height: 20px;
-	border-right: 1px solid rgba(0,0,0,.1);
-	padding-right: 5px;
-}
-
-.footer personal > a {
-	font-size: 12px;
-	font-style: normal;
-	max-width: 600px;
-	margin: 20px auto 0;
-	text-align: center;
-	word-break: keep-all;
-	-webkit-font-smoothing: antialiased;
-	color: #b4b4b3;
-}
-
-.footer personal .info {
-	border-right: 1px solid rgba(0,0,0,.1);
-	padding-right: 7px;
-}
-
-.footer .pinfo {
-	font-size: 12px;
-	text-align: center;
-	word-break: keep-all;
-	-webkit-font-smoothing: antialiased;
-	color: #b4b4b4;
-}
-
-
-
-
-
-
 </style>
-
 </head>
 <body>
 
-
-
 <div class="header">
+
    <div class="LogoContainer">
    
-   <a href="main.jsp">
-      <img src="https://ifh.cc/g/LO3mkj.png" alt="ARTORAQ" class="Logo" style="width: 100px; height: 100px;">
-   </a>
+      <a href="main.jsp">
+       <img src="https://ifh.cc/g/LO3mkj.png" alt="ARTORAQ" class="Logo" style="width: 100px; height: 100px;">
+      </a>
+   
    </div>
    
-   <form action="/result/board" method="post">
    <div class="search">
-     <input class="searchinput" type="text" name="search" placeholder="전시회 검색">
-     <button type="submit" ><img src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png"></button>
-	</div>
-	</form>
-	
+     <form action="/search/info" method="post">
+        <input class="searchinput" name="searchinfo" type="text" id="searchinfo" placeholder="전시회 검색">
+        <button type="submit" style="border: none;"><img src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png"></button>
+      </form>
+   </div>
+
 </div>
 
-	<div class="default">
-         <a href="#">로그인 |</a>
-         <a href="#">회원가입 |</a>
-         <a href="#">마이페이지</a>
-      </div>
+
 
 </body>
 </html>

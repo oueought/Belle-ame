@@ -1,5 +1,11 @@
+<%@page import="dto.Board"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<% List<Board> list = (List)request.getAttribute("list"); %> 
+<% String result = (String) request.getAttribute("result"); %>   
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -59,18 +65,17 @@
 
 <body>
 <hr>
-<h5>&nbsp;&nbsp;&lt;뒤뷔페&gt;에 대한 검색결과 입니다</h5> <%-- 검색키워드 넣기 --%>
-
+<% if( result != null || !result.equals("") ) { %>
+<h5>&nbsp;&nbsp;&lt;<%=result %>&gt;에 대한 검색결과 입니다</h5> <%-- 검색키워드 넣기 --%>
+<% } %>
 
 <div class="bodybox">
 
- <h1>할일 : 검색결과에 대한 상세게시물로 링크 걸어야 함</h1>
-
         
 <div class="container">
-<%int total = 5; %> <%-- 총 검색결과 수 --%>
+<%int total = list.size(); %> <%-- 총 검색결과 수 --%>
 
-<% if( total == 0 ) { %>
+<% if( total < 1  ) { %>
 	<h2> **검색하신 검색결과가 없습니다 </h2>
 <% } else { %>
 
@@ -80,8 +85,8 @@
     <div class="thumbnail">
       <div class="caption">
       <img src="https://ifh.cc/g/pzdotw.png" alt="..."> 			 <%-- 미리보기 이미지 파일 이름 --%>
-        <h4>뒤뷔페 展</h4>												 <%-- 전시 제목 --%>
-       <p class="period">2022년 10월 01일 - 2023년 01월 31일 </p>		 <%-- 전시 기간 --%>	
+        <h4><%=list.get(i).getTitle() %></h4>												 <%-- 전시 제목 --%>
+       <p class="period"><%=list.get(i).getPeriod() %> </p>		 <%-- 전시 기간 --%>	
        
          <div class="status_ing">
         <span class="label label-danger">진행중</span>
@@ -97,20 +102,6 @@
 </div><!-- container 끝 -->
 
 </div> <!-- bodybox 끝 -->
-
-
-  
-  
-
-
-
-        
-
-       
-	
-	
-	
-
 
 
 

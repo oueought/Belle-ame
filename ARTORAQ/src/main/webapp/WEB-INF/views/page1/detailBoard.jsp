@@ -5,11 +5,11 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
         <title>살바도르 달리전</title>
         
 
-<script type="text/javascript" src="<%=request.getContextPath() %>/resources/se2/js/httpRequest.js"></script>
+
 
         <style>
             /* 상단 이미지박스  */
@@ -23,7 +23,7 @@
 
             .innerimgbox {
                 width: 100%;
-                height: 85%;
+               /*  height: 85%; */
                 margin-top: 50px;
             }
 
@@ -108,6 +108,25 @@
                 line-height: 55px;
                 text-align: center;
             }
+            
+        .bi-heart{
+            font-size: 30px;
+            line-height: 30px;
+            color:crimson;
+            position:absolute;
+            margin-left: 206px;
+   			margin-top: -55px;
+        }
+
+        .bi-heart-fill{
+            font-size: 30px;
+            line-height: 30px;
+            color:crimson;
+            position:absolute;
+            margin-left: 206px;
+   			margin-top: -55px;
+        }
+            
         </style>
     </head>
 
@@ -121,7 +140,8 @@
                 <img class="innerimgbox" alt="둘이서" src="https://ifh.cc/g/7HVSz2.jpg">
             </div>
 
-
+				
+			
             <div id="exhibition_wrap">
 
 
@@ -161,9 +181,10 @@
 
 
 
-
                     </table>
-
+	
+					<i class="bi bi-heart"></i>	
+				
                     <div class="booking_button">
                         <a href="" target="_blank" style="color: #27ae60; font-size: 15px; font-weight: bold;">
                             <span class="txt">예매하기
@@ -177,9 +198,25 @@
 
             </div>
 
-   
+   <script>
+    var i = 0;
+    $('.bi-heart').on('click',function(){
+        if(i==0){
+            $(this).removeClass('bi-heart');
+            $(this).addClass('bi-heart-fill');
+            i++;
+        }else if(i==1){
+            $(this).removeClass('bi-heart-fill');
+            $(this).addClass('bi-heart');
+            i--;
+        }
         
-              <%@ include file="../layout/tab_menu.jsp" %> 
+    });
+
+</script>
+	
+        
+   			  <%@ include file="../tab_menu.jsp" %> 
                      
                    
 
