@@ -11,6 +11,8 @@
   <!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <!-- iamport.payment.js -->
+  <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
   <script>
   
   $.datepicker.setDefaults({
@@ -68,6 +70,44 @@ function count(type) {
 	resultElement.innerText = number;
 }
 
+$(document).ready(function() {
+	$('#importPayment').click(function(){
+		console.log("clicked payment button")
+		payment();
+	})
+})
+
+
+function payment(){
+	console.log("payment")
+	   // function requestPay() {
+		      // IMP.request_pay(param, callback) 결제창 호출
+		      var identCode = 'imp28354113' //가맹점식별코드
+		      var IMP = window.IMP
+		      console.log(IMP)
+		      IMP.init(identCode)
+		      IMP.request_pay({ // param
+		          pg: "kakaopay.TC0ONETIME",
+		          pay_method: "card", //QR
+ 		          merchant_uid: "ORD20180131-0000011",
+		          name: "노르웨이 회전 의자",
+		          amount: 64900,
+		          buyer_email: "test11111@gmail.com",
+		          buyer_name: "홍길동",
+		          buyer_tel: "010-4242-4242",
+		          buyer_addr: "서울특별시 강남구 신사동",
+		          buyer_postcode: "01181"
+		      }, function (rsp) { // callback
+		          if (rsp.success) {
+		             console.log(rsp)
+		             console.log("success")
+		          } else {
+		             console.log(rsp)
+		             console.log("failed")
+		          }}
+		      )}
+//}
+
 </script>
 
 </head>
@@ -101,6 +141,7 @@ function count(type) {
          <!-- button.ver 수량 증감 -->
          <input type="button" onclick="count('plus')" value="+"/>
          <input type="button" onclick="count('minus')" value="-"/>
+         <input type="button"  id="importPayment">test</button>
          <div id="result">0</div>
    </div>
 </div>

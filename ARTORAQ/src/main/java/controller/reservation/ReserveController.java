@@ -9,7 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dto.Reserve;
+import dto.reserve.Board;
+import dto.reserve.Reserve;
 import service.reserve.ReserveService;
 import service.reserve.ReserveServiceImpl;
 
@@ -18,13 +19,26 @@ public class ReserveController extends HttpServlet {
    private static final long serialVersionUID = 1L;
 
    //서비스 객체
-   private ReserveService reserveService = new ReserveServiceImpl();
+   private ReserveService reserveService = new ReserveServiceImpl(); 
     
-@Override
+   @Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		try {
+			String boardNo = (String)req.getParameter("board");
+			System.out.println("boardNo :"+ boardNo);
+			
+			Board board = reserveService.getBoardByBoardNo(boardNo);
+			
+			System.out.println("board "+ board);
+			
+			req.setAttribute("board", board);
+			
+			//jsp포워드
+			req.getRequestDispatcher("/WEB-INF/views/reservation/reserve/reserve.jsp").forward(req, resp);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 	
-		//jsp포워드
-		req.getRequestDispatcher("/WEB-INF/views/reservation/reserve/reserve.jsp").forward(req, resp);
 
 	}
    
@@ -39,7 +53,7 @@ public class ReserveController extends HttpServlet {
 		
 		Reserve reserve = new Reserve();
 		
-		reserve.setBook_date(req.getParameter("book_date"));
+		reserve.setBook_acount(Integer.parseInt(req.getParameter("book_acount")));
 		
 		
 		//전달 파라미터를 저장한 dto객체를 db에 입력한다 - ReserveService 객체 이용
