@@ -1,0 +1,89 @@
+@charset "UTF-8";
+
+
+
+      html,
+      body {
+        position: relative;
+        height: 100%;
+      }
+
+      body {
+ 
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #000;
+        margin: 0;
+        padding: 0;
+        
+        }
+
+      .swiper {
+        width: 100%;
+        height: 100%;
+      }
+
+      .swiper-slide {
+        text-align: center;
+        font-size: 12px;
+        background: #fff;
+        
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+      }
+
+      .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+   
+	.swiper-button-next {
+		color: lightgray !important;
+		
+	}
+	
+	.swiper-button-prev {
+		color: lightgray !important;
+	}
+
+	/* 이미지박스  */
+ .imgbox {  
+ width: 100%;
+ height: 40%;
+ z-index: 10;
+ left:-5.5%;
+ top: -5%
+ }
+ 
+ .innerimgbox {
+ width: 100%; 
+ height:113%;
+ margin-top: 50px;
+ }
+
+
+	.status_ing {	/* 상태라벨 한 개 */
+		/* padding-left: 200px; */ 
+		text-align: right;
+	
+	}
+
+
+	.period {	/* p태그 전시기간 */
+		font-size: 12px;
+	}
+
