@@ -18,6 +18,21 @@ $(document).ready(function() {
             $("#btnCk").click();
         }
     })
+    
+     //휴대폰 번호 자동 하이픈 추가 
+    $("#memphone").keydown(function(event) {	//입력창에 숫자 입력
+        var key = event.charCode || event.keyCode || 0;
+        $text = $(this); 
+    	
+        if (key !== 8 && key !== 9) {
+            if ($text.val().length === 3) {
+                $text.val($text.val() + '-');
+            }
+            if ($text.val().length === 8) {
+                $text.val($text.val() + '-');
+            }
+        };
+    })
 
 })
 
@@ -100,7 +115,7 @@ p {
 		
 		<div class="form-group">
 			<label for="memphone">휴대폰 번호</label>
-			<input type="text" class="form-control" id="memphone" name="memphone" required>
+			<input type="text" class="form-control" id="memphone" name="memphone" maxlength="13" required>
 		</div>
 		
 		<button type="submit" class="btn btn-block" id="btnFindPw">확인</button>
