@@ -90,6 +90,17 @@ public interface BoardDao {
 	public int delete(Connection conn, Board board);
 
 
+	
+	/**
+	 * 첨부파일 정보 조회
+	 * 
+	 * @param conn
+	 * @param viewBoard	- 조회할 게시글 번호
+	 * @return UploadFil - 첨부파일 정보
+	 */
+	public UploadFile selectFile(Connection conn, Board viewBoard);
+
+
 
 
 

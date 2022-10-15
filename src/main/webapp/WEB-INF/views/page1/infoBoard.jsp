@@ -48,7 +48,7 @@ $(document).ready(function() {
 <div class="container">
 <div class="row">
 <% for (int i=0 ; i<boardList.size(); i++) { %>
- <a href="/detailBoardController?boardno=<%=boardList.get(i).getBoardno() %>">
+ <a href="/ViewBoardController?boardno=<%=boardList.get(i).getBoardno() %>">
 <div class="col-sm-6 col-md-3">
     <div class="thumbnail">
       <div class="caption">
@@ -65,52 +65,11 @@ $(document).ready(function() {
     </div>
   </div></a>
   <% } %>
-  
-  
-<%-- <div class="col-sm-6 col-md-3">
-    <div class="thumbnail">
-      <div class="caption">
-      <img src="https://ifh.cc/g/wcRJ0K.jpg" alt="..." class="img-responsive center-block">
-        <h4><%= boardList.get(i).getTitle() %></h4>
-        <p class="period"><%=boardList.get(i).getPeriod() %></p>
-        
-         <div class="status_ing">
-        <span class="label label-danger">진행중</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-sm-6 col-md-3">
-    <div class="thumbnail">
-      <div class="caption">
-      <img src="https://ifh.cc/g/QqjPsL.jpg" alt="...">
-        <h4><%= boardList.get(i).getTitle() %></h4>
-        <p class="period"><%=boardList.get(i).getPeriod() %></p>
-        <div class="status_ing">
-        <span class="label label-danger">진행중</span>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-	 <div class="col-sm-6 col-md-3">
-    <div class="thumbnail">
-      <div class="caption">
-      <img src="https://ifh.cc/g/pzdotw.png" alt="...">
-        <h4><%= boardList.get(i).getTitle() %></h4>
-       <p class="period"><%=boardList.get(i).getPeriod() %></p>
-       
-         <div class="status_ing">
-        <span class="label label-danger">진행중</span>
-        </div>
-        
-     	 </div>
-       </div>
-  	</div> --%>
+ 
 </div> 
 </div>
 </div>
+
 
  <div class="swiper-slide">
  <div class="row"> 
@@ -118,7 +77,6 @@ $(document).ready(function() {
   <div class="col-sm-6 col-md-3">
     <div class="thumbnail">
       <div class="caption">
-       <button type="button" class="btn btn-default btn-xs pull-right">x</button>
       <img src="https://ifh.cc/g/FZyNVm.png" alt="...">
         <h4>매혹의 걸작들</h4>
         <p class="period">2022년 10월 25일 - 2022년 12월 31일 </p>
@@ -133,7 +91,6 @@ $(document).ready(function() {
  <div class="col-sm-6 col-md-3">
     <div class="thumbnail">
       <div class="caption">
-       <button type="button" class="btn btn-default btn-xs pull-right">x</button>
       <img src="https://ifh.cc/g/1f3TKr.jpg" alt="..." class="img-responsive center-block">
         <h4>팀 버튼 특별전</h4>
         <p class="period">2022년 04월 30일 - 2022년 07월 22일</p>
@@ -150,7 +107,6 @@ $(document).ready(function() {
   <div class="col-sm-6 col-md-3">
     <div class="thumbnail">
       <div class="caption">
-       <button type="button" class="btn btn-default btn-xs pull-right">x</button>
       <img src="https://ifh.cc/g/vL0zKT.jpg" alt="..." class="img-responsive center-block">
         <h4>르네 마그리트 특별전</h4>
         <p class="period">2020년 04월 29일 - 2020년 09월 13일</p>
@@ -169,7 +125,6 @@ $(document).ready(function() {
   <div class="col-sm-6 col-md-3">
     <div class="thumbnail">
       <div class="caption">
-       <button type="button" class="btn btn-default btn-xs pull-right">x</button>
       <img src="https://ifh.cc/g/f4dRsj.png" alt="...">
         <h4>화가 조르주 루오</h4>
          <p class="period">2022년 10월 01일 - 2022년 10월 31일 </p>
@@ -191,6 +146,7 @@ $(document).ready(function() {
 	
 	
 	  </div>
+	  
       <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>
    	  </div>

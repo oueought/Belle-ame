@@ -9,6 +9,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import dto.Board;
+import dto.UploadFile;
 
 
 public interface BoardService {
@@ -53,13 +54,6 @@ public interface BoardService {
 	public void write(HttpServletRequest req);
 
 
-	/**
-	 * 전달파라미터를 Board DTO로 저장하여 반환
-	 * 
-	 * @param req - 요청 정보 객체
-	 * @return Board - 전달파라미터 boardno를 저장한 객체
-	 */
-
 
 
 	
@@ -69,6 +63,15 @@ public interface BoardService {
 	 * @param board - 삭제할 게시글 번호 객체
 	 */
 	public void delete(Board board);
+
+
+	/**
+	 * 첨부 파일 정보 조회
+	 * 
+	 * @param viewBoard - 첨부파일과 연결된 게시글의 번호
+	 * @return UploadFile - 첨부파일 정보 DTO
+	 */
+	public UploadFile viewFile(Board viewBoard);
 
 
 

@@ -53,64 +53,9 @@
             </div>
             
 
-            <div>
-            <img class="face_img" src="https://ifh.cc/g/blSbpd.jpg">
-            </div>
+ 			<br><br><br><br>
         
-        	<h3>
-           <br><br><br><br>
-            <strong>살바도르 달리 3대 미술관 연합 기획</strong>
-        </h3>
-        
-        	<br>
         	
-        	<h4>
-        	<span style="color:#27ae60"><strong>스페인 피게레스 l 달리 미술관</strong> Fundació Gala-Salvador Dalí, Figueres</span>
-        	</h4>
-        	
-        	<br>
-        	
-           <div class="inner_txt">
-            달리 극장 미술관은 살바도르 달리가 태어나고 성장한 피게레스에 위치한 박물관이다.
-            폐허가 된 극장을 달리가 직접 설계하여 자신의 박물관으로 탈바꿈시켰다.&nbsp;
-            예술적 정열을 쏟아부어 재탄생시킨 박물관은 벽화와 조각 등 달리의 상징적인 요소들이 곳곳에 묻어난다. 
-            <br>지하실에 살바도르 달리의 무덤이 안치 된 장소이기도 하다.
-            </div>
-            
-            <br>
-            <br>
-        	
-        	<h4>
-        	<span style="color:#27ae60"><strong>미국 플로리다 l 달리 미술관</strong> Salvador Dali Museum</span>
-        	</h4>
-        	
-        	<br>
-        	
-           <div class="inner_txt">
-            플로리다 해안가에 위치한 아름다운 미술관이다.
-            1942년 살바도르 달리 회고전을 보고 감명받은 모스 부부가 45년동안 수집한 작품 200여 점을 전시하기 위해 설립되었다.
-            초현실적이고 역동적인 예술관과 자연재해로부터 작품을 보호하기 위해 설계된 건축물로 더욱 유명세를 얻었다.
-            </div>
-
-            <br>
-            <br>
-        	
-        	<h4>
-        	<span style="color:#27ae60"><strong>스페인 마드리드 l  레이나 소피아 국립미술관</strong> Museo Nacional Centro De Arte Reina Sofia</span>
-        	</h4>
-        	
-        	<br>
-        	
-           <div class="inner_txt">
-            스페인을 대표하는 화가 ‘피카소’와 ‘살바도르 달리’의 빛나는 걸작들을 소장하고 있는 미술관이다.
-            그 외에도 20세기 초반 미술계를 주도한 화가<br> 
-            ‘호안 미로’, ‘후안 그리스’, ‘르네 마그리트’ 등의 현대미술 작품들을 다수 전시하고 있다.
-            </div>
-
-            <br>
-            <br>
-            <br>
-            <br>
             
           	<div class="inner_txt" >
           	살바도르 달리(Salvador Dalí)는 1904년 스페인 바르셀로나 근처에 위치한 도시 피게레스(Figueres)에서 출생했다. 
@@ -128,7 +73,6 @@
 			그 외에도 연극무대와 실내장식 및 설계, 보석 및&nbsp;의상디자인 등 다양한 분야에서 활발히&nbsp;활동했던&nbsp;달리는 오늘날 현대사회에&nbsp;
 			끊임없이 영향을 주는 작가이다.
 			</div>
-            
             
         
             

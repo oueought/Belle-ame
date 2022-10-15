@@ -23,9 +23,8 @@ html,
 body {
     height: 100%
 }
+
 body {
-    display: grid;
-   	/* place-items: justify; */
     font-family: 'Manrope', sans-serif;
    
    

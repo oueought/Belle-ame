@@ -1,6 +1,8 @@
+<%@page import="dto.UploadFile"%>
 <%@page import="dto.Board"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%	Board viewBoard = (Board) request.getAttribute("viewBoard"); %>
+<% UploadFile uploadFile = (UploadFile) request.getAttribute("uploadFile");%>
 
 <!DOCTYPE html>
 <html>
@@ -13,7 +15,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>    
 
-<%@ include file="../layout/header.jsp" %>
+
     
 </head>
 
@@ -80,10 +82,13 @@ $(document).ready(function() {
 
                         <tr>
                             <th>결제 금액</th>
-                            <td>17000원</td>
+                            <td><%=viewBoard.getPrice() %></td>
                         </tr>
+                        
 						
                     </table>
+                    
+                  
 					
 
 
@@ -96,12 +101,26 @@ $(document).ready(function() {
                 </div>
 
 
+						<div class="textbox" >
+                  		<p><%=viewBoard.getContent() %></p>
+                  		</div>
+								
+                 		 	
             </div>
 
 	
         
    			  <%@ include file="tab_menu.jsp" %> 
                      
+  <!-- 첨부파일 -->
+<div>
+<% if ( uploadFile != null )  { %>
+<a href="<%=request.getContextPath() %>/upload/<%=uploadFile.getUploadname()%>"
+	download=<%=uploadFile.getUploadname() %>">
+	<%= uploadFile.getUploadname() %>
+</a>
+<% } %>
+</div> 
                    
 
             <br><br><br><br><br><br><br>

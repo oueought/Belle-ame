@@ -22,10 +22,7 @@ public class DeleteBoardController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		/*
-		 * req.getRequestDispatcher("/WEB-INF/views/page1/write.jsp").forward(req,
-		 * resp);
-		 */
+		
 		
 		Board board = boardService.getBoardno(req);
 		

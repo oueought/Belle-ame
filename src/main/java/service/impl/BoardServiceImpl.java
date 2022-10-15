@@ -88,13 +88,13 @@ public class BoardServiceImpl implements BoardService {
 		
 		
 		//multipart/form-data 인코딩 확인
-				boolean isMultipart = ServletFileUpload.isMultipartContent(req);
+			boolean isMultipart = ServletFileUpload.isMultipartContent(req);
 				
-				//multipar형식이 아닐 경우 처리 중단
-				if( !isMultipart ) {
-					System.out.println("[ERROR] 파일 업로드 형식 데이터가 아님");
-					return;
-				}
+			//multipar형식이 아닐 경우 처리 중단
+			if( !isMultipart ) {
+				System.out.println("[ERROR] 파일 업로드 형식 데이터가 아님");
+				return;
+			}
 				
 				DiskFileItemFactory factory = new DiskFileItemFactory();
 				
@@ -221,8 +221,12 @@ public class BoardServiceImpl implements BoardService {
 				// 게시글 번호 생성
 				int boardno = boardDao.selectNextBoardno(conn);
 				
-				
+				// 게시글 번호 삽입
 				board.setBoardno(boardno);
+				
+				
+				// 관리자 ID 처리 추후 추가
+				
 				
 				
 				if(boardDao.insert(conn, board) > 0) {
@@ -233,7 +237,7 @@ public class BoardServiceImpl implements BoardService {
 				
 				
 				// 첨부파일 정보 삽입
-				if ( uploadFile.getUploadno() != 0) {
+				if ( uploadFile.getUploadname() != "") {
 					
 					uploadFile.setBoardno(boardno);
 					
@@ -249,6 +253,11 @@ public class BoardServiceImpl implements BoardService {
 
 
 
+
+	@Override
+	public UploadFile viewFile(Board viewBoard) {
+		return boardDao.selectFile(JDBCTemplate.getConnection(), viewBoard);
+	}
 
 
 
@@ -273,6 +282,10 @@ public class BoardServiceImpl implements BoardService {
 			JDBCTemplate.rollback(conn);
 		}
 	}
+
+
+
+
 
 
 
