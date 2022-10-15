@@ -35,11 +35,6 @@ $(document).ready(function() {
     	$(location).attr('href', 'javascript:void(0)')
     })
     
-    //아이디 저장 체크시 쿠키 저장
-    $("#remember").click(function() {
-
-    })
-    
 })
 
 </script>
@@ -204,7 +199,9 @@ function kakaoLogin() {
 			
   			<div class="hr-or">or</div><br>
   					
-			<button type="button" class="btn btn-block" id="btnKakao">카카오톡으로 로그인</button>
+			<a href="javascript:kakaoLogin();">
+			<img src="https://ifh.cc/g/7XpWOg.png" alt="카카오계정 로그인" style="height: 50px; width:420px;"/></a>
+			
 		</form>
 	</div>
 </div>
