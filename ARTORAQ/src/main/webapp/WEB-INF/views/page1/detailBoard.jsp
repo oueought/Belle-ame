@@ -142,7 +142,7 @@
 
 				
 			
-            <div id="exhibition_wrap">
+            <div onclick="cart()" id="exhibition_wrap">
 
 
                 <div class="exhibition_box">
@@ -152,11 +152,7 @@
                     </div>
 
 
-                    <p class="p1">
-                        살바도르 달리전
-
-
-                    </p>
+                    <p class="p1">살바도르 달리전</p>
 
 
                     <!-- 소개 table 시작 -->
@@ -212,11 +208,32 @@
         }
         
     });
+    
+    function cart(){
+    	/* confirm("위시리스트에 넣으시겠습니까?") */
+    	
+    		var title = $(".p1").html()  /* 게시물 제목 */
+    		
+    		$.ajax({
+    			type:"post",
+    			url: "/wishlist?title="+title,
+    		 	dataType:"html"
+    		}).done(function(result){
+    			if(result == 1){
+    				confirm("위시리스트에 등록 되었습니다. 마이페이지로 이동하시겠습니까?")
+    				//$(location).attr('href', '/mapage')
+    			} else if( result == 0){	
+    				alert("위시리스트에서 삭제 되었습니다.")	
+    			}
+    		})	
+    	
+    }
+    
 
 </script>
 	
         
-   			  <%@ include file="../tab_menu.jsp" %> 
+   			  <%@ include file="./tab_menu.jsp" %> 
                      
                    
 
