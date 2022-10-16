@@ -38,7 +38,6 @@ public class InfoBoradController extends HttpServlet {
 		req.getRequestDispatcher("/WEB-INF/views/page1/infoBoard.jsp").forward(req, resp);
 		
 		Board boardno = boardService.getBoardno(req);		
-		System.out.println("BoardViewController doGet() - 전달파라미터 객체 : " + boardno);		
 	}
 	
 

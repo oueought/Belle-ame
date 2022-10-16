@@ -43,7 +43,7 @@ public class BoardDaoImpl implements BoardDao {
 			while(rs.next()) {
 				Board b = new Board();	// 결과 값 저장
 				
-				b.setBoardno(rs.getInt("boardno"));
+				b.setBoardno(rs.getString("boardno"));
 				b.setTitle(rs.getString("title"));
 				b.setContent(rs.getString("content"));
 				b.setPeriod(rs.getString("period"));
@@ -92,14 +92,14 @@ public class BoardDaoImpl implements BoardDao {
 		
 		try {
 			ps = conn.prepareStatement(sql);
-			ps.setInt(1, boardno.getBoardno());
+			ps.setString(1, boardno.getBoardno());
 			
 			rs = ps.executeQuery();
 			
 			while( rs.next() ) {
 				board = new Board();
 				
-				board.setBoardno( rs.getInt("boardno") );
+				board.setBoardno( rs.getString("boardno") );
 				board.setTitle( rs.getString("title") );
 				board.setContent( rs.getString("content") );
 				board.setPeriod( rs.getString("period"));
@@ -137,7 +137,7 @@ public class BoardDaoImpl implements BoardDao {
 		try {
 			ps = conn.prepareStatement(sql);
 			
-			ps.setInt(1, board.getBoardno());
+			ps.setString(1, board.getBoardno());
 			ps.setString(2, board.getTitle());
 			ps.setString(3, board.getContent());
 			ps.setString(4, board.getPeriod());
@@ -161,12 +161,12 @@ public class BoardDaoImpl implements BoardDao {
 
 
 	@Override
-	public int selectNextBoardno(Connection conn) {
+	public String selectNextBoardno(Connection conn) {
 		
 		String sql ="";
 		sql += "SELECT board_seq.nextval FROM dual";
 		
-		int nextBoardno = 0;
+		String nextBoardno = "0";
 		
 		try {
 			ps = conn.prepareStatement(sql);
@@ -174,7 +174,7 @@ public class BoardDaoImpl implements BoardDao {
 			rs = ps.executeQuery();
 			
 			while ( rs.next() ) {
-				nextBoardno = rs.getInt("nextval");
+				nextBoardno = rs.getString("nextval");
 			}
 			
 		} catch (SQLException e) {
@@ -205,7 +205,7 @@ public class BoardDaoImpl implements BoardDao {
 		try {
 			ps = conn.prepareStatement(sql);
 			
-			ps.setInt(1, uploadFile.getBoardno());
+			ps.setString(1, uploadFile.getBoardno());
 			ps.setString(2, uploadFile.getUploadname());
 			
 			res = ps.executeUpdate();
@@ -237,7 +237,7 @@ public class BoardDaoImpl implements BoardDao {
 
 		try {
 			ps = conn.prepareStatement(sql);
-			ps.setInt(1, board.getBoardno());
+			ps.setString(1, board.getBoardno());
 			
 			res = ps.executeUpdate();
 			
@@ -265,7 +265,7 @@ public class BoardDaoImpl implements BoardDao {
 
 		try {
 			ps = conn.prepareStatement(sql);
-			ps.setInt(1, board.getBoardno());
+			ps.setString(1, board.getBoardno());
 			
 			res = ps.executeUpdate();
 			
@@ -296,7 +296,7 @@ public class BoardDaoImpl implements BoardDao {
 		try {
 			
 			ps = conn.prepareStatement(sql);
-			ps.setInt(1, viewBoard.getBoardno());
+			ps.setString(1, viewBoard.getBoardno());
 			
 			rs = ps.executeQuery();
 			
@@ -305,7 +305,7 @@ public class BoardDaoImpl implements BoardDao {
 				uploadFile = new UploadFile();
 				
 				uploadFile.setUploadno( rs.getInt("uploadno"));
-				uploadFile.setBoardno( rs.getInt("boardno"));
+				uploadFile.setBoardno( rs.getString("boardno"));
 				uploadFile.setUploadname( rs.getString("uploadname"));
 				
 			}

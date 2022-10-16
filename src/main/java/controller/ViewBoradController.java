@@ -24,17 +24,13 @@ public class ViewBoradController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-	System.out.println("BoardViewController doGet() - 전달파라미터 boardno : " + req.getParameter("boardno"));
 		
 		//전달파라미터 저장 객체 얻기
 		Board boardno = boardService.getBoardno(req);
-		System.out.println("BoardViewController doGet() - 전달파라미터 객체 : " + boardno);
-		
 		
 		
 		//상세보기 결과 조회
 		Board viewBoard = boardService.view(boardno);
-		System.out.println("BoardViewController doGet() - 상세보기 객체 : " + viewBoard);
 		
 		//조회결과 MODEL값 전달
 		req.setAttribute("viewBoard", viewBoard);

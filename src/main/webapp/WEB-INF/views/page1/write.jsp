@@ -77,7 +77,6 @@
    
    <div>
    <table class="table table-bordered board" >
-   		<!-- 글 번호 처리 어떻게 할 지 생각 -->
       <tr><td class="active _text-align">글 번호</td><td><%=session.getAttribute("boardno") %></td></tr>
       <tr><td class="active _text-align"> 전시 제목 </td><td><input type="text" name="title" style="width:100%;"></td></tr>
       <tr><td class="active _text-align"> 장소 </td><td><input type="text" name="period" style="width:100%;"></td></tr>

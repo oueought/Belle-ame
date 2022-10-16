@@ -3,7 +3,7 @@ package dto;
 
 public class Board {
 	
-	private int  boardno;	
+	private String  boardno;	
 	private String title;
 	private String content;
 	private String period;
@@ -14,7 +14,7 @@ public class Board {
 	public Board() {}
 
 
-	public Board(int boardno, String title, String content, String period, String location, int price) {
+	public Board(String boardno, String title, String content, String period, String location, int price) {
 		this.boardno = boardno;
 		this.title = title;
 		this.content = content;
@@ -31,12 +31,12 @@ public class Board {
 	}
 
 
-	public int getBoardno() {
+	public String getBoardno() {
 		return boardno;
 	}
 
 
-	public void setBoardno(int boardno) {
+	public void setBoardno(String boardno) {
 		this.boardno = boardno;
 	}
 
@@ -89,6 +89,9 @@ public class Board {
 	public void setPrice(int price) {
 		this.price = price;
 	}
+
+
+	
 
 
 }	

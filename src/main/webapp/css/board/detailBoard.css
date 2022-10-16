@@ -16,8 +16,9 @@
             }
 
             #exhibition_wrap {
-                margin-top: 300px;
-                margin-left: 300px
+                margin-left: 192px;
+                margin-right: 192px;
+              	margin-top : 20%;
             }
 
             .exhibition_box {
@@ -25,7 +26,7 @@
                 position: relative;
                 padding-left: 470px;
 
-                margin-right: 300px;
+                
                 height: 470px;
                 margin-bottom: 60px;
 
@@ -37,7 +38,6 @@
             .exhibition_box .exhibition_img {
 
                 position: absolute;
-                width: 380px;
                 height: 470px;
                 left: 0;
                 top: 0;
@@ -98,4 +98,26 @@
                 text-align: center;
             }
             
+            .textbox {
             
+            	margin-top: 20%
+            }
+            
+          .bi-heart{
+            font-size: 30px;
+            line-height: 30px;
+            color:crimson;
+            position:absolute;
+            margin-left: 206px;
+            margin-top: -55px;
+        }
+
+        .bi-heart-fill{
+            font-size: 30px;
+            line-height: 30px;
+            color:crimson;
+            position:absolute;
+            margin-left: 206px;
+            margin-top: -55px;
+        }
+        

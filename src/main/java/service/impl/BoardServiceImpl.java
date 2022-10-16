@@ -71,9 +71,8 @@ public class BoardServiceImpl implements BoardService {
 		String param = req.getParameter("boardno");
 		
 		if( param != null && !"".equals(param) ) {
-			board.setBoardno( Integer.parseInt(param) );
+			board.setBoardno( (param) );
 		} else {
-			System.out.println("[WARN] BoardService getBoardno() - boardno값이 null이거나 비어있음");
 		}
 		
 		return board;
@@ -219,7 +218,7 @@ public class BoardServiceImpl implements BoardService {
 				// boardno 연결해야됨
 	
 				// 게시글 번호 생성
-				int boardno = boardDao.selectNextBoardno(conn);
+				String boardno = boardDao.selectNextBoardno(conn);
 				
 				// 게시글 번호 삽입
 				board.setBoardno(boardno);

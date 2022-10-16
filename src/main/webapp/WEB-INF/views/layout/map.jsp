@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>지도</title>
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.0.0/kakao.min.js"></script>
  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>

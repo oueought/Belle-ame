@@ -3,12 +3,12 @@ package dto;
 public class UploadFile {
 	
 	private int uploadno;
-	private int boardno;
+	private String boardno;
 	private String uploadname;
 	
 	public UploadFile() {}
 
-	public UploadFile(int uploadno, int boardno, String uploadname) {
+	public UploadFile(int uploadno, String boardno, String uploadname) {
 		this.uploadno = uploadno;
 		this.boardno = boardno;
 		this.uploadname = uploadname;
@@ -27,11 +27,11 @@ public class UploadFile {
 		this.uploadno = uploadno;
 	}
 
-	public int getBoardno() {
+	public String getBoardno() {
 		return boardno;
 	}
 
-	public void setBoardno(int boardno) {
+	public void setBoardno(String boardno) {
 		this.boardno = boardno;
 	}
 
@@ -42,6 +42,7 @@ public class UploadFile {
 	public void setUploadname(String uploadname) {
 		this.uploadname = uploadname;
 	}
+
 	
 	
 

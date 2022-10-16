@@ -77,17 +77,15 @@
 	
      <div class="container mt-5">
         <ul class="list">
-            <li class="tab-button color">전시 정보</li>
-            <li class="tab-button">전시 유의사항</li>
-            <li class="tab-button">관람 후기</li>
+          <li class="tab-button color">전시 유의사항</li> 
+            <li class="tab-button">후기</li>
         </ul>
       
       
-      <%@ include file="tab_content01.jsp" %> 
+      <%@ include file="tab_content01.jsp" %>
       
       <%@ include file="tab_content02.jsp" %> 
       
-      <%@ include file="tab_content03.jsp" %> 
         
         
    </div>

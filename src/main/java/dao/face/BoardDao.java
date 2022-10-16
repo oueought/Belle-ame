@@ -50,7 +50,7 @@ public interface BoardDao {
 	 * @param conn - DB 연결 객체
 	 * @return int - 다음 게시글 번호
 	 */
-	public int selectNextBoardno(Connection conn);
+	public String selectNextBoardno(Connection conn);
 
 
 

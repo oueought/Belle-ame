@@ -142,9 +142,6 @@ $(document).ready(function() {
         
 	<!-- 스와이퍼 첫페이지 끝 -->
 
-       
-	
-	
 	  </div>
 	  
       <div class="swiper-button-next"></div>
@@ -153,11 +150,13 @@ $(document).ready(function() {
 
  <!-- write 버튼 관리자 일 때만 보이게 구현-->
  
+
+
+<%-- <% if(session.getAttribute("memid").equals("admin")) { %> --%>
 <div id="btnBox" class="pull-right">
 	<button id="btnWrite" class="btn btn-default">글쓰기</button>
 </div>
-
-
+<%-- <% } %> --%>
 
    <!-- Swiper JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>

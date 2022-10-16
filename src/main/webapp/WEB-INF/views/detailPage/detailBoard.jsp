@@ -14,12 +14,13 @@
 <link rel="stylesheet" href="../css/board/detailBoard.css"> 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>    
-
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 
     
 </head>
 
 <script type="text/javascript">
+
 
 $(document).ready(function() {
 	
@@ -50,10 +51,7 @@ $(document).ready(function() {
                 <img class="innerimgbox" alt="둘이서" src="https://ifh.cc/g/7HVSz2.jpg">
             </div>
             
-            <div id="exhibition_wrap">
-
-
-
+            <div onclick="cart()" id="exhibition_wrap">
                 <div class="exhibition_box">
                     <div>
                         <img class="exhibition_img" src="https://ifh.cc/g/Xbab2f.jpg">
@@ -87,11 +85,9 @@ $(document).ready(function() {
                         
 						
                     </table>
-                    
                   
-					
-
-
+				 <i class="bi bi-heart"></i>   
+				 
                     <div class="booking_button">
                         <a href="" target="_blank" style="color: #27ae60; font-size: 15px; font-weight: bold;">
                             <span class="txt">예매하기
@@ -108,30 +104,72 @@ $(document).ready(function() {
                  		 	
             </div>
 
-	
+   	 <%@ include file="tab_menu.jsp" %>
         
-   			  <%@ include file="tab_menu.jsp" %> 
                      
   <!-- 첨부파일 -->
 <div>
 <% if ( uploadFile != null )  { %>
 <a href="<%=request.getContextPath() %>/upload/<%=uploadFile.getUploadname()%>"
-	download=<%=uploadFile.getUploadname() %>">
+	download=<%=uploadFile.getUploadname() %>>
 	<%= uploadFile.getUploadname() %>
 </a>
 <% } %>
 </div> 
-                   
 
             <br><br><br><br><br><br><br>
-
+            
+	
 <div id="btnBox" class="pull-right">
+<%-- <% if(session.getAttribute("memid").equals("admin")) { %> --%>
 	<button id="btnList" class="btn btn-default">목록</button>
 	<button id="btnUpdate" class="btn btn-default">수정</button>
 	<button id="btnDelete" class="btn btn-default">삭제</button>
+<%-- <% } %> --%>
 </div>
 
-                <%@ include file="../layout/footer.jsp" %>
+<%@ include file="../layout/footer.jsp" %>
+
+
+<!-- 위시리스트 -->
+<script>
+    var i = 0;
+    $('.bi-heart').on('click',function(){
+        if(i==0){
+            $(this).removeClass('bi-heart');
+            $(this).addClass('bi-heart-fill');
+            i++;
+        }else if(i==1){
+            $(this).removeClass('bi-heart-fill');
+            $(this).addClass('bi-heart');
+            i--;
+        }
+        
+    });
+    
+    function cart(){
+       /* confirm("위시리스트에 넣으시겠습니까?") */
+       
+          var title = $(".p1").html()  /* 게시물 제목 */
+          
+          $.ajax({
+             type:"post",
+             url: "/wishlist?title="+title,
+              dataType:"html"
+          }).done(function(result){
+             if(result == 1){
+                confirm("위시리스트에 등록 되었습니다. 마이페이지로 이동하시겠습니까?")
+                //$(location).attr('href', '/mapage')
+             } else if( result == 0){   
+                alert("위시리스트에서 삭제 되었습니다.")   
+             }
+          })   
+       
+    }
+    
+
+</script>
+
+
 </body>
 </html>
-
