@@ -5,16 +5,13 @@
 <html>
 <head>
 
-<link href="https://vjs.zencdn.net/7.19.2/video-js.css" rel="stylesheet"/>
+<link href="https://vjs.zencdn.net/7.19.2/video-js.css" rel="stylesheet" />
 <script src="https://vjs.zencdn.net/7.19.2/video.min.js"></script>
-
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 
 <meta charset="UTF-8">
 
-<title>메인페이지(로그인 전)</title>
+<title>메인페이지(로그인 후 관리자)</title>
 
 <style>
 .center{
@@ -139,34 +136,41 @@ p {
 }
 
 </style>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> 
+<link href="ARTOraQ\ARTORAQ\src\main\webapp\WEB-INF\views\main\mainA.css" rel="stylesheet"> 
+
 </head>
 
 <body>
 
 <%@ include file="/WEB-INF/views/layout/header.jsp" %>
 
-<br><br>
-
 <div class="cal">
    <p><b>| 2022-10-19 |</b></p>
 </div>
 
+<br>
+
 	<div class="center">
       	<div class="menubar">
          	<ul class="menu">
+         	
             	<li><a href="#"><b>| 전시정보</b></a></li>
-            	
-            	<!-- 비로그인 상태, 로그인 버튼 보여주기 -->
-            	<% if(session.getAttribute("login") == null) { %>
+
+	         	<!-- 비로그인 상태, 로그인 버튼 보여주기 -->
+				<% if(session.getAttribute("login") == null) { %>
             	<li><a href="#"><b>| 회원가입</b></a></li>
-            	<li><a href="#"><b>| 로그인</b></a></li>
-            	<% } %>  
+            	<li><a href="#"><b>| 로그인</b></a></li>         
+            	<% } %>
             	
             	<!-- 로그인 상태, 로그아웃 버튼 보여주기 -->
-            	<% if(session.getAttribute("login") != null && (boolean) session.getAttribute("login")) {%>   
-            	<li><a href="#">마이페이지</a></li>
-            	<li><a href="/main/logout">로그아웃</a></li>
-            	<% } %>       
+            	<% if( session.getAttribute("login") != null && (boolean) session.getAttribute("login")) { %>      
+        		<li><a href="#"><b>| 마이페이지</b></a></li>
+            	<li><a href="/main/logout"><b>| 로그아웃</b></a></li> 
+        		<% } %>
+        		
         	</ul>
       	</div>
 	
@@ -190,24 +194,22 @@ p {
 		</div>
 	</div>
 
-	<br><br><br><br>
+	<br><br><br><br><br><br><br><br>
 	
 	<hr style="border:0.5px solid#808080;"/>
-	
-	<br><br><br><br><br><br><br><br>
 
 	<div class="bottom" align="middle">
 		<iframe width="1100" height="600" src="https://www.youtube.com/embed/cksAc93q0HA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
 		allowfullscreen></iframe>
 	</div>
-	
+
 
 <br><br><br><br>
+
 
 <footer>
 <%@ include file="../layout/footer.jsp" %>
 </footer>
-</body>
 
 <script type="text/javascript">
 
@@ -274,4 +276,5 @@ $(".next").on("click",function(){
    }
 </script>
 
+</body>
 </html>

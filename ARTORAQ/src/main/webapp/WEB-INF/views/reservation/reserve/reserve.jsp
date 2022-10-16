@@ -1,5 +1,11 @@
+<%@page import="dto.reserve.Board"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<% 
+	Board board = (Board)request.getAttribute("board"); 
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,8 +17,12 @@
   <!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script>
   
+  <!-- iamport.payment.js -->
+  <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+  
+  <!-- 달력 -->
+  <script>
   $.datepicker.setDefaults({
       dateFormat: 'yy-mm-dd',
       prevText: '이전 달',
@@ -28,30 +38,118 @@
 
   $(function() {
       $("#datepicker").datepicker();
+
  
   });
   
-</script>
 
-<script> 
-
+/* span.ver 숫자 증감 */
+/* 예매페에지 - 0 + */
 window.onload = function(){
-      var plus = document.querySelector(".plus");
-      var minus = document.querySelector(".minus");
-      var result = document.querySelector("#result");
-      var i = 1;
-      
-      plus.addEventListener("click", () => {
-         i++
+   var plus = document.querySelector(".plus");
+   var minus = document.querySelector(".minus");
+   var result = document.querySelector("#result")
+   var totalcost = document.querySelector('.totalcost')
+   var i = 0;
+   
+   plus.addEventListener("click", () => {
+      i++
+      result.textContent = i;
+      var totalcostNum = 1*i;
+      totalcost.textContent = "인원 수 : " + totalcostNum.toLocaleString();
+   })
+   
+   minus.addEventListener("click", () => {
+      if (i>0){
+         i--
          result.textContent = i;
-      })
-      minus.addEventListener("click", () => {
-         if (i>0){
-            i--
-            result.textContent = i;
-            }
-      })
+         var totalcostNum = 1*i;
+         totalcost.textContent = "인원 수 : " + totalcostNum.toLocaleString();
+         } else {
+            totalcost.textContent = "인원 수 : " + 0
+         }
+   })
 }
+
+var price = "<%= board.getPrice()%>";
+
+/* button.ver 숫자 증감 */
+function count(type) {
+	const resultElement = document.getElementById("result");
+	const priceElement = document.getElementById("price");
+	
+	var number = resultElement.innerText;
+
+	innerPrice = price;
+	
+	if(type === "plus") {
+		number = parseInt(number) + 1;
+		innerPrice = price * number
+		
+	}else if(type==="minus"){
+		number = parseInt(number) - 1;	
+		innerPrice = price * number
+	}
+	
+	if(number == 0 ){
+		alert('최소 수량은 한장입니다.')
+		resultElement.innerText = 1;
+		priceElement.innerText = price;
+	}else {
+		resultElement.innerText = number;
+		priceElement.innerText = innerPrice;	
+	}
+	
+}
+
+
+/* 아임포트 */
+$(document).ready(function() {
+	$('#importPayment').click(function(){
+		payment();
+	})
+})
+
+function payment(){
+	var name = document.getElementById("name").innerText;
+	var sum = document.getElementById("price").innerText;
+	var payForm = document.getElementById("payForm")
+	// 유니크한 값을 지정해야 함
+	var uuid  = Math.floor(Math.random() * 100000000000000)
+	 
+	 document.getElementById("amount").value = document.getElementById("result").innerText
+	 document.getElementById("sum").value = sum
+	 document.getElementById("date").value = document.getElementById("datepicker").value
+	
+	 	      var identCode = 'imp28354113' //가맹점식별코드
+		      var IMP = window.IMP
+		      console.log(IMP)
+		      IMP.init(identCode)
+		      IMP.request_pay({ // param
+		          pg: "kakaopay.TC0ONETIME",
+		          pay_method: "card", //QR
+ 		          merchant_uid: uuid,
+		          name: name,
+		          amount: sum,
+		          buyer_email: "test11111@gmail.com",
+		          buyer_name: "홍길동",
+		          buyer_tel: "010-4242-4242",
+		          buyer_addr: "서울특별시 강남구 신사동",
+		          buyer_postcode: "01181"
+		      }, function (rsp) { // callback
+		          if (rsp.success) {
+		             
+		        	  payForm.submit();
+		        	  
+		          } else {
+		             console.log(rsp)
+		             console.log("failed")
+		          }}
+		      	)
+		     
+		      
+		      }
+//}
 
 </script>
 
@@ -60,60 +158,56 @@ window.onload = function(){
 
 <%@ include file="/WEB-INF/views/layout/header.jsp" %>
 
-<br><br><br><br>
+<form action="/reservation/reserve/reserve" method="post" id="payForm">
 
+<!-- 날짜 정하기 -->
 <div class="choice">
    <div class="choicebox">
-     
-         <p>Date: <input type="text" name="datepicker" id="datepicker"></p>
-      
+	      <p>Date: <input value="" type="text" name="datepicker" id="datepicker"></p>
    </div>
-   
 </div>
 
-<div class="reserve">
    
    <!-- 성인 1인 입장권 -->
-   <div class="reservebox">
-      <div><b>성인 1인 입장권</b></div>
+	<div class="reserve">
+	<div class="reservebox">
+      <div><b>수량선택</b></div>
+  
+</div>
+	<div class="info">
+		<span class="expire">[유효기간 : ~<%= board.getPeriod().split("~")[1].replace('년', '.').replace('월', '.').replace('일', ' ') %>]</span>
+		<span class="name" id="name"><%= board.getTitle() %> 입장권</span>
+	</div>
+  	<div class="num">
+         <!-- button.ver 수량 증감 -->
+         <input type="button" onclick="count('plus')" value="+"/>
+         <input type="button" onclick="count('minus')" value="-"/>
+         <div id="result">1</div>
+         <input type="hidden" name="amount" id="amount"/>
+         <input type="hidden" name="sum" id="sum"/>
+         <input type="hidden" name="date" id="date"/>
+         <input type="hidden" name="no" value="<%=board.getBoardno() %>"/>
+         <input type="hidden" name="price" value="<%=board.getPrice() %>"/>
+         <div id="price"><%= board.getPrice() %></div>
    </div>
-   
-   <div class="num">
-
-         <span class="count">
-         <a href="#" class="minus">-</a>
-         <span id="result">1</span>
-         <a href="#" class="plus">+</a>
-         </span>
-         
-<!-- <span class="btn btn-xs btn-info inwon"></span>
-<form action="/reserveCheck.do" method="post">
-   <input type=hidden name="info_id" id="num">
-   <input type=hidden name="info_title" id="name">
-   <input type=hidden name="info_date" id="day">
-   <input type=hidden name="b00k_acount" id="inwon">
-   <input type=hidden name="book_price" id="price">
-   <input type=submit value="예매하기" class="btn btn-lg btn-primary">
-</form> -->
-      
-   </div>
-      
 </div>
 
    <br>
 
    <!-- 취소, 결제 버튼 -->
    <div class="dpbutton">
-        <button type="button" class="btn btn-default" href="#"><b>취소</b></button>
-        <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal"><b>결제</b></button>
+        <button type="button" class="btn btn-default"><b>취소</b></button>
+        <button type="button" id="importPayment" class="btn btn-primary" ><b>결제</b></button>
     </div>
 
-   </form>
+</form>
+
    <br>
 
 <footer>
 
 <%@ include file="/WEB-INF/views/layout/footer.jsp" %>
+
 </footer>
 
 </body>
