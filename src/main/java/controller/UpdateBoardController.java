@@ -2,7 +2,6 @@ package controller;
 
 import java.io.IOException;
 
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dto.Board;
+import dto.UploadFile;
 import service.face.BoardService;
 import service.impl.BoardServiceImpl;
 
@@ -35,6 +35,13 @@ public class UpdateBoardController extends HttpServlet {
 		
 		//조회결과 MODEL값 전달
 		req.setAttribute("updateBoard", updateBoard);
+		
+		
+		UploadFile uploadFile = boardService.viewFile(updateBoard);
+		
+		req.setAttribute("uploadFile", uploadFile);
+		
+		req.getRequestDispatcher("/WEB-INF/views/page1/update.jsp").forward(req, resp);
 	
 	}
 	

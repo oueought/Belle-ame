@@ -4,8 +4,6 @@ package service.face;
 
 import java.util.List;
 
-
-
 import javax.servlet.http.HttpServletRequest;
 
 import dto.Board;
@@ -43,9 +41,7 @@ public interface BoardService {
 	public Board view(Board boardno);
 	
 	
-	
-	
-	
+
 	/**
 	 * 게시글 작성
 	 * 입력한 게시글을 DB에 저장
@@ -53,6 +49,27 @@ public interface BoardService {
 	 */
 	public void write(HttpServletRequest req);
 
+	
+	
+	/**
+	 * 첨부 파일 정보 조회
+	 * 
+	 * @param viewBoard - 첨부파일과 연결된 게시글의 번호
+	 * @return UploadFile - 첨부파일 정보 DTO
+	 */
+	public UploadFile viewFile(Board viewBoard);
+	
+	
+	
+	/**
+	 * 게시글 수정
+	 * 
+	 * @param req
+	 */
+	public void update(HttpServletRequest req);
+	
+	
+	
 
 
 
@@ -65,13 +82,7 @@ public interface BoardService {
 	public void delete(Board board);
 
 
-	/**
-	 * 첨부 파일 정보 조회
-	 * 
-	 * @param viewBoard - 첨부파일과 연결된 게시글의 번호
-	 * @return UploadFile - 첨부파일 정보 DTO
-	 */
-	public UploadFile viewFile(Board viewBoard);
+	
 
 
 

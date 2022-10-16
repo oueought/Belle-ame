@@ -66,6 +66,14 @@ public interface BoardDao {
 
 
 
+	/**
+	 * 게시글 수정
+	 * 
+	 * @param conn - DB연결 객체
+	 * @param board - 수정할 내용을 담은 객체
+	 * @return UPDATE 수행 결과
+	 */
+	public int update(Connection conn, Board board);
 
 	
 	/**

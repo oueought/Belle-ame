@@ -1,10 +1,15 @@
+<%@page import="dto.UploadFile"%>
+<%@page import="dto.Board"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+   
+<%	Board updateBoard = (Board) request.getAttribute("updateBoard"); %>
+<%	UploadFile uploadFile = (UploadFile) request.getAttribute("uploadFile"); %>    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>게시글 작성</title>
+<title>게시글 수정</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link rel="stylesheet" href="../css/board/write.css"> 
@@ -22,8 +27,7 @@
    $(document).ready(function() {
       
       //작성버튼
-      $("#btnWrite").click(function() {
-       	console.log("clicked")
+      $("#btnUpdate").click(function() {
        	
          //작성된 내용을 <textarea>에 적용하기
          updateContents()
@@ -36,12 +40,24 @@
          history.go(-1)
       })
       
-    		
-    	//목록 버튼
-    	$("#btnList").click(function() {
-    		$(location).attr('href', './infoboard')
-     })	
-   })
+ 
+         //파일이 없을 경우
+	if(<%= uploadFile != null %>) {
+		$("#beforeFile").show();
+		$("#afterFile").hide();
+	}
+    
+    //파일이 있을 경우
+  	if(<%=uploadFile == null %>) {
+  		$("#beforeFile").hide();
+  		$("#afterFile").show();
+  	}
+  	
+  	//파일 삭제 버튼(X) 처리
+  	$("#delFile").click(function() {
+  		$("#beforeFile").toggle();
+  		$("#afterFile").toggle();
+  	})
    
  function updateContents() {
       
@@ -52,7 +68,7 @@
 
 </script> 
 
-    <!-- Demo styles -->
+   
 
 </head>
 
@@ -69,7 +85,7 @@
 <div class="container">
 	
 	<br><br><br>
-   <h4><i class="fa fa-pencil-square-o" aria-hidden="true">게시글 작성</i></h4>
+   <h4><i class="fa fa-pencil-square-o" aria-hidden="true">게시글 수정</i></h4>
    <br><br>
    
  

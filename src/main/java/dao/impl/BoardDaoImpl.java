@@ -221,10 +221,93 @@ public class BoardDaoImpl implements BoardDao {
 	}
 
 
-
-
-	// 게시글 삭제 전 파일도 삭제
 	
+	
+	
+	@Override
+	public UploadFile selectFile(Connection conn, Board viewBoard) {
+		
+		String sql ="";
+		sql += "SELECT";
+		sql += "	 uploadno, boardno, uploadname";
+		sql += " FROM upload";
+		sql += " WHERE boardno = ?";
+		
+		// 조회 결과 객체
+		UploadFile uploadFile = null;
+		
+		try {
+			
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, viewBoard.getBoardno());
+			
+			rs = ps.executeQuery();
+			
+			while ( rs.next() ) {
+				
+				uploadFile = new UploadFile();
+				
+				uploadFile.setUploadno( rs.getInt("uploadno"));
+				uploadFile.setBoardno( rs.getString("boardno"));
+				uploadFile.setUploadname( rs.getString("uploadname"));
+				
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JDBCTemplate.close(rs);
+			JDBCTemplate.close(ps);
+		}
+		
+		return uploadFile;
+	}
+
+
+
+
+	
+	
+	@Override
+	public int update(Connection conn, Board board) {
+		
+		String sql = "";
+		sql += "UPDATE board ";
+		sql += " SET";
+		sql += "   title = ?";
+		sql += "   , content = ?";
+		sql += "   , period = ?";
+		sql += "   , location = ?";
+		sql += " WHERE boardno = ?";
+		
+		int res = 0;
+		
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			
+			ps.setString(1, board.getBoardno());
+			ps.setString(2, board.getTitle());
+			ps.setString(3, board.getContent());
+			ps.setString(4, board.getPeriod());
+			ps.setString(5, board.getLocation());
+			ps.setInt(6, board.getPrice());
+			
+			res = ps.executeUpdate();
+					
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JDBCTemplate.close(ps);
+		}
+		
+		return res;
+	}
+
+
+	
+	
+	// 게시글 삭제 전 파일도 삭제
 	@Override
 	public int deleteFile(Connection conn, Board board) {
 		
@@ -281,44 +364,10 @@ public class BoardDaoImpl implements BoardDao {
 
 
 
-	@Override
-	public UploadFile selectFile(Connection conn, Board viewBoard) {
-		
-		String sql ="";
-		sql += "SELECT";
-		sql += "	 uploadno, boardno, uploadname";
-		sql += " FROM upload";
-		sql += " WHERE boardno = ?";
-		
-		// 조회 결과 객체
-		UploadFile uploadFile = null;
-		
-		try {
-			
-			ps = conn.prepareStatement(sql);
-			ps.setString(1, viewBoard.getBoardno());
-			
-			rs = ps.executeQuery();
-			
-			while ( rs.next() ) {
-				
-				uploadFile = new UploadFile();
-				
-				uploadFile.setUploadno( rs.getInt("uploadno"));
-				uploadFile.setBoardno( rs.getString("boardno"));
-				uploadFile.setUploadname( rs.getString("uploadname"));
-				
-			}
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			JDBCTemplate.close(rs);
-			JDBCTemplate.close(ps);
-		}
-		
-		return uploadFile;
-	}
+	
+
+
+
 
 
 
