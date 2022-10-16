@@ -36,7 +36,7 @@ public class ReserveDaoImpl implements ReserveDao {
 				res.setLocation(rs.getString(5));
 				res.setPeriod(rs.getString(4));
 				res.setPrice(rs.getInt(6));
-				res.setBoardno(rs.getInt(1));
+				res.setBoardno(rs.getString(1));
 			}
 			
 			

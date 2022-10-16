@@ -37,26 +37,6 @@
 
  
   });
-  
-
-/* span.ver 숫자 증감 */
-/* window.onload = function(){
-	   var plus = document.querySelector(".plus");
-	   var minus = document.querySelector(".minus");
-	   var result = document.querySelector("#result");
-	   var i = 1;
-	   
-	   plus.addEventListener("click", () => {
-	      i++
-	      result.textContent = i;
-	   })
-	   minus.addEventListener("click", () => {
-	      if (i>0){
-	         i--
-	         result.textContent = i;
-	         }
-	   })
-} */
 
 var price = "<%= board.getPrice()%>";
 

@@ -40,7 +40,7 @@ public class BoardDaoImpl implements BoardDao {
 			while(rs.next()) {
 				Board b = new Board();	// 결과 값 저장
 				
-				b.setBoardno(rs.getInt("boardno"));
+				b.setBoardno(rs.getString("boardno"));
 				b.setTitle(rs.getString("title"));
 				b.setContent(rs.getString("content"));
 				b.setPeriod(rs.getString("period"));
