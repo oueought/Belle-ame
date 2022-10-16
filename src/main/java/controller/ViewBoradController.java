@@ -13,7 +13,7 @@ import dto.UploadFile;
 import service.face.BoardService;
 import service.impl.BoardServiceImpl;
 
-@WebServlet("/ViewBoardController")
+@WebServlet("/viewBoard")
 public class ViewBoradController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	

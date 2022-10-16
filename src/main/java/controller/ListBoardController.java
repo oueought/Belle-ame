@@ -15,7 +15,7 @@ import service.impl.BoardServiceImpl;
 import dto.Board;
 
 
-@WebServlet("/ListBoardController")
+@WebServlet("/listBoard")
 public class ListBoardController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	

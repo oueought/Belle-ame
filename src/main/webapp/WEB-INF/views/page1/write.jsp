@@ -39,7 +39,7 @@
     		
     	//목록 버튼
     	$("#btnList").click(function() {
-    		$(location).attr('href', './InfoBoardController')
+    		$(location).attr('href', './infoboard')
      })	
    })
    

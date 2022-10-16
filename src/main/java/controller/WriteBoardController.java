@@ -35,7 +35,7 @@ public class WriteBoardController extends HttpServlet {
 	   boardService.write(req);
 
       //목록으로 리다이렉트
-     resp.sendRedirect("/InfoBoardController");
+     resp.sendRedirect("/infoBoard");
       
    }
    

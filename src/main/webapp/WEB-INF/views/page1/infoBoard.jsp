@@ -48,7 +48,7 @@ $(document).ready(function() {
 <div class="container">
 <div class="row">
 <% for (int i=0 ; i<boardList.size(); i++) { %>
- <a href="/ViewBoardController?boardno=<%=boardList.get(i).getBoardno() %>">
+ <a href="/viewBoard?boardno=<%=boardList.get(i).getBoardno() %>">
 <div class="col-sm-6 col-md-3">
     <div class="thumbnail">
       <div class="caption">

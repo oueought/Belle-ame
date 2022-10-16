@@ -16,7 +16,7 @@ import service.face.BoardService;
 import service.impl.BoardServiceImpl;
 
 
-@WebServlet("/InfoBoardController")
+@WebServlet("/infoBoard")
 public class InfoBoradController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

@@ -26,7 +26,7 @@ $(document).ready(function() {
 	
 	//목록 버튼
 	$("#btnList").click(function() {
-		$(location).attr('href', './InfoBoardController')
+		$(location).attr('href', './infoBoard')
 	})
 
 	//수정 버튼
@@ -36,7 +36,7 @@ $(document).ready(function() {
 
 	//삭제버튼
 	$("#btnDelete").click(function() {
-		$(location).attr('href', './deleteController?boardno=<%=viewBoard.getBoardno() %>')
+		$(location).attr('href', './delete?boardno=<%=viewBoard.getBoardno() %>')
 	})
 
 })
