@@ -37,6 +37,13 @@ $(document).ready(function() {
     
 })
 
+alert('제발')
+
+function(isLogin ==null) {
+		alert('<%=request.getAttribute("message") %>')
+	
+}
+
 </script>
 
 <!-- 카카오 로그인 API -->

@@ -85,6 +85,5 @@ public class Member {
 	public void setMemphone(String memphone) {
 		this.memphone = memphone;
 	}
-	
 
 }

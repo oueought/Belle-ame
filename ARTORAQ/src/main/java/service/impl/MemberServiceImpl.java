@@ -99,35 +99,5 @@ public class MemberServiceImpl implements MemberService {
 	public Member Pwinfo(Member member) {
 		return memberDao.selectMemberByUserid(JDBCTemplate.getConnection(), member);
 	}
-	
-	//--- 마이페이지 업데이트 ---
-	//전달 파라미터 가져오기
-	@Override
-	public Member getMypageUpdate(HttpServletRequest req) {
-		
-		Member member = new Member();
-		
-		member.setMempw(req.getParameter("mempw"));
-		member.setMemnick(req.getParameter("memnick"));
-		member.setMemphone(req.getParameter("memphone"));
-		member.setMememail(req.getParameter("mememail"));
-		
-		return member;
-	}
-
-	@Override
-	public void update(Member member) {
-		
-		Connection conn = JDBCTemplate.getConnection();
-		
-		if(memberDao.update(conn, member) > 0) {
-			JDBCTemplate.commit(conn);
-		
-		} else {
-			JDBCTemplate.rollback(conn);
-		}
-
-	}
-	
 
 }

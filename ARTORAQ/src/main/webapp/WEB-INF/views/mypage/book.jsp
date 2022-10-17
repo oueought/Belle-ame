@@ -53,8 +53,8 @@ $(document).ready(function() {
 
 /* 이미지 크기 */
 .card-img {
-	width: 170px;
-	height: 232px;
+	width: 150px;
+	height: 205px;
 }
 
 .bcontent > hr {
@@ -106,15 +106,21 @@ $(document).ready(function() {
     <div class="list"  style="width: 700px;">
     	<p style="font-size:16px; font-weight: bold;">결제내역</p><br>
 
+		<!-- 결제한 내역이 없을 경우 -->
+		<%	if( bookList.isEmpty() ) { %>
+		<p class="nothing">결제한 내역이 없습니다.</p>
+		<% } %>
+		
+	
 		<%	for(int i=0; i<bookList.size(); i++) { %>
 	    <div class="card">
 	    	<div class="row no-gutters">
-	        	<div class="col-sm-5">
+	        	<div class="col-sm-4">
 	            	<img class="card-img" src="https://ifh.cc/g/QyVr5T.jpg" alt="살바도르 달리전">
 	        	</div>
-	        	<div class="col-sm-7">
+	        	<div class="col-sm-8">
 	            	<div class="card-body">
-	                	<p class="card-title"><%= ((Board) bookList.get(i).get("board")).getTitle() %></p><br><br>
+	                	<p class="card-title"><%= ((Board) bookList.get(i).get("board")).getTitle() %></p><br>
 							<p>기간: <%= ((Board) bookList.get(i).get("board")).getPeriod() %></p>
 <%-- 							<p>결제일: <%=bookList.get(i).get("book")).getPrice() %></p> --%>
 	                		<p>수량: <%= ((Book) bookList.get(i).get("book")).getAmount() %> 매</p>

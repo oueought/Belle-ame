@@ -1,6 +1,7 @@
 package login;
 
 import java.io.IOException;
+import java.net.URLEncoder;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dto.Member;
+import oracle.jdbc.driver.Message;
 import service.face.MemberService;
 import service.impl.MemberServiceImpl;
 
@@ -48,15 +50,18 @@ public class LoginController extends HttpServlet {
 			
 			//아이디세션
 			session.setAttribute("memid", member.getMemid());
+		} else {
+	         req.setAttribute("msg", "아이디와 비밀번호를 확인해주세요");
+	         req.setAttribute("url", "/login");
+	         
+	         req.getRequestDispatcher("/WEB-INF/views/login/loginFail.jsp").forward(req, resp);
+	         return;
 		}
-		
-		//아이디 저장 쿠키 생성
-//		Cookie remember = new Cookie("remember", "memid"); //쿠키 객체 생성
-//		resp.addCookie(remember);	//쿠키 정보를 저장
 		
 		//로그인 성공시 메인페이지로 리다이렉트
 		resp.sendRedirect("/main");
+		
+		System.out.println("로그인성공");
 	}
-
 
 }

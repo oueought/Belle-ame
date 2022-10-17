@@ -179,34 +179,6 @@ public class MemberDaoImpl implements MemberDao {
 		
 		return res;
 	}
-	
-	//--- 마이페이지 업데이트 ---
-	@Override
-	public int update(Connection conn, Member member) {
-		
-		String sql = "";
-		sql += "UPDATE member SET mempw = ?, memnick = ?, memphone = ?, mememail = ?";
-//		sql += " WHERE mem_id = ?";
-		
-		int res = 0;
-		
-		try {
-			ps = conn.prepareStatement(sql);
-			
-			ps.setString(1, member.getMempw());
-			ps.setString(2, member.getMemnick());
-			ps.setString(3, member.getMemphone());
-			ps.setString(4, member.getMememail());
-			
-			res = ps.executeUpdate();
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			JDBCTemplate.close(ps);
-		}
-		
-		return res;
-	}
+
 
 }
