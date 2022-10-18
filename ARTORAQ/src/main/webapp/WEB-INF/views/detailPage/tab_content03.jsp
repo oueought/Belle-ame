@@ -23,9 +23,8 @@ html,
 body {
     height: 100%
 }
+
 body {
-    display: grid;
-   	/* place-items: justify; */
     font-family: 'Manrope', sans-serif;
    
    
@@ -41,7 +40,6 @@ body {
     height:220px;
     word-wrap: break-word;
     background-color: 000000;
-/*     background-clip: border-box; */
     border-radius: 6px;
     -moz-box-shadow: 0px 0px 5px 0px rgba(212, 182, 212, 1);
     margin:-10px; 
@@ -60,17 +58,9 @@ body {
    left:12px;  
    border: 1px solid #ad9f9f;
 }
-/* .form-control:focus {
-    color: #495057;
-    background-color: #fff;
-    border-color: #ffffff;
-    outline: 0;
-    box-shadow: 0 0 0 1px rgb(255, 0, 0) !important;
-} */
+
 .send {
-    /* color: #fff; */
-   /*  background-color: #ff0000;
-    border-color: #ff0000; */
+
     position: absolute;
     bottom: 5px;
     right: 15px;
@@ -80,7 +70,7 @@ body {
 	 display: flex;
      margin-top: -7px;
      flex-direction: row-reverse;
-     margin-left: 65px;
+     margin-left: 5px;
      float: left;
      top: 50px;
 }
@@ -112,7 +102,7 @@ body {
 .guide{
 	position: absolute;
 	top: 10px;
-	left: 78px;
+	left: 16px;
 	font-size: 20px; 
 }
 .rounded-circle{
@@ -127,7 +117,7 @@ body {
     right: 66px;
 }
 .btn-sm{
-	/* background-color: grey;  */
+
 	border: none; !important
 	
 }
@@ -140,18 +130,15 @@ body {
 
 
 <div class="tab-content">
-<!-- <form action="/Comment" method="post"> -->
 <div class="container">
 <div class="card">
               <div class="row">
                   <div class="col-2">
-                      <img src="https://ifh.cc/g/vL0zKT.jpg" width="50px" class="rounded-circle mt-2">
-                      <input type="hidden" name="infoId" id="infoId" value="123">  <!-- infoId 는 게시글 번호  -->
                   </div>
                   <div class="col-10">
                       <div class="comment-box ml-2">
-                          <h5 class="guide">감상 후 댓글은 모다?</h5>
-                          <div class="rating" id="rating"> 
+                          <h5 class="guide">후기를 작성해주세요</h5>
+                          <div class="rating"  id="rating"> 
                               <input type="radio" name="reviewRating" value="5" id="5"><label for="5">☆</label>
                               <input type="radio" name="reviewRating" value="4" id="4"><label for="4">☆</label> 
                               <input type="radio" name="reviewRating" value="3" id="3"><label for="3">☆</label>
@@ -165,12 +152,12 @@ body {
                               <div class="row">
                                   <div class="col-6">
                                       <div class="pull-left">
-                                      <button class="btn-dark cancel btn-sm" type="reset" onclick="commentclear();" >취소</button>      
+                                      <button class="btn-dark cancel btn-sm" type="reset" onclick="commentclear();">취소</button>      
                                       </div>
                                   </div>
                                   <div class="col-6">
                                       <div class="pull-right">
-                                      <button type="button" onclick="commentSave();" class="btn-dark send btn-sm">등록 <i class="fa fa-long-arrow-right ml-1"></i></button>      
+                                      <button type="button" onclick="commentSave();" class="btn-dark send btn-sm">등록</button>
                                       </div>
                                   </div>
                               </div>
@@ -178,93 +165,17 @@ body {
                       </div>
                   </div>
               </div>
-              <hr>
           </div>
           
-       	<div style="margin-left: -23px;" id="result" class="media" >
-           	
-           	</div>
+          		<div style="margin-left: -23px;" id="result" class="media" >
+          
+          
+          </div>
           </div>
 </div>
-<!-- </form> -->
-
-<script type="text/javascript">
-
-function commentclear(){
-	$("#cmContents").val("");
-	
-	$('input[name=reviewRating]').eq(4).attr("checked",true);
-	$('input[name=reviewRating]').eq(3).attr("checked",false);
- 	$('input[name=reviewRating]').eq(2).attr("checked",false);
-	$('input[name=reviewRating]').eq(1).attr("checked",false);
-	$('input[name=reviewRating]').eq(0).attr("checked",false); 
-}
 
 
-function commentSave(){
-	var data={
-			rating:$('input[name=reviewRating]:checked').val(),
-			recontent:$("#cmContents").val(),
-				}
-	$.ajax({
-		type:"post",
-		url:"/Comment",
-		data:JSON.stringify(data),
-		contentType:"application/json; charset=utf-8",
-		dataType:"html"
-	}).done(function(result){
 
-			console.log('통신성공')
-			//$("#result").html( result ) 
-			find()
-			//$(".text").val("");
-		 
-			$('input[name=reviewRating]').eq(1).attr("checked",false);
-			$('input[name=reviewRating]').eq(0).attr("checked",false);
-	}); 
-}
-function find(){
-	var infoId = $("#infoId").val();
-/* 	var data={
-		infoId:infoId
-	} */
-	$.ajax({
-		type:"post",
-		url:"/Search?infoId="+infoId,
-		contentType:"application/json; charset=utf-8",
-		dataType:"html"
-	}).done(function(result){
-
-			console.log(result)
-			$("#result").html( result ) 
-			$(".text").val("");
-			
-
-	}); 
-}
-
-function del(){
-	var a = confirm('정말 삭제 하시겠습니까?');
-	var reid = $('#reid').val()
-	
-	$.ajax({
-		type:"post",
-		url: "/delete/review?reid="+reid,
-	 	dataType:"html"
-	}).done(function(result){
-		if(result == 1){
-			console.log("삭제 성공")
-			find();
-		} else{}
-			console.log("삭제 실패")
-	})	
-}
-
-window.onload = function(){
-	find();
-	
-}
-</script>
 
 </body>
 </html>
