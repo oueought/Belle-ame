@@ -1,8 +1,10 @@
 <%@page import="dto.Board"%>
+<%@page import="dto.UploadFile"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- <%	List<Board> boardList = (List) request.getAttribute("boardList"); %>
+ <%	 List<UploadFile> uploadList = (List) request.getAttribute("uploadFile"); %>
+ <%	 List<Board> boardList = (List) request.getAttribute("boardList"); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +12,8 @@
 <title>전시 게시판</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="stylesheet" href="../css/board/infoBoard.css"> 
+<link rel="stylesheet" href="../css/board/infoBoard.css">
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script> 
 
 <link
   rel="stylesheet"
@@ -53,7 +56,7 @@ $(document).ready(function() {
     <div class="thumbnail">
       <div class="caption">
          
-      <img src="https://ifh.cc/g/QyVr5T.jpg" alt="..." class="img-responsive center-block">
+      <img src="/upload/<%=uploadList.get(i).getStoredname()%>" alt="..." class="img-responsive center-block">
         <h4><%= boardList.get(i).getTitle() %></h4>
         <p class="period"><%=boardList.get(i).getPeriod() %></p>
         
@@ -152,17 +155,22 @@ $(document).ready(function() {
  
 
 
-<%-- <% if(session.getAttribute("memid").equals("admin")) { %> --%>
+<% if(session.getAttribute("memid").equals("admin")) { %>
 <div id="btnBox" class="pull-right">
 	<button id="btnWrite" class="btn btn-default">글쓰기</button>
 </div>
-<%-- <% } %> --%>
+ <% } %>
+
+
+
 
    <!-- Swiper JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 
 
+
     <!-- Initialize Swiper -->
+    
      <script>
      const swiper = new Swiper(".mySwiper", {
          navigation: {
@@ -175,8 +183,9 @@ $(document).ready(function() {
        });
     </script>
 
+	
 	<br><br><br><br><br>
-
+	
 <footer>
 <%@ include file="../layout/footer.jsp" %>
 </footer>

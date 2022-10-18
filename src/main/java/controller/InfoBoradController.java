@@ -37,7 +37,6 @@ public class InfoBoradController extends HttpServlet {
 		// View 지정
 		req.getRequestDispatcher("/WEB-INF/views/page1/infoBoard.jsp").forward(req, resp);
 		
-		Board boardno = boardService.getBoardno(req);		
 	}
 	
 

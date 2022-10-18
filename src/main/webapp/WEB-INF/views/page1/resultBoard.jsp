@@ -1,8 +1,9 @@
 <%@page import="dto.Board"%>
+<%@page import="dto.UploadFile"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+ <%	 List<UploadFile> uploadList = (List) request.getAttribute("uploadFile"); %>    
 <% List<Board> list = (List)request.getAttribute("list"); %> 
 <% String result = (String) request.getAttribute("result"); %>   
     
@@ -81,10 +82,11 @@
 
 <div class="row">
    <%for( int i=0; i < total ; i++) { %>
+   <a href="/viewBoard?boardno=<%=list.get(i).getBoardno() %>">
   <div class="col-sm-6 col-md-3">
     <div class="thumbnail">
       <div class="caption">
-      <img src="https://ifh.cc/g/pzdotw.png" alt="...">           <%-- 미리보기 이미지 파일 이름 --%>
+      <img src="/upload/<%=uploadList.get(i).getStoredname()%>" alt="...">           <%-- 미리보기 이미지 파일 이름 --%>
         <h4><%=list.get(i).getTitle() %></h4>                                     <%-- 전시 제목 --%>
        <p class="period"><%=list.get(i).getPeriod() %> </p>       <%-- 전시 기간 --%>   
        
@@ -95,6 +97,7 @@
       </div>
     </div>
   </div>
+  </a>
   <%} %>
 <%} %>
 </div> <!-- row 끝 -->

@@ -1,9 +1,6 @@
 package dao.impl;
 
 import java.sql.Connection;
-
-
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -46,8 +43,8 @@ public class BoardDaoImpl implements BoardDao {
 				b.setBoardno(rs.getString("boardno"));
 				b.setTitle(rs.getString("title"));
 				b.setContent(rs.getString("content"));
-				b.setPeriod(rs.getString("period"));
 				b.setLocation(rs.getString("location"));
+				b.setPeriod(rs.getString("period"));
 				b.setPrice(rs.getInt("price"));
 				
 				// 리스트에 결과 값 저장 
@@ -83,7 +80,7 @@ public class BoardDaoImpl implements BoardDao {
 		String sql="";
 		sql += "SELECT";
 		sql += "    boardno, title, content";
-		sql += "    , period, location, price";
+		sql += "    , location, period, price";
 		sql += " FROM board";
 		sql += " WHERE boardno = ?";
 		
@@ -102,9 +99,9 @@ public class BoardDaoImpl implements BoardDao {
 				board.setBoardno( rs.getString("boardno") );
 				board.setTitle( rs.getString("title") );
 				board.setContent( rs.getString("content") );
-				board.setPeriod( rs.getString("period"));
 				board.setLocation( rs.getString("location"));
-				board.setPrice( rs.getInt("boardno") );
+				board.setPeriod( rs.getString("period"));
+				board.setPrice( rs.getInt("price") );
 			}
 			
 		} catch (SQLException e) {
@@ -128,7 +125,7 @@ public class BoardDaoImpl implements BoardDao {
 	public int insert(Connection conn, Board board) {
 		
 		String sql = "";
-		sql += "INSERT INTO board ( boardno, title, content, period, location, price )";
+		sql += "INSERT INTO board ( boardno, title, content, location, period, price )";
 		sql += " VALUES ( ?, ?, ? , ?, ?,? )";
 		
 		
@@ -140,8 +137,8 @@ public class BoardDaoImpl implements BoardDao {
 			ps.setString(1, board.getBoardno());
 			ps.setString(2, board.getTitle());
 			ps.setString(3, board.getContent());
-			ps.setString(4, board.getPeriod());
 			ps.setString(5, board.getLocation());
+			ps.setString(4, board.getPeriod());
 			ps.setInt(6, board.getPrice());
 			
 			res = ps.executeUpdate();
@@ -197,8 +194,8 @@ public class BoardDaoImpl implements BoardDao {
 	public int insertFile(Connection conn, UploadFile uploadFile) {
 		
 		String sql = "";
-		sql += "INSERT INTO upload ( uploadno, boardno, uploadname )";
-		sql += " VALUES ( uploadno_seq.nextval, ?, ? )";	
+		sql += "INSERT INTO upload ( uploadno, boardno, uploadname, storedname )";
+		sql += " VALUES ( upload_seq.nextval, ?, ?, ? )";	
 		
 		int res = 0;
 		
@@ -207,6 +204,7 @@ public class BoardDaoImpl implements BoardDao {
 			
 			ps.setString(1, uploadFile.getBoardno());
 			ps.setString(2, uploadFile.getUploadname());
+			ps.setString(3, uploadFile.getStoredname());
 			
 			res = ps.executeUpdate();
 			
@@ -220,16 +218,15 @@ public class BoardDaoImpl implements BoardDao {
 		return res;
 	}
 
+	
+	
 
-	
-	
-	
 	@Override
 	public UploadFile selectFile(Connection conn, Board viewBoard) {
 		
 		String sql ="";
 		sql += "SELECT";
-		sql += "	 uploadno, boardno, uploadname";
+		sql += "	 uploadno, boardno, uploadname, storedname";
 		sql += " FROM upload";
 		sql += " WHERE boardno = ?";
 		
@@ -250,6 +247,8 @@ public class BoardDaoImpl implements BoardDao {
 				uploadFile.setUploadno( rs.getInt("uploadno"));
 				uploadFile.setBoardno( rs.getString("boardno"));
 				uploadFile.setUploadname( rs.getString("uploadname"));
+				uploadFile.setStoredname( rs.getString("storedname"));
+				
 				
 			}
 			
@@ -266,38 +265,91 @@ public class BoardDaoImpl implements BoardDao {
 
 
 
+
+
+	@Override
+	public List<UploadFile> getFile(Connection conn) {
+		
+		String sql= "";
+		sql += "SELECT * FROM upload";
+		sql += " ORDER BY uploadno";
+		
+		// 결과 저장 List
+		List<UploadFile> uploadList = new ArrayList<>();
+
+		try {
+
+			ps = conn.prepareStatement(sql);	// SQL 수행
+			
+			rs = ps.executeQuery();		// SQL 수행 및 결과 집합 저장
+			
+			while(rs.next()) {
+				UploadFile u = new UploadFile();	// 결과 값 저장
+				
+				u.setUploadno( rs.getInt("uploadno"));
+				u.setBoardno( rs.getString("boardno"));
+				u.setUploadname( rs.getString("uploadname"));
+				u.setStoredname( rs.getString("storedname"));
+				
+				// 리스트에 결과 값 저장 
+				uploadList.add(u);
+
+				
+				for (UploadFile a : uploadList )
+					System.out.println(a);
+			}
+					
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(rs);
+			JDBCTemplate.close(ps);
+		}
+				
+		
+		
+		
+		return uploadList;
 	
-	
+	}
+
+
+
+
 	@Override
 	public int update(Connection conn, Board board) {
 		
 		String sql = "";
 		sql += "UPDATE board ";
 		sql += " SET";
-		sql += "   title = ?";
-		sql += "   , content = ?";
-		sql += "   , period = ?";
-		sql += "   , location = ?";
+		sql += "    title = ?";
+		sql += "	, content = ?";
+		sql += "	, location = ?";
+		sql += " 	, period = ?";
+		sql += "	, price = ?";
 		sql += " WHERE boardno = ?";
+		
 		
 		int res = 0;
 		
 		
+
 		try {
 			ps = conn.prepareStatement(sql);
 			
-			ps.setString(1, board.getBoardno());
-			ps.setString(2, board.getTitle());
-			ps.setString(3, board.getContent());
+			ps.setString(1, board.getTitle());
+			ps.setString(2, board.getContent());
+			ps.setString(3, board.getLocation());
 			ps.setString(4, board.getPeriod());
-			ps.setString(5, board.getLocation());
-			ps.setInt(6, board.getPrice());
+			ps.setInt(5, board.getPrice());
+			ps.setString(6, board.getBoardno());
 			
 			res = ps.executeUpdate();
-					
+			
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} finally {
+		}finally {
 			JDBCTemplate.close(ps);
 		}
 		
@@ -305,15 +357,19 @@ public class BoardDaoImpl implements BoardDao {
 	}
 
 
+
 	
 	
+	
+
 	// 게시글 삭제 전 파일도 삭제
+	
 	@Override
 	public int deleteFile(Connection conn, Board board) {
 		
 		
 		String sql = "";
-		sql += "DELETE boardfile ";
+		sql += "DELETE upload ";
 		sql += " WHERE boardno = ?";
 		
 		int res = 0;
@@ -361,15 +417,6 @@ public class BoardDaoImpl implements BoardDao {
 		return res;
 		
 	}
-
-
-
-	
-
-
-
-
-
 
 
 

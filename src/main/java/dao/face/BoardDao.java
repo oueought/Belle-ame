@@ -67,14 +67,33 @@ public interface BoardDao {
 
 
 	/**
+	 * 첨부파일 정보 조회
+	 * 
+	 * @param conn
+	 * @param viewBoard	- 조회할 게시글 번호
+	 * @return UploadFile - 첨부파일 정보
+	 */
+	public UploadFile selectFile(Connection conn, Board viewBoard);
+
+
+
+	
+	public List<UploadFile> getFile(Connection conn);
+
+	
+	
+	/**
+	 * 
 	 * 게시글 수정
 	 * 
-	 * @param conn - DB연결 객체
-	 * @param board - 수정할 내용을 담은 객체
-	 * @return UPDATE 수행 결과
+	 * @param conn
+	 * @param board
+	 * @return	UPDATE 수행 결과
 	 */
 	public int update(Connection conn, Board board);
-
+	
+	
+	
 	
 	/**
 	 * 게시글 첨부된 파일 삭제
@@ -99,14 +118,6 @@ public interface BoardDao {
 
 
 	
-	/**
-	 * 첨부파일 정보 조회
-	 * 
-	 * @param conn
-	 * @param viewBoard	- 조회할 게시글 번호
-	 * @return UploadFil - 첨부파일 정보
-	 */
-	public UploadFile selectFile(Connection conn, Board viewBoard);
 
 
 
@@ -124,3 +135,4 @@ public interface BoardDao {
 	
 
 }
+

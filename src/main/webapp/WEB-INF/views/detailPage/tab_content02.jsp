@@ -70,7 +70,7 @@ body {
 	 display: flex;
      margin-top: -7px;
      flex-direction: row-reverse;
-     margin-left: 65px;
+     margin-left: 5px;
      float: left;
      top: 50px;
 }
@@ -102,7 +102,7 @@ body {
 .guide{
 	position: absolute;
 	top: 10px;
-	left: 78px;
+	left: 16px;
 	font-size: 20px; 
 }
 .rounded-circle{
@@ -134,11 +134,10 @@ body {
 <div class="card">
               <div class="row">
                   <div class="col-2">
-                      <img src="https://ifh.cc/g/vL0zKT.jpg" width="50px" class="rounded-circle mt-2">
                   </div>
                   <div class="col-10">
                       <div class="comment-box ml-2">
-                          <h5 class="guide">감상 후 댓글은 모다?</h5>
+                          <h5 class="guide">후기를 작성해주세요</h5>
                           <div class="rating"  id="rating"> 
                               <input type="radio" name="reviewRating" value="5" id="5"><label for="5">☆</label>
                               <input type="radio" name="reviewRating" value="4" id="4"><label for="4">☆</label> 
@@ -147,7 +146,7 @@ body {
                               <input type="radio" name="reviewRating" value="1" id="1" checked><label for="1">☆</label>
                           </div>
                           <div class="comment-area">
-                              <textarea class="form-control" placeholder="you review??" rows="4" name="cmContents"></textarea>
+                              <textarea class="form-control text" placeholder="you review??" rows="4" name="cmContents" id="cmContents"></textarea>
                           </div>
                           <div class="comment-btns mt-2">
                               <div class="row">
@@ -175,83 +174,7 @@ body {
           </div>
 </div>
 
-<script type="text/javascript">
 
-function commentclear(){
-	$("#cmContents").val("");
-	
-	$('input[name=reviewRating]').eq(4).attr("checked",true);
-	$('input[name=reviewRating]').eq(3).attr("checked",false);
- 	$('input[name=reviewRating]').eq(2).attr("checked",false);
-	$('input[name=reviewRating]').eq(1).attr("checked",false);
-	$('input[name=reviewRating]').eq(0).attr("checked",false); 
-}
-
-
-function commentSave(){
-	var data={
-			rating:$('input[name=reviewRating]:checked').val(),
-			recontent:$("#cmContents").val(),
-				}
-	$.ajax({
-		type:"post",
-		url:"/Comment",
-		data:JSON.stringify(data),
-		contentType:"application/json; charset=utf-8",
-		dataType:"html"
-	}).done(function(result){
-
-			console.log('통신성공')
-			//$("#result").html( result ) 
-			find()
-			//$(".text").val("");
-		 
-			$('input[name=reviewRating]').eq(1).attr("checked",false);
-			$('input[name=reviewRating]').eq(0).attr("checked",false);
-	}); 
-}
-function find(){
-	var infoId = $("#infoId").val();
-/* 	var data={
-		infoId:infoId
-	} */
-	$.ajax({
-		type:"post",
-		url:"/Search?infoId="+infoId,
-		contentType:"application/json; charset=utf-8",
-		dataType:"html"
-	}).done(function(result){
-
-			console.log(result)
-			$("#result").html( result ) 
-			$(".text").val("");
-			
-
-	}); 
-}
-
-function del(){
-	var a = confirm('정말 삭제 하시겠습니까?');
-	var reid = $('#reid').val()
-	
-	$.ajax({
-		type:"post",
-		url: "/delete/review?reid="+reid,
-	 	dataType:"html"
-	}).done(function(result){
-		if(result == 1){
-			console.log("삭제 성공")
-			find();
-		} else{}
-			console.log("삭제 실패")
-	})	
-}
-
-window.onload = function(){
-	find();
-	
-}
-</script>
 
 
 </body>

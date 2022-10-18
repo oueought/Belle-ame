@@ -4,7 +4,8 @@
     pageEncoding="UTF-8"%>
    
 <%	Board updateBoard = (Board) request.getAttribute("updateBoard"); %>
-<%	UploadFile uploadFile = (UploadFile) request.getAttribute("uploadFile"); %>    
+<%	UploadFile uploadFile = (UploadFile) request.getAttribute("uploadFile"); %>
+  
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,7 +30,7 @@
       //작성버튼
       $("#btnUpdate").click(function() {
        	
-         //작성된 내용을 <textarea>에 적용하기
+         //작성된 내용을 <textarea>에 적용
          updateContents()
    
          $("form").submit();
@@ -59,12 +60,13 @@
   		$("#afterFile").toggle();
   	})
    
+   })
  function updateContents() {
       
       //스마트 에디터에 작성된 내용을 #content에 반영한다
       oEditors.getById["content"].exec("UPDATE_CONTENTS_FIELD", [])
       
-   }
+   	}
 
 </script> 
 
@@ -89,29 +91,42 @@
    <br><br>
    
  
-   <form action="/write" method="post" enctype="multipart/form-data">
+   <form action="./update" method="post" enctype="multipart/form-data">
    
-   <div>
+<input type="hidden" name="boardno" value="<%=updateBoard.getBoardno() %>">
+   
    <table class="table table-bordered board" >
-      <tr><td class="active _text-align">글 번호</td><td><%=session.getAttribute("boardno") %></td></tr>
-      <tr><td class="active _text-align"> 전시 제목 </td><td><input type="text" name="title" style="width:100%;"></td></tr>
-      <tr><td class="active _text-align"> 장소 </td><td><input type="text" name="period" style="width:100%;"></td></tr>
-      <tr><td class="active _text-align"> 전시 기간 </td><td><input type="text" name="location" style="width:100%;"></td></tr>
-      <tr><td class="active _text-align"> 가격 </td><td><input type="text" name="price" style="width:100%;"></td></tr>
+      <tr><td class="active _text-align"> 전시 제목 </td><td><input type="text" name="title" value="<%= updateBoard.getTitle() %>" style="width:100%;"></td></tr>
+      <tr><td class="active _text-align"> 장소 </td><td><input type="text" name="location" value="<%= updateBoard.getLocation()%>" style="width:100%;"></td></tr>
+      <tr><td class="active _text-align"> 전시 기간 </td><td><input type="text" name="period" value="<%= updateBoard.getPeriod() %>" style="width:100%;"></td></tr>
+      <tr><td class="active _text-align"> 가격 </td><td><input type="text" name="price" value="<%= updateBoard.getPrice() %>" style="width:100%;"></td></tr>
 	   <tr><td class="active _text-align" colspan="2">본문</td></tr>
-   		<tr><td colspan="2"><textarea id="content" name="content" style="width: 100%; height: 100%;"></textarea></td></tr>
+   		<tr><td colspan="2"><textarea id="content" name="content" style="width: 100%; height: 100%;"><%= updateBoard.getContent()%></textarea></td></tr>
    </table>
-   </div>
+  
 
-첨부파일<input type="file" name="file" style="border: none;">
-   </form>
-   
-   <br>
-   
+<!-- 첨부파일 -->
+
+<div>
+
+<div id="beforeFile">
+	<%	if( uploadFile != null ) { %>
+	<a href="<%=request.getContextPath() %>/upload/<%=uploadFile.getStoredname() %>">
+	</a>
+	<span id="delFile" style="font-weight: bold; cursor: pointer;">첨부파일</span>
+	<%	} %>
+</div>
+
+<div id="afterFile">
+	새 첨부파일 <input type="file" name="file">
+</div>
+
+</div>
+</form>
+
    <div class="text-center">
-      <button id="btnWrite" class="btn btn-dark  pull-right" type="button" >등록</button>
+      <button id="btnUpdate" class="btn btn-dark  pull-right" type="button" >수정</button>
       <button id="btnCancel" class="btn btn-dark pull-right" type="button" >취소</button>
-      <button id="btnList" class="btn btn-dark pull-right" type="button" >목록</button>
    </div>
    <br>
    

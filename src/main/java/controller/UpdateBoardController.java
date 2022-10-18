@@ -25,7 +25,8 @@ public class UpdateBoardController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-	
+		
+				
 		
 		//전달파라미터 저장 객체 얻기
 		Board boardno = boardService.getBoardno(req);
@@ -37,12 +38,31 @@ public class UpdateBoardController extends HttpServlet {
 		req.setAttribute("updateBoard", updateBoard);
 		
 		
+		
+		// 업로드파일 처리
 		UploadFile uploadFile = boardService.viewFile(updateBoard);
 		
 		req.setAttribute("uploadFile", uploadFile);
 		
+				
+		
 		req.getRequestDispatcher("/WEB-INF/views/page1/update.jsp").forward(req, resp);
+		
+		
 	
 	}
 	
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+
+		boardService.update(req);
+		
+		resp.sendRedirect("/infoBoard");
+		
+	}
+	
+	
 }
+

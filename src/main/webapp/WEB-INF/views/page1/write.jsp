@@ -31,7 +31,7 @@
          $("form").submit();
       })
       
-      // 취소 버튼
+      //취소버튼
       $("#btnCancel").click(function() {
          history.go(-1)
       })
@@ -39,7 +39,7 @@
     		
     	//목록 버튼
     	$("#btnList").click(function() {
-    		$(location).attr('href', './infoboard')
+    		$(location).attr('href', './infoBoard')
      })	
    })
    
@@ -77,10 +77,9 @@
    
    <div>
    <table class="table table-bordered board" >
-      <tr><td class="active _text-align">글 번호</td><td><%=session.getAttribute("boardno") %></td></tr>
       <tr><td class="active _text-align"> 전시 제목 </td><td><input type="text" name="title" style="width:100%;"></td></tr>
-      <tr><td class="active _text-align"> 장소 </td><td><input type="text" name="period" style="width:100%;"></td></tr>
-      <tr><td class="active _text-align"> 전시 기간 </td><td><input type="text" name="location" style="width:100%;"></td></tr>
+      <tr><td class="active _text-align"> 장소 </td><td><input type="text" name="location" style="width:100%;"></td></tr>
+      <tr><td class="active _text-align"> 전시 기간 </td><td><input type="text" name="period" style="width:100%;"></td></tr>
       <tr><td class="active _text-align"> 가격 </td><td><input type="text" name="price" style="width:100%;"></td></tr>
 	   <tr><td class="active _text-align" colspan="2">본문</td></tr>
    		<tr><td colspan="2"><textarea id="content" name="content" style="width: 100%; height: 100%;"></textarea></td></tr>

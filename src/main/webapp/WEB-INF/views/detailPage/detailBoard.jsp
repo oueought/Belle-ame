@@ -1,8 +1,10 @@
 <%@page import="dto.UploadFile"%>
 <%@page import="dto.Board"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%	Board viewBoard = (Board) request.getAttribute("viewBoard"); %>
 <% UploadFile uploadFile = (UploadFile) request.getAttribute("uploadFile");%>
+ 
 
 <!DOCTYPE html>
 <html>
@@ -44,6 +46,7 @@ $(document).ready(function() {
 
   
  <body> 
+<input type="hidden" name="infoId" id="infoId" value="<%=viewBoard.getBoardno() %>">
     <%@ include file="../layout/header.jsp" %>
 
             <!--  이미지박스   -->
@@ -53,12 +56,11 @@ $(document).ready(function() {
             
             <div onclick="cart()" id="exhibition_wrap">
                 <div class="exhibition_box">
-                    <div>
-                        <img class="exhibition_img" src="https://ifh.cc/g/Xbab2f.jpg">
-
-                    </div>
-
-
+                <div>
+                        <img class="exhibition_img" src="/upload/<%=uploadFile.getStoredname()%>">
+					</div>
+                   
+         
                     <p class="p1">
                        <%=viewBoard.getTitle() %>
                     </p>
@@ -80,7 +82,7 @@ $(document).ready(function() {
 
                         <tr>
                             <th>결제 금액</th>
-                            <td><%=viewBoard.getPrice() %></td>
+                            <td><%=viewBoard.getPrice() %>원</td>
                         </tr>
                         
 						
@@ -110,22 +112,23 @@ $(document).ready(function() {
   <!-- 첨부파일 -->
 <div>
 <% if ( uploadFile != null )  { %>
-<a href="<%=request.getContextPath() %>/upload/<%=uploadFile.getUploadname()%>"
-	download=<%=uploadFile.getUploadname() %>>
-	<%= uploadFile.getUploadname() %>
+<a href="<%=request.getContextPath() %>/upload/<%=uploadFile.getStoredname()%>">
 </a>
 <% } %>
 </div> 
 
             <br><br><br><br><br><br><br>
             
+<input type="hidden" id="memid" value="<%=session.getAttribute("memid") %>">
 	
 <div id="btnBox" class="pull-right">
-<%-- <% if(session.getAttribute("memid").equals("admin")) { %> --%>
+
+<% if( session.getAttribute("memid").equals("admin") ) { %> 
 	<button id="btnList" class="btn btn-default">목록</button>
 	<button id="btnUpdate" class="btn btn-default">수정</button>
 	<button id="btnDelete" class="btn btn-default">삭제</button>
-<%-- <% } %> --%>
+<% } %> 
+
 </div>
 
 <%@ include file="../layout/footer.jsp" %>
@@ -150,11 +153,11 @@ $(document).ready(function() {
     function cart(){
        /* confirm("위시리스트에 넣으시겠습니까?") */
        
-          var title = $(".p1").html()  /* 게시물 제목 */
+          var boardno = <%=viewBoard.getBoardno() %>  /* 게시물 제목 */
           
           $.ajax({
              type:"post",
-             url: "/wishlist?title="+title,
+             url: "/heart?boardno="+boardno,
               dataType:"html"
           }).done(function(result){
              if(result == 1){
@@ -168,8 +171,113 @@ $(document).ready(function() {
     }
     
 
+    
+    function good(){
+        confirm("좋아요 하시겠습니까?")
+       
+         var reid = $("#good").val()
+         alert(reid)/* 게시물 제목 */
+          
+         $.ajax({
+             type:"post",
+             url: "/good?reid="+reid,
+              dataType:"html"
+          }).done(function(result){
+             if(result == 1){
+                confirm("좋아요 하셨습니다")
+                find()
+                //$(location).attr('href', '/mapage')
+             } else if( result == 0){   
+                alert("좋아요 안됩니다")   
+             }
+          })   
+       
+    }
+    
 </script>
 
+<script type="text/javascript">
+
+function commentclear(){
+	$("#cmContents").val("");
+	
+	$('input[name=reviewRating]').eq(4).attr("checked",true);
+	$('input[name=reviewRating]').eq(3).attr("checked",false);
+ 	$('input[name=reviewRating]').eq(2).attr("checked",false);
+	$('input[name=reviewRating]').eq(1).attr("checked",false);
+	$('input[name=reviewRating]').eq(0).attr("checked",false); 
+}
+
+
+
+function commentSave(){
+	var boarno = <%=viewBoard.getBoardno() %>
+	
+	var data={
+			rating:$('input[name=reviewRating]:checked').val(),
+			recontent:$("#cmContents").val(),
+			boardno:boarno,
+			memid:$("#memid").val(), 
+				}
+	$.ajax({
+		type:"post",
+		url:"/Comment",
+		data:JSON.stringify(data),
+		contentType:"application/json; charset=utf-8",
+		dataType:"html"
+	}).done(function(result){
+
+			console.log('통신성공')
+			//$("#result").html( result ) 
+			find()
+			//$(".text").val("");
+		 
+			$('input[name=reviewRating]').eq(1).attr("checked",false);
+			$('input[name=reviewRating]').eq(0).attr("checked",false);
+	}); 
+}
+function find(){
+	var infoId = <%=viewBoard.getBoardno() %>;  <%-- //<%=viewBoard.getBoardno() %> --%>
+/* 	var data={
+		infoId:infoId
+	} */
+	$.ajax({
+		type:"post",
+		url:"/Search?infoId="+infoId,
+		contentType:"application/json; charset=utf-8",
+		dataType:"html"
+	}).done(function(result){
+
+			console.log(result)
+			$("#result").html( result ) 
+			$(".text").val("");
+			
+
+	}); 
+}
+
+function del(){
+	var a = confirm('정말 삭제 하시겠습니까?');
+	var reid = $('#reid').val()
+	
+	$.ajax({
+		type:"post",
+		url: "/delete/review?reid="+reid,
+	 	dataType:"html"
+	}).done(function(result){
+		if(result == 1){
+			console.log("삭제 성공")
+			find();
+		} else{}
+			console.log("삭제 실패")
+	})	
+}
+
+window.onload = function(){
+	find();
+	
+}
+</script>
 
 </body>
 </html>
