@@ -1,0 +1,126 @@
+@charset "UTF-8";
+
+            /* 상단 이미지박스  */
+            .imgbox {
+                width: 100%;
+                height: 40%;
+                z-index: 10;
+                left: -5.5%;
+                top: -5%
+            }
+
+            .innerimgbox {
+                width: 100%;
+               /*  height: 85%; */
+                margin-top: 50px;
+            }
+
+            #exhibition_wrap {
+                margin-left: 192px;
+                margin-right: 192px;
+              	margin-top : 20%;
+            }
+
+            .exhibition_box {
+
+                position: relative;
+                padding-left: 470px;
+
+                
+                height: 470px;
+                margin-bottom: 60px;
+
+
+
+
+            }
+
+            .exhibition_box .exhibition_img {
+
+                position: absolute;
+                height: 470px;
+                left: 0;
+                top: 0;
+
+            }
+
+            table {
+            
+                text-align: left;
+                margin: 30px 25px;
+                margin-bottom: 155px;
+
+                border-collapse: separate;
+                text-indent: initial;
+                border-spacing: 2px;
+
+            }
+
+            th {
+				
+                padding: 3px;
+                color: #232729;
+                font-size: 16px;
+                line-height: 2.7;
+
+                width: 110px;
+                vertical-align: top;
+            }
+
+            td {
+                font-size: 16px;
+                line-height: 2.7;
+                white-space: pre-wrap;
+                vertical-align: top;
+                color: #232729;
+            }
+
+
+            p.p1 {
+
+                padding: 30px 25px;
+                margin: 0;
+                font-size: 30px;
+                font-weight: bold;
+                border-top: 1px solid #d3d3d3;
+                position: relative;
+
+            }
+
+            .exhibition_box .booking_button {
+
+                border: 1px solid #333;
+                border-color: #27ae60;
+
+                width: auto;
+                height: 55px;
+                line-height: 55px;
+                text-align: center;
+            }
+            
+            .textbox {
+            
+            	margin-top: 20%
+            }
+            
+          .bi-heart{
+            font-size: 30px;
+            line-height: 30px;
+            color:crimson;
+            position:absolute;
+            margin-left: 206px;
+            margin-top: -55px;
+            cursor:pointer;
+        }
+
+        .bi-heart-fill{
+            font-size: 30px;
+            line-height: 30px;
+            color:crimson;
+            position:absolute;
+            margin-left: 206px;
+            margin-top: -55px;
+            cursor:pointer;
+        }
+
+        
